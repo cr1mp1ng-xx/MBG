@@ -4,8 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MBG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="logo">
+            <img src="image/logo.png" alt="Logo MBG">
+            <span>MBG</span>
+        </div>
+
+        <h1>Selamat Datang di MBG</h1>
+
+        <p class="desc">
+            Masuk untuk mengelola data distribusi pangan bergizi.
+        </p>
+
+        <div class="form-group">
+            <label>Email / NIP</label>
+
+            <div class="input-box">
+                <i class="fa-regular fa-envelope left-icon"></i>
+                <input type="text" placeholder="nama@instansi.go.id">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="password-header">
+                <label>Kata Sandi</label>
+                <a href="#" class="forgot">Lupa Password?</a>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock left-icon"></i>
+                <input type="password" id="password" placeholder="Masukkan Password">
+                <i class="fa-regular fa-eye right-icon" onclick="togglePassword()"></i>
+            </div>
+        </div>
+
+        <div class="remember">
+            <input type="checkbox">
+            <span>Ingat perangkat ini selama 30 hari</span>
+        </div>
+
+        <button class="btn-login">
+            Masuk ke Dashboard
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </button>
+
+        <div class="divider">
+            <span>Atau gunakan</span>
+        </div>
+
+        <button class="btn-secondary">
+        Masuk dengan Digital ID (SatuData)
+        </button>
+
+        <div class="register">
+            Belum memiliki akun?
+            <a href="#">Daftar Disini</a>
+        </div>
+
+        <div class="footer">
+            © 2026 MBG Project PAP. All rights reserved.
+            <br>
+
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Bantuan</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
