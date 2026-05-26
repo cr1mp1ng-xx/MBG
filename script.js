@@ -117,7 +117,9 @@ registerBtn.addEventListener('click', () => {
     registerBtn.style.opacity = '.8';
     registerBtn.disabled = true;
 
-    setTimeout(resetRegisterBtn, 1500);
+    setTimeout(() => {
+        window.location.href = 'login.html';
+    }, 1500);
 });
 
 // TRACKING 
