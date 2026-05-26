@@ -1,42 +1,23 @@
 /*LOGIN*/
-function togglePassword() {
-    const password = document.getElementById("password");
-    const eyeIcon = document.querySelector(".right-icon");
+const togglePassword =
+document.getElementById('togglePassword');
 
-    if(password.type === "password"){
-        password.type = "text";
-        eyeIcon.classList.remove("fa-eye");
-        eyeIcon.classList.add("fa-eye-slash");
-    } else {
-        password.type = "password";
-        eyeIcon.classList.remove("fa-eye-slash");
-        eyeIcon.classList.add("fa-eye");
-    }
-}
+const password =
+document.getElementById('password');
 
-const inputs = document.querySelectorAll("input");
-    inputs.forEach((input) => {
+togglePassword.addEventListener('click', () => {
 
-    input.addEventListener("focus", () => {
-        input.style.border = "1px solid #007a4d";
-        input.style.boxShadow = "0 0 5px rgba(0,122,77,0.3)";
-    });
+  const type =
+  password.getAttribute('type') === 'password'
+  ? 'text'
+  : 'password';
 
-    input.addEventListener("blur", () => {
-        input.style.border = "1px solid #cfd8d3";
-        input.style.boxShadow = "none";
-    });
-});
+  password.setAttribute('type', type);
 
-const loginButton = document.querySelector(".btn-login");
-    loginButton.addEventListener("click", () => {
+  togglePassword.classList.toggle('fa-eye');
 
-    loginButton.innerHTML = "Loading...";
+  togglePassword.classList.toggle('fa-eye-slash');
 
-    setTimeout(() => {
-        loginButton.innerHTML =
-        'Masuk ke Dashboard <i class="fa-solid fa-right-to-bracket"></i>';
-    }, 2000);
 });
 
 // TRACKING 
