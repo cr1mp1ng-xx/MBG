@@ -20,8 +20,6 @@ body{
     overflow: hidden;
 }
 
-/* HEADER TRACKING */
-
 .header{
     display: flex;
     align-items: center;
