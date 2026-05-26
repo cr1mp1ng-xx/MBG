@@ -38,3 +38,29 @@ const loginButton = document.querySelector(".btn-login");
         'Masuk ke Dashboard <i class="fa-solid fa-right-to-bracket"></i>';
     }, 2000);
 });
+
+// TRACKING 
+// tombol selesai
+
+const finishButton = document.querySelector(".finish-btn");
+
+finishButton.addEventListener("click", function(){
+
+    alert("Pengiriman selesai!");
+
+});
+
+
+// tombol map
+
+const mapButtons = document.querySelectorAll(".map-buttons button");
+
+mapButtons.forEach(function(button){
+
+    button.addEventListener("click", function(){
+
+        alert("Fitur map diklik");
+
+    });
+
+});
