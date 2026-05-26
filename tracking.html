@@ -1,80 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - MBG</title>
+    <title>Tracking MBG</title>
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
+
 <body>
+
     <div class="container">
-        <div class="logo">
-            <img src="image/logo.png" alt="Logo MBG">
-            <span>MBG</span>
-        </div>
 
-        <h1>Selamat Datang di MBG</h1>
-        <p class="desc">
-            Masuk untuk mengelola data distribusi pangan bergizi.
-        </p>
+        <!-- HEADER -->
+        <div class="header">
 
-        <div class="form-group">
-            <label>Email / NIP</label>
+            <div class="profile">
+                <img src="https://i.pravatar.cc/100" alt="">
+            </div>
 
-            <div class="input-box">
-                <i class="fa-regular fa-envelope left-icon"></i>
-                <input type="text" placeholder="nama@.go.id">
+            <div class="title">
+                <h3>Lokasi</h3>
+            </div>
+
+            <div class="notif">
+                <i class="fa-regular fa-bell"></i>
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="password-header">
-                <label>Kata Sandi</label>
-                <a href="#" class="forgot">Lupa Password?</a>
+
+        <!-- MAP -->
+        <div class="map">
+            <!-- SEARCH -->
+              <div class="search-container">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Cari lokasi sekolah...">
+        </div>
+
+            <div class="map-buttons">
+
+                <button>
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+
+                <button>
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+
+                <button>
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                </button>
+
+            </div>
             </div>
 
-            <div class="input-box">
-                <i class="fa-solid fa-lock left-icon"></i>
-                <input type="password" id="password" placeholder="Masukkan Password">
-                <i class="fa-regular fa-eye right-icon" onclick="togglePassword()"></i>
+            <div class="school-location">
+
+                <div class="school-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <span>SMP Negeri 12</span>
+
             </div>
+
         </div>
 
-        <div class="remember">
-            <input type="checkbox">
-            <span>Ingat perangkat ini selama 30 hari</span>
+
+        <!-- BOTTOM CARD -->
+        <div class="bottom-card">
+
+            <div class="line"></div>
+
+            <div class="delivery-top">
+
+                <div class="delivery-status">
+                    ON DELIVERY
+                </div>
+
+                <div class="arrival">
+                    <span>ESTIMATED ARRIVAL</span>
+                    <h3>11:45 AM</h3>
+                </div>
+
+            </div>
+
+            <div class="school-info">
+                <h2>Harapan Foundation School</h2>
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Jalan Merdeka No. 45, District Central
+                </p>
+
+            </div>
+
+
+            <!-- DRIVER -->
+            <div class="driver-card">
+
+                <div class="driver-left">
+
+                    <img src="https://i.pravatar.cc/150?img=12" alt="">
+
+                    <div>
+                        <h3>Danda</h3>
+                        <p>Truck #ID-9928 • MBG Logistics</p>
+                    </div>
+
+                </div>
+
+                <div class="driver-right">
+
+                    <button>
+                        <i class="fa-solid fa-phone"></i>
+                    </button>
+
+                    <button class="message-btn">
+                        <i class="fa-regular fa-message"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+            <div class="progress-box">
+
+                <div class="card">
+                    <p>Batch Progress</p>
+
+                    <h2>85%</h2>
+
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <p>Total Packages</p>
+
+                    <h2>
+                        <i class="fa-regular fa-clipboard"></i>
+                        1,240
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+            <button class="finish-btn">
+                SELESAI
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
         </div>
 
-        <button class="btn-login">
-            Masuk ke Dashboard
-            <i class="fa-solid fa-right-to-bracket"></i>
-        </button>
 
-        <div class="divider">
-            <span>Atau gunakan</span>
+        <!-- NAVBAR -->
+        <div class="navbar">
+
+            <div class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </div>
+
+            <div class="nav-item active">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </div>
+
+            <div class="nav-item">
+                <i class="fa-solid fa-truck"></i>
+                <span>Distribution</span>
+            </div>
+
+            <div class="nav-item">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Reports</span>
+            </div>
+
+            <div class="nav-item">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile</span>
+            </div>
+
         </div>
 
-        <button class="btn-secondary">
-        Masuk dengan Digital ID (SatuData)
-        </button>
-
-        <div class="register">
-            Belum memiliki akun?
-            <a href="#">Daftar Disini</a>
-        </div>
-
-        <div class="footer">
-            © 2026 MBG Project PAP. All rights reserved.
-            <br>
-
-            <a href="#">Kebijakan Privasi</a>
-            <a href="#">Bantuan</a>
-        </div>
     </div>
 
     <script src="script.js"></script>
+
 </body>
+
 </html>
