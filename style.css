@@ -24,44 +24,96 @@ body{
 
 .header{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    gap: 140px;
+    padding: 0px;
     background: white;
 }
 
 .profile img{
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
+    margin-left: 0px;
+}
+
+.title{
+    margin-left: -125px;
 }
 
 .title h3{
     color: #006b4f;
-    margin-left: -150px;
+    font-size: 18px;
+    margin-top: auto;
+}
+
+.notif{
+    margin-left: auto;
 }
 
 .notif i{
-    font-size: 20px;
+    font-size: 15px;
     color: #006b4f;
+}
+
+/* SEARCH */
+
+.search-box{
+    margin-top: 0px 15px 10px 15px;
+    border-radius: 12px;
+    padding: 12px 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-container{
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    right: 15px;
+
+    background: white;
+    border-radius: 20px;
+    padding: 3px 15px;
+    height: 65px;
+}
+
+.search-box i{
+    color: gray;
+    font-size: 15px;
+    margin-top: 12px;
+}
+
+.search-box input{
+    border: none;
+    margin-top: 10px;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* MAP */
 
 .map{
-    height: 350px;
+    height: 360px;
     background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200');
     background-size: cover;
     background-position: center;
     position: relative;
 }
 
+
+
 /* MAP BUTTONS */
 
 .map-buttons{
     position: absolute;
     right: 15px;
-    top: 20px;
+    top: 80px;
 
     display: flex;
     flex-direction: column;
@@ -167,13 +219,13 @@ body{
 }
 
 .school-info h2{
-    font-size: 22px;
+    font-size: 16px;
     margin-bottom: 5px;
 }
 
 .school-info p{
     color: gray;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* DRIVER CARD */
@@ -292,6 +344,9 @@ body{
 .navbar{
     position: fixed;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
     width: 100%;
     max-width: 420px;
 
@@ -300,8 +355,11 @@ body{
 
     display: flex;
     justify-content: space-around;
+    align-items: center;
 
     padding: 10px 0;
+
+    z-index: 999;
 }
 
 .nav-item{

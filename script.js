@@ -31,6 +31,15 @@ finishButton.addEventListener("click", function(){
 
 });
 
+// search input
+
+const searchInput = document.querySelector(".search-box input");
+
+searchInput.addEventListener("keyup", function(){
+
+    console.log("Mencari :", searchInput.value);
+
+});
 
 // tombol map
 
