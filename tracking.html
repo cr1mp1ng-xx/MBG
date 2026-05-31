@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
@@ -22,7 +22,7 @@
         <div class="header">
 
             <div class="profile">
-                <img src="https://i.pravatar.cc/100" alt="">
+                <img src="https://i.pravatar.cc/100" alt="Profile">
             </div>
 
             <div class="title">
@@ -37,38 +37,33 @@
 
         <!-- MAP -->
         <div class="map">
+
             <!-- SEARCH -->
-              <div class="search-container">
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Cari lokasi sekolah...">
-        </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Cari lokasi sekolah...">
+                </div>
 
-            <div class="map-buttons">
-
-                <button>
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-
-                <button>
-                    <i class="fa-solid fa-minus"></i>
-                </button>
-
-                <button>
-                    <i class="fa-solid fa-location-crosshairs"></i>
-                </button>
-
-            </div>
+                <div class="map-buttons">
+                    <button title="Zoom In">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <button title="Zoom Out">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <button title="Lokasi Saya">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                    </button>
+                </div>
             </div>
 
+            <!-- SCHOOL MARKER -->
             <div class="school-location">
-
                 <div class="school-icon">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-
                 <span>SMP Negeri 12</span>
-
             </div>
 
         </div>
@@ -98,7 +93,6 @@
                     <i class="fa-solid fa-location-dot"></i>
                     Jalan Merdeka No. 45, District Central
                 </p>
-
             </div>
 
 
@@ -106,26 +100,20 @@
             <div class="driver-card">
 
                 <div class="driver-left">
-
-                    <img src="https://i.pravatar.cc/150?img=12" alt="">
-
+                    <img src="https://i.pravatar.cc/150?img=12" alt="Driver">
                     <div>
-                        <h3>Danda</h3>
+                        <h3>Ahmad Fauzi</h3>
                         <p>Truck #ID-9928 • MBG Logistics</p>
                     </div>
-
                 </div>
 
                 <div class="driver-right">
-
-                    <button>
+                    <button title="Telepon">
                         <i class="fa-solid fa-phone"></i>
                     </button>
-
-                    <button class="message-btn">
+                    <button class="message-btn" title="Pesan">
                         <i class="fa-regular fa-message"></i>
                     </button>
-
                 </div>
 
             </div>
@@ -136,9 +124,7 @@
 
                 <div class="card">
                     <p>Batch Progress</p>
-
                     <h2>85%</h2>
-
                     <div class="progress-bar">
                         <div class="progress"></div>
                     </div>
@@ -146,7 +132,6 @@
 
                 <div class="card">
                     <p>Total Packages</p>
-
                     <h2>
                         <i class="fa-regular fa-clipboard"></i>
                         1,240
@@ -165,7 +150,7 @@
         </div>
 
 
-        <!-- NAVBAR -->
+        <!-- NAVBAR (mobile only) -->
         <div class="navbar">
 
             <div class="nav-item">
@@ -189,6 +174,36 @@
             </div>
 
             <div class="nav-item">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile</span>
+            </div>
+
+        </div>
+
+        <!-- sidebar -->
+        <div class="sidebar">
+
+            <div class="side-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </div>
+
+            <div class="side-item active">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </div>
+
+            <div class="side-item">
+                <i class="fa-solid fa-truck"></i>
+                <span>Distribution</span>
+            </div>
+
+            <div class="side-item">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Reports</span>
+            </div>
+
+            <div class="side-item">
                 <i class="fa-regular fa-user"></i>
                 <span>Profile</span>
             </div>
