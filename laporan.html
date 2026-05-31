@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Kendala - MBG</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon">
+                <img src="image/logombg.png" alt="Logo MBG" style="width: 100%; object-fit: contain; border-radius: 8px;"/>
+            </div>
+            <span class="logo-text">DistribuSI</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item"><i class="fas fa-house"></i><span>Home</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-location-dot"></i><span>Tracking</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-truck"></i><span>Distribusi</span></a>
+            <a href="#" class="nav-item active"><i class="fas fa-flag"></i><span>Laporan</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-circle-user"></i><span>Profil</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="cs-card">
+                <div class="cs-icon"><i class="fas fa-headset"></i></div>
+                <div class="cs-text">
+                    <strong>Butuh Bantuan?</strong>
+                    <p>Hubungi call center kami untuk kendala darurat.</p>
+                </div>
+                <a href="tel:+6281234567890" class="cs-btn"><i class="fas fa-phone"></i> Hubungi CS</a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="topbar-title">
+                <div class="page-icon"><i class="fas fa-flag"></i></div>
+                <div>
+                    <h1>Laporan Kendala</h1>
+                    <p>Kelola dan pantau laporan distribusi Anda</p>
+                </div>
+            </div>
+            <div class="topbar-actions">
+                <label class="notif-wrap" for="notifToggle">
+                    <input type="checkbox" id="notifToggle" hidden />
+                    <span class="notif-btn"><i class="fas fa-bell"></i><span class="notif-badge">3</span></span>
+                    <div class="notif-dropdown">
+                        <div class="notif-item"><i class="fas fa-circle-exclamation" style="color:var(--pending)"></i>Kurir belum sampai SDA-01</div>
+                        <div class="notif-item"><i class="fas fa-magnifying-glass" style="color:var(--investigating)"></i> Kemasan bocor Lote 442</div>
+                        <div class="notif-item"><i class="fas fa-circle-check" style="color:var(--resolved)"></i> Stok beras sudah resolved</div>
+                    </div>
+                </label>
+                <div class="user-chip">
+                    <img src="https://i.pravatar.cc/36?img=12" alt="User" />
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-grid">
+            <section class="card form-card">
+                <div class="card-header">
+                    <h2>Buat Laporan Baru</h2>
+                    <p>Sampaikan keluhan atau kendala yang Anda hadapi untuk perbaikan layanan kami.</p>
+                </div>
+
+                <div class="form-section">
+                    <span class="form-label">Kategori Kendala</span>
+                    <div class="category-grid">
+
+                        <input type="radio" name="kategori" id="cat-telat" value="keterlambatan" hidden />
+                        <label for="cat-telat" class="category-item">
+                            <div class="cat-icon"><i class="fas fa-clock"></i></div>
+                            <span>Keterlambatan</span>
+                        </label>
+
+                        <input type="radio" name="kategori" id="cat-kualitas" value="kualitas" hidden checked />
+                        <label for="cat-kualitas" class="category-item">
+                            <div class="cat-icon"><i class="fas fa-star-half-stroke"></i></div>
+                            <span>Kualitas Produk</span>
+                        </label>
+
+                        <input type="radio" name="kategori" id="cat-barang" value="barang" hidden />
+                        <label for="cat-barang" class="category-item">
+                            <div class="cat-icon"><i class="fas fa-box"></i></div>
+                            <span>Barang Kurang</span>
+                        </label>
+
+                        <input type="radio" name="kategori" id="cat-lain" value="lainnya" hidden />
+                        <label for="cat-lain" class="category-item">
+                            <div class="cat-icon"><i class="fas fa-ellipsis"></i></div>
+                            <span>Lainnya</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label" for="deskripsi">Deskripsi Kendala</label>
+                    <textarea id="deskripsi" name="deskripsi" class="form-textarea" rows="5"
+                        placeholder="Ceritakan detail kendala yang dialami..." required minlength="10"></textarea>
+                    <span class="field-hint">Minimal 10 karakter</span>
+                </div>
+
+                <div class="form-section">
+                    <span class="form-label">Unggah Bukti (Foto)</span>
+                    <div class="upload-area">
+                        <input type="file" id="fileUpload" name="foto" accept="image/*" multiple class="file-input" />
+                        <label for="fileUpload" class="upload-label">
+                            <i class="fas fa-camera"></i>
+                            <span>Klik untuk pilih foto</span>
+                            <small>PNG, JPG hingga 5MB</small>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label" for="ticketRef">Referensi Tiket (Opsional)</label>
+                    <input type="text" id="ticketRef" name="tiket" class="form-input"
+                        placeholder="Masukkan nomor tiket terkait..." />
+                </div>
+
+                <a href="#sukses" class="submit-btn">
+                    <span>Kirim Laporan</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+                
+                <div class="toast-wrap" id="sukses">
+                    <div class="toast-box">
+                        <i class="fas fa-circle-check"></i>
+                        <span>Laporan berhasil dikirim!</span>
+                        <a href="#" class="toast-close"><i class="fas fa-xmark"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="right-panel">
+                <div class="card status-card">
+                    <div class="card-header-row">
+                        <h2>Status Laporan</h2>
+                        <a href="#" class="lihat-semua">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="filter-pills">
+                        <input type="radio" name="filter" id="f-all" hidden checked />
+                        <input type="radio" name="filter" id="f-pend" hidden />
+                        <input type="radio" name="filter" id="f-inv" hidden />
+                        <input type="radio" name="filter" id="f-res" hidden />
+
+                        <label for="f-all" class="pill">Semua</label>
+                        <label for="f-pend" class="pill">Pending</label>
+                        <label for="f-inv" class="pill">Investigating</label>
+                        <label for="f-res" class="pill">Resolved</label>
+                    </div>
+
+                    <div class="report-list">
+                        <div class="report-item r-pending">
+                            <div class="report-left">
+                                <span class="status-badge pending"><i class="fas fa-circle-exclamation"></i>Pending</span>
+                                <h3>Kurir Belum Sampai (SDA-01)</h3>
+                                <p>Pesanan rutin untuk sekolah SDN 01 belum diterima hingga pukul 09:30 WIB...</p>
+                                <div class="report-meta">
+                                    <img src="https://i.pravatar.cc/28?img=5" alt="avatar" />
+                                    <span class="ticket-id">Ticket ID: #REP-8821</span>
+                                </div>
+                            </div>
+                            <div class="report-right">
+                                <span class="report-time"><i class="fas fa-clock"></i> Today, 09:42</span>
+                                <a href="#detail-8821" class="detail-btn">Detail</a>
+                            </div>
+                        </div>
+
+                        <div class="report-item r-investigating">
+                            <div class="report-left">
+                                <span class="status-badge investigating"><i class="fas fa-magnifying-glass"></i>Investigating</span>
+                                <h3>Kemasan Bocor (Lote 442)</h3>
+                                <p>Ditemukan 2 box susu dengan kemasan yang sedikit rembes saat pembongkaran...</p>
+                                <div class="report-meta">
+                                    <img src="https://i.pravatar.cc/28?img=8" alt="avatar" />
+                                    <span class="ticket-id">Ticket ID: #REP-8790</span>
+                                </div>
+                            </div>
+                            <div class="report-right">
+                                <span class="report-time"><i class="fas fa-clock"></i> Yesterday</span>
+                                <a href="#detail-8790" class="detail-btn">Detail</a>
+                            </div>
+                        </div>
+
+                        <div class="report-item r-resolved">
+                            <div class="report-left">
+                                <span class="status-badge resolved"><i class="fas fa-circle-check"></i> Resolved</span>
+                                <h3>Kekurangan Stok Beras</h3>
+                                <p>Kekurangan 5kg beras sudah diantisipasi dan pengiriman susulan telah diproses.</p>
+                                <div class="report-meta">
+                                    <div class="avatar-initials">MBG</div>
+                                    <span class="ticket-id">Ticket ID: #REP-8755</span>
+                                </div>
+                            </div>
+                            <div class="report-right">
+                                <span class="report-time"><i class="fas fa-clock"></i> 2 days ago</span>
+                                <a href="#detail-8755" class="detail-btn">Detail</a>
+                            </div>
+                        </div>
+
+                        <div class="report-item r-resolved">
+                            <div class="report-left">
+                                <span class="status-badge resolved"><i class="fas fa-circle-check"></i> Resolved</span>
+                                <h3>Salah Alamat Pengiriman</h3>
+                                <p>Paket untuk SMPN 3 dikirim ke alamat yang keliru, sudah diselesaikan.</p>
+                                <div class="report-meta">
+                                    <img src="https://i.pravatar.cc/28?img=15" alt="avatar" />
+                                    <span class="ticket-id">Ticket ID: #REP-8710</span>
+                                </div>
+                            </div>
+                            <div class="report-right">
+                                <span class="report-time"><i class="fas fa-clock"></i> 3 days ago</span>
+                                <a href="#detail-8710" class="detail-btn">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="stat-icon pending-bg"><i class="fas fa-hourglass-half"></i></div>
+                        <div>
+                            <span class="stat-num">4</span>
+                            <span class="stat-label">Pending</span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon investigating-bg"><i class="fas fa-magnifying-glass"></i></div>
+                        <div>
+                            <span class="stat-num">7</span>
+                            <span class="stat-label">Investigating</span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon resolved-bg"><i class="fas fa-check-circle"></i></div>
+                        <div>
+                            <span class="stat-num">23</span>
+                            <span class="stat-label">Resolved</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="detail-8821">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="status-badge pending"><i class="fas fa-circle-exclamation"></i> Pending</span>
+                <a href="#" class="modal-close"><i class="fas fa-xmark"></i></a>
+            </div>
+            <h3>Kurir Belum Sampai (SDA-01)</h3>
+            <p>Pesanan rutin untuk sekolah SDN 01 belum diterima hingga pukul 09:30 WIB. Pengemudi dilaporkan masih dalam perjalanan namun tidak ada pembaruan posisi.</p>
+            <div class="modal-meta">
+                <span><i class="fas fa-tag"></i> Keterlambatan</span>
+                <span><i class="fas fa-clock"></i> Today, 09:42</span>
+                <span><i class="fas fa-ticket"></i> #REP-8821</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="detail-8790">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="status-badge investigating"><i class="fas fa-magnifying-glass"></i> Investigating</span>
+                <a href="#" class="modal-close"><i class="fas fa-xmark"></i></a>
+            </div>
+            <h3>Kemasan Bocor (Lote 442)</h3>
+            <p>Ditemukan 2 box susu dengan kemasan yang sedikit rembes saat pembongkaran. Tim QC sedang menginvestigasi asal mula kerusakan kemasan di gudang.</p>
+            <div class="modal-meta">
+                <span><i class="fas fa-tag"></i> Kualitas Produk</span>
+                <span><i class="fas fa-clock"></i> Yesterday</span>
+                <span><i class="fas fa-ticket"></i> #REP-8790</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="detail-8755">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="status-badge resolved"><i class="fas fa-circle-check"></i> Resolved</span>
+                <a href="#" class="modal-close"><i class="fas fa-xmark"></i></a>
+            </div>
+            <h3>Kekurangan Stok Beras</h3>
+            <p>Kekurangan 5kg beras sudah diantisipasi dengan pengiriman susulan pada hari yang sama. Stok telah terpenuhi dan laporan ditandai selesai.</p>
+            <div class="modal-meta">
+                <span><i class="fas fa-tag"></i> Barang Kurang</span>
+                <span><i class="fas fa-clock"></i> 2 days ago</span>
+                <span><i class="fas fa-ticket"></i> #REP-8755</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="detail-8710">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="status-badge resolved"><i class="fas fa-circle-check"></i> Resolved</span>
+                <a href="#" class="modal-close"><i class="fas fa-xmark"></i></a>
+            </div>
+            <h3>Salah Alamat Pengiriman</h3>
+            <p>Paket untuk SMPN 3 dikirim ke alamat yang keliru akibat kesalahan input data. Kurir telah mengambil kembali dan mengantar ke alamat yang benar.</p>
+            <div class="modal-meta">
+                <span><i class="fas fa-tag"></i> Lainnya</span>
+                <span><i class="fas fa-clock"></i> 3 days ago</span>
+                <span><i class="fas fa-ticket"></i> #REP-8710</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
