@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,197 +8,199 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
+
 <body>
 
-<div class="app">
+  <div class="app">
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="header-title">MBG Dashboard</span>
-    <div class="header-right">
-      <i class="fa-regular fa-bell"></i>
-      <img src="https://i.pravatar.cc/100?img=33" alt="avatar">
+    <!-- HEADER -->
+    <div class="header">
+      <span class="header-title">MBG Dashboard</span>
+      <div class="header-right">
+        <i class="fa-regular fa-bell"></i>
+        <img src="https://i.pravatar.cc/100?img=33" alt="avatar">
+      </div>
     </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- PROFILE CARD -->
+      <div class="profile-card">
+        <div class="avatar-wrap">
+          <img src="https://i.pravatar.cc/150?img=33" alt="Dr. Marcus Vance">
+          <div class="avatar-badge"><i class="fa-solid fa-check"></i></div>
+        </div>
+        <h2 class="profile-name">Dr. Marcus Vance</h2>
+        <span class="profile-role">Regional Admin</span>
+        <div class="profile-meta">
+          <div>
+            <span class="meta-label">Employee ID</span>
+            <span class="meta-value">MBC-88291</span>
+          </div>
+          <div>
+            <span class="meta-label">Location</span>
+            <span class="meta-value">Central District</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCOUNT SETTINGS -->
+      <div class="section-card">
+        <p class="section-title">Account Settings</p>
+        <div class="menu-list">
+          <div class="menu-item">
+            <i class="fa-regular fa-user"></i>
+            <span>Personal Information</span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </div>
+          <div class="menu-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Security & Privacy</span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </div>
+          <div class="menu-item">
+            <i class="fa-regular fa-bell"></i>
+            <span>Alert Preferences</span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </div>
+          <div class="menu-item logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+
+        <div class="stat-card green">
+          <div class="stat-icon green-icon">
+            <i class="fa-solid fa-truck"></i>
+          </div>
+          <div class="stat-info">
+            <h3>124</h3>
+            <p>Distributions Verified</p>
+          </div>
+        </div>
+
+        <div class="stat-card blue">
+          <div class="stat-icon blue-icon">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <div class="stat-info">
+            <h3>18</h3>
+            <p>Monthly Reports</p>
+          </div>
+        </div>
+
+        <div class="stat-card teal">
+          <div class="stat-icon teal-icon">
+            <i class="fa-regular fa-circle-check"></i>
+          </div>
+          <div class="stat-info">
+            <h3>100%</h3>
+            <p>Compliance Score</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RECENT ACTIVITY -->
+      <div class="section-card">
+        <div class="activity-header">
+          <p class="section-title">Recent Activity</p>
+          <a href="#" class="view-all">View All</a>
+        </div>
+
+        <div class="activity-list">
+
+          <div class="activity-item">
+            <div class="act-icon green-act">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="act-body">
+              <div class="act-top">
+                <span class="act-title">Batch Approval: Q3 Distribution</span>
+                <span class="act-time">2h ago</span>
+              </div>
+              <p class="act-desc">Successfully verified logistics for Sector 7 nutritional supply delivery.</p>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="act-icon blue-act">
+              <i class="fa-regular fa-file-lines"></i>
+            </div>
+            <div class="act-body">
+              <div class="act-top">
+                <span class="act-title">Report Generated</span>
+                <span class="act-time">Yesterday</span>
+              </div>
+              <p class="act-desc">Generated the weekly Nutritious Food impact analysis for Regional Office.</p>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="act-icon purple-act">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <div class="act-body">
+              <div class="act-top">
+                <span class="act-title">Audit Conducted</span>
+                <span class="act-time">3 days ago</span>
+              </div>
+              <p class="act-desc">Field audit of local school distribution hub completed with 0 discrepancies.</p>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="act-icon orange-act">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="act-body">
+              <div class="act-top">
+                <span class="act-title">Access Log Update</span>
+                <span class="act-time">Oct 12</span>
+              </div>
+              <p class="act-desc">New administrative device was added to the secure access list for your account.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- end content -->
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </div>
+      <div class="nav-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Tracking</span>
+      </div>
+      <div class="nav-item">
+        <i class="fa-solid fa-truck"></i>
+        <span>Distribution</span>
+      </div>
+      <div class="nav-item">
+        <i class="fa-solid fa-chart-simple"></i>
+        <span>Reports</span>
+      </div>
+      <div class="nav-item active">
+        <i class="fa-regular fa-user"></i>
+        <span>Profile</span>
+      </div>
+    </div>
+
   </div>
 
-  <!-- CONTENT -->
-  <div class="content">
-
-    <!-- PROFILE CARD -->
-    <div class="profile-card">
-      <div class="avatar-wrap">
-        <img src="https://i.pravatar.cc/150?img=33" alt="Dr. Marcus Vance">
-        <div class="avatar-badge"><i class="fa-solid fa-check"></i></div>
-      </div>
-      <h2 class="profile-name">Dr. Marcus Vance</h2>
-      <span class="profile-role">Regional Admin</span>
-      <div class="profile-meta">
-        <div>
-          <span class="meta-label">Employee ID</span>
-          <span class="meta-value">MBC-88291</span>
-        </div>
-        <div>
-          <span class="meta-label">Location</span>
-          <span class="meta-value">Central District</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ACCOUNT SETTINGS -->
-    <div class="section-card">
-      <p class="section-title">Account Settings</p>
-      <div class="menu-list">
-        <div class="menu-item">
-          <i class="fa-regular fa-user"></i>
-          <span>Personal Information</span>
-          <i class="fa-solid fa-chevron-right arrow"></i>
-        </div>
-        <div class="menu-item">
-          <i class="fa-solid fa-shield-halved"></i>
-          <span>Security &amp; Privacy</span>
-          <i class="fa-solid fa-chevron-right arrow"></i>
-        </div>
-        <div class="menu-item">
-          <i class="fa-regular fa-bell"></i>
-          <span>Alert Preferences</span>
-          <i class="fa-solid fa-chevron-right arrow"></i>
-        </div>
-        <div class="menu-item logout">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          <span>Logout</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- STATS -->
-    <div class="stats-grid">
-
-      <div class="stat-card green">
-        <div class="stat-icon green-icon">
-          <i class="fa-solid fa-truck"></i>
-        </div>
-        <div class="stat-info">
-          <h3>124</h3>
-          <p>Distributions Verified</p>
-        </div>
-      </div>
-
-      <div class="stat-card blue">
-        <div class="stat-icon blue-icon">
-          <i class="fa-solid fa-file-lines"></i>
-        </div>
-        <div class="stat-info">
-          <h3>18</h3>
-          <p>Monthly Reports</p>
-        </div>
-      </div>
-
-      <div class="stat-card teal">
-        <div class="stat-icon teal-icon">
-          <i class="fa-regular fa-circle-check"></i>
-        </div>
-        <div class="stat-info">
-          <h3>100%</h3>
-          <p>Compliance Score</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- RECENT ACTIVITY -->
-    <div class="section-card">
-      <div class="activity-header">
-        <p class="section-title">Recent Activity</p>
-        <a href="#" class="view-all">View All</a>
-      </div>
-
-      <div class="activity-list">
-
-        <div class="activity-item">
-          <div class="act-icon green-act">
-            <i class="fa-solid fa-circle-check"></i>
-          </div>
-          <div class="act-body">
-            <div class="act-top">
-              <span class="act-title">Batch Approval: Q3 Distribution</span>
-              <span class="act-time">2h ago</span>
-            </div>
-            <p class="act-desc">Successfully verified logistics for Sector 7 nutritional supply delivery.</p>
-          </div>
-        </div>
-
-        <div class="activity-item">
-          <div class="act-icon blue-act">
-            <i class="fa-regular fa-file-lines"></i>
-          </div>
-          <div class="act-body">
-            <div class="act-top">
-              <span class="act-title">Report Generated</span>
-              <span class="act-time">Yesterday</span>
-            </div>
-            <p class="act-desc">Generated the weekly Nutritious Food impact analysis for Regional Office.</p>
-          </div>
-        </div>
-
-        <div class="activity-item">
-          <div class="act-icon purple-act">
-            <i class="fa-solid fa-clipboard-check"></i>
-          </div>
-          <div class="act-body">
-            <div class="act-top">
-              <span class="act-title">Audit Conducted</span>
-              <span class="act-time">3 days ago</span>
-            </div>
-            <p class="act-desc">Field audit of local school distribution hub completed with 0 discrepancies.</p>
-          </div>
-        </div>
-
-        <div class="activity-item">
-          <div class="act-icon orange-act">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-          </div>
-          <div class="act-body">
-            <div class="act-top">
-              <span class="act-title">Access Log Update</span>
-              <span class="act-time">Oct 12</span>
-            </div>
-            <p class="act-desc">New administrative device was added to the secure access list for your account.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div><!-- end content -->
-
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="nav-item">
-      <i class="fa-solid fa-house"></i>
-      <span>Home</span>
-    </div>
-    <div class="nav-item">
-      <i class="fa-solid fa-location-dot"></i>
-      <span>Tracking</span>
-    </div>
-    <div class="nav-item">
-      <i class="fa-solid fa-truck"></i>
-      <span>Distribution</span>
-    </div>
-    <div class="nav-item">
-      <i class="fa-solid fa-chart-simple"></i>
-      <span>Reports</span>
-    </div>
-    <div class="nav-item active">
-      <i class="fa-regular fa-user"></i>
-      <span>Profile</span>
-    </div>
-  </div>
-
-</div>
-
-<script src="profile.js"></script>
+  <script src="profile.js"></script>
 </body>
+
 </html>
