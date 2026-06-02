@@ -1,436 +1,453 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBG — Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-</head>
-<body>
-    <aside class="sidebar">
-        <div class="sidebar-logo">
-            <div class="logo-icon">
-                <img src="image/logombg.png" alt="Logo MBG" style="width: 100%; object-fit: contain; border-radius: 8px;"/>
-            </div>
-            <span class="logo-text">MBG</span>
-        </div>
 
-        <nav class="sidebar-nav">
-            <a href="#" class="nav-item active" data-label="Home">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                </svg>
-                <span>Home</span>
-            </a>
-            <a href="tracking.html" class="nav-item" data-label="Tracking">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 8v4l3 3" />
-                </svg>
-                <span>Tracking</span>
-            </a>
-            <a href="#" class="nav-item" data-label="Distribution">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="1" y="3" width="15" height="13" rx="2" />
-                    <path d="M16 8h4l3 5v3h-7V8z" />
-                    <circle cx="5.5" cy="18.5" r="2.5" />
-                    <circle cx="18.5" cy="18.5" r="2.5" />
-                </svg>
-                <span>Distribusi</span>
-            </a>
-            <a href="#" class="nav-item" data-label="Reports">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14,2 14,8 20,8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                </svg>
-                <span>Laporan</span>
-            </a>
-            <a href="#" class="nav-item" data-label="Profile">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                </svg>
-                <span>Profil</span>
-            </a>
-        </nav>
-    </aside>
-
-    <main class="main-content">
-        <header class="topbar">
-            <div class="topbar-left">
-                <h1 class="page-title">MBG Dashboard</h1>
-                <p class="page-subtitle">Program Makan Bergizi — Monitoring & Distribusi</p>
-            </div>
-            <div class="topbar-right">
-                <div class="search-box">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="m21 21-4.35-4.35" />
-                    </svg>
-                    <input type="text" placeholder="Cari sekolah, wilayah..." />
-                </div>
-                <button class="notif-btn" id="notifBtn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                    </svg>
-                    <span class="notif-badge">3</span>
-                </button>
-                <div class="user-profile">
-                    <div class="profile-avatar">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                            <circle cx="12" cy="7" r="4" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="dashboard-body">
-            <section class="stats-row">
-                <div class="stat-card card-green" id="statDistribusi">
-                    <div class="stat-card-header">
-                        <span class="stat-label">TOTAL DISTRIBUSI</span>
-                        <div class="stat-icon green">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="1" y="3" width="15" height="13" rx="2" />
-                                <path d="M16 8h4l3 5v3h-7V8z" />
-                                <circle cx="5.5" cy="18.5" r="2.5" />
-                                <circle cx="18.5" cy="18.5" r="2.5" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="stat-value">1,284,500 <span class="stat-unit">Kg</span></div>
-                    <p class="stat-desc">Berat makanan yang dikirim bulan ini</p>
-                    <div class="stat-badge up">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-                            <polyline points="16 7 22 7 22 13" />
-                        </svg>
-                        +12.4% vs bulan terakhir
-                    </div>
-                </div>
-
-                <div class="stat-card card-blue" id="statSekolah">
-                    <div class="stat-card-header">
-                        <span class="stat-label">SEKOLAH YANG DIJANGKAU</span>
-                        <div class="stat-icon blue">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="stat-value">4,821</div>
-                    <p class="stat-desc">Institusi aktif yang menerima MBG</p>
-                    <div class="stat-badge check">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                        98% Tingkat pemenuhan
-                    </div>
-                </div>
-
-                <div class="stat-card card-orange" id="statPorsi">
-                    <div class="stat-card-header">
-                        <span class="stat-label">PORSI HARIAN</span>
-                        <div class="stat-icon orange">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
-                                <path d="M7 2v20" />
-                                <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="stat-value">245,000</div>
-                    <p class="stat-desc">Makanan yang disiapkan dan didistribusikan</p>
-                    <div class="stat-badge time">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor stroke-width="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 6v6l4 2" />
-                        </svg>
-                        Diperbarui 5 menit lalu
-                    </div>
-                </div>
-
-                <div class="stat-card card-purple" id="statWilayah">
-                    <div class="stat-card-header">
-                        <span class="stat-label">WILAYAH KRITIS</span>
-                        <div class="stat-icon purple">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-                                <path d="M12 9v4" />
-                                <path d="M12 17h.01" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="stat-value">12 <span class="stat-unit">Distrik</span></div>
-                    <p class="stat-desc">Prioritas ekspansi segera dibutuhkan</p>
-                    <div class="stat-badge warn">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-                            <path d="M12 9v4" />
-                        </svg>
-                        Critical Priority
-                    </div>
-                </div>
-            </section>
-
-            <section class="middle-row">
-                <div class="left-col">
-                    <div class="card transparansi-card">
-                        <div class="card-header">
-                            <div>
-                                <h2 class="card-title">Transparansi Gizi</h2>
-                                <p class="card-subtitle">Alokasi mingguan vs pengeluaran aktual</p>
-                            </div>
-                            <div class="view-dropdown">
-                                <button class="view-btn" id="viewDropBtn">View 
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="6 9 12 15 18 9" />
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu" id="viewDropMenu">
-                                    <a href="#">Mingguan</a>
-                                    <a href="#">Bulanan</a>
-                                    <a href="#">Tahunan</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="gizi-grid">
-                            <div class="menu-card active-menu">
-                                <div class="menu-img">
-                                    <div class="menu-img-placeholder">
-                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="1.5" opacity="0.4">
-                                            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
-                                            <path d="M7 2v20" />
-                                            <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
-                                        </svg>
-                                    </div>
-                                    <div class="menu-overlay">
-                                        <span class="menu-tag">Menu Hari Ini</span>
-                                    </div>
-                                </div>
-                                <p class="menu-name">Nasi Merah & Ayam Bakar Madu</p>
-                                <div class="menu-nutrition">
-                                    <span class="nut-tag fiber">Serat 50%</span>
-                                    <span class="nut-tag calorie">Kalori 50%</span>
-                                    <span class="nut-tag protein">Protein 50%</span>
-                                </div>
-                            </div>
-
-                            <div class="gizi-bars">
-                                <h3 class="gizi-chart-title">Distribusi Nutrisi Mingguan</h3>
-                                <div class="bar-item">
-                                    <span class="bar-label">Karbohidrat</span>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" data-width="72" style="width:0%"></div>
-                                    </div>
-                                    <span class="bar-val">72%</span>
-                                </div>
-                                <div class="bar-item">
-                                    <span class="bar-label">Protein</span>
-                                    <div class="bar-track">
-                                        <div class="bar-fill protein" data-width="58" style="width:0%"></div>
-                                    </div>
-                                    <span class="bar-val">58%</span>
-                                </div>
-                                <div class="bar-item">
-                                    <span class="bar-label">Lemak Sehat</span>
-                                    <div class="bar-track">
-                                        <div class="bar-fill fat" data-width="45" style="width:0%"></div>
-                                    </div>
-                                    <span class="bar-val">45%</span>
-                                </div>
-                                <div class="bar-item">
-                                    <span class="bar-label">Serat</span>
-                                    <div class="bar-track">
-                                        <div class="bar-fill fiber" data-width="80" style="width:0%"></div>
-                                    </div>
-                                    <span class="bar-val">75%</span>
-                                </div>
-                                <div class="bar-item">
-                                    <span class="bar-label">Vitamin</span>
-                                    <div class="bar-track">
-                                        <div class="bar-fill vitamin" data-width="63" style="width:0%"></div>
-                                    </div>
-                                    <span class="bar-val">63%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card pengiriman-card">
-                        <div class="card-header">
-                            <h2 class="card-title">Pengiriman Terbaru</h2>
-                            <a href="#" class="view-all-link">View All</a>
-                        </div>
-                        <div class="pengiriman-list" id="pengirimanList">
-                            <div class="pengiriman-item">
-                                <div class="peng-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M9 11l3 3L22 4" />
-                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                                    </svg>
-                                </div>
-                                <div class="peng-info">
-                                    <p class="peng-name">SD Negeri 01 Menteng</p>
-                                    <p class="peng-detail">450 Porsi • Nasi, Sayuran, Ayam</p>
-                                </div>
-                                <div class="peng-status">
-                                    <span class="status-badge selesai">Selesai</span>
-                                    <span class="peng-time">08:45 AM</span>
-                                </div>
-                            </div>
-
-                            <div class="pengiriman-item">
-                                <div class="peng-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="1" y="3" width="15" height="13" rx="2" />
-                                        <path d="M16 8h4l3 5v3h-7V8z" />
-                                        <circle cx="5.5" cy="18.5" r="2.5" />
-                                        <circle cx="18.5" cy="18.5" r="2.5" />
-                                    </svg>
-                                </div>
-                                <div class="peng-info">
-                                    <p class="peng-name">SMP Negeri 4 Malang</p>
-                                    <p class="peng-detail">320 Porsi • Tempe, Buah, Susu</p>
-                                </div>
-                                <div class="peng-status">
-                                    <span class="status-badge dikirim">Dikirim</span>
-                                    <span class="peng-time">09:12 AM</span>
-                                </div>
-                            </div>
-
-                            <div class="pengiriman-item">
-                                <div class="peng-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <path d="M12 6v6l4 2" />
-                                    </svg>
-                                </div>
-                                <div class="peng-info">
-                                    <p class="peng-name">SDN Kebayoran Lama 03</p>
-                                    <p class="peng-detail">280 Porsi • Nasi, Ikan, Sayur</p>
-                                </div>
-                                <div class="peng-status">
-                                    <span class="status-badge proses">Diproses</span>
-                                    <span class="peng-time">09:45 AM</span>
-                                </div>
-                            </div>
-
-                            <div class="pengiriman-item">
-                                <div class="peng-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M9 11l3 3L22 4" />
-                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                                    </svg>
-                                </div>
-                                <div class="peng-info">
-                                    <p class="peng-name">SMAN 5 Jakarta</p>
-                                    <p class="peng-detail">610 Porsi • Nasi Merah, Ayam, Susu</p>
-                                </div>
-                                <div class="peng-status">
-                                    <span class="status-badge selesai">Selesai</span>
-                                    <span class="peng-time">07:30 AM</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="right-col">
-                    <div class="card map-card">
-                        <div class="map-card-header">
-                            <div class="map-title-row">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
-                                    <line x1="9" y1="3" x2="9" y2="18" />
-                                    <line x1="15" y1="6" x2="15" y2="21" />
-                                </svg>
-                                <h2 class="card-title">Wilayah Belum Terjangkau</h2>
-                            </div>
-                            <button class="plan-route-btn" id="planRouteBtn">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 5v14" />
-                                    <path d="m5 12 7-7 7 7" />
-                                </svg>
-                                Plan New Distribution Route
-                            </button>
-                        </div>
-
-                        <div class="map-visual" id="mapVisual">
-                            <canvas id="mapCanvas" width="600" height="260"></canvas>
-                            <div class="map-legend">
-                                <div class="legend-item">
-                                    <span class="legend-dot green-dot"></span><span>Terjangkau</span>
-                                </div>
-                                <div class="legend-item">
-                                    <span class="legend-dot red-dot"></span><span>Kritis</span>
-                                </div>
-                                <div class="legend-item">
-                                    <span class="legend-dot yellow-dot"></span><span>Dalam Proses</span>
-                                </div>
-                            </div>
-                            <div class="critical-badge">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-                                    <path d="M12 9v4" />
-                                    <path d="M12 17h.01" />
-                                </svg>
-                                Critical Priority: 12 Districts
-                            </div>
-                        </div>
-
-                        <div class="priority-section">
-                            <p class="priority-label">PRIORITY EXPANSION ZONES</p>
-                            <div class="priority-list">
-                                <div class="priority-item" data-gap="85">
-                                    <span class="priority-name">Jakarta Timur — Ciracas</span>
-                                    <div class="priority-bar-wrap">
-                                        <div class="priority-bar-fill" style="width:0%" data-width="85"></div>
-                                    </div>
-                                    <span class="priority-gap high">85% Gap</span>
-                                </div>
-                                <div class="priority-item" data-gap="92">
-                                    <span class="priority-name">Jawa Timur — Malang</span>
-                                    <div class="priority-bar-wrap">
-                                        <div class="priority-bar-fill critical" style="width:0%" data-width="92"></div>
-                                    </div>
-                                    <span class="priority-gap critical">92% Gap</span>
-                                </div>
-                                <div class="priority-item" data-gap="74">
-                                    <span class="priority-name">Jakarta Utara — Cilincing</span>
-                                    <div class="priority-bar-wrap">
-                                        <div class="priority-bar-fill medium" style="width:0%" data-width="74"></div>
-                                    </div>
-                                    <span class="priority-gap medium">74% Gap</span>
-                                </div>
-                                <div class="priority-item" data-gap="61">
-                                    <span class="priority-name">Bekasi Utara — Babelan</span>
-                                    <div class="priority-bar-wrap">
-                                        <div class="priority-bar-fill low" style="width:0%" data-width="61"></div>
-                                    </div>
-                                    <span class="priority-gap low">61% Gap</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MBG Dashboard - Nutritious Food Distribution</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001a42",
+                    "surface-container-low": "#eff4ff",
+                    "on-secondary-fixed-variant": "#3f465c",
+                    "tertiary": "#005ac2",
+                    "on-surface-variant": "#3c4a42",
+                    "on-primary-container": "#00422b",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-secondary-container": "#5c647a",
+                    "primary-fixed": "#6ffbbe",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary-fixed": "#dae2fd",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary-container": "#00367a",
+                    "on-primary-fixed": "#002113",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "primary-fixed-dim": "#4edea3",
+                    "primary-container": "#10b981",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed-variant": "#005236",
+                    "tertiary-container": "#71a1ff",
+                    "secondary-container": "#dae2fd",
+                    "secondary": "#565e74",
+                    "on-secondary-fixed": "#131b2e",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bbcabf",
+                    "tertiary-fixed-dim": "#adc6ff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#213145",
+                    "surface-variant": "#d3e4fe",
+                    "surface-container": "#e5eeff",
+                    "outline": "#6c7a71",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#d8e2ff",
+                    "primary": "#006c49",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#4edea3",
+                    "surface-tint": "#006c49",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "base": "4px",
+                    "sm": "16px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "lg": "32px",
+                    "gutter": "24px",
+                    "xs": "8px",
+                    "xl": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dashboard-card {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+            box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05);
+        }
+        .dashboard-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 32px -4px rgba(0,0,0,0.12);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bbcabf;
+            border-radius: 10px;
+        }
+        .chart-bar {
+            transition: height 1s ease-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 md:pt-16">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="restaurant_menu">restaurant_menu</span>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md font-bold text-primary">MBG Dashboard</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a government official in a clean, modern office setting. The person is smiling confidently, wearing a sharp charcoal suit. The background is softly blurred, showing a high-tech monitoring room with subtle green accents, maintaining a professional and data-driven atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTH3F9YvAtMLpBI-sx8wvGPe9I8IHz4G8R4QBPStaYhxY2NGUZ_B6C83qI2OlhCMW6J-DTGFPdUT3SXFpmJlb5Oy8mVQnPIAgVBnrsMvirxcBcxCxLhp-EIPoefef7zS4sgakkVJyicw7nvI7WXry5ufzRK2WVE3u87vP8Bp4DF5tQYjS0HleBshJ-UOn2jKzo2WTqjX2Xmfd2irkhbfx_hHgydUrvSYsovxyv4sgSyfHJNocDUwcVM65wPY5AGBCfq85pHAsdBM8K"/>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto p-4 md:p-gutter lg:p-xl space-y-gutter">
+<!-- Summary Cards Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Total Distribution -->
+<div class="dashboard-card bg-surface-container-lowest p-md rounded-xl border-[0.5px] border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Total Distribution</span>
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+</div>
+<div class="mt-4">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">1,284,500</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Kilograms of food delivered this month</p>
+</div>
+</div>
+<div class="mt-6 flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="font-label-sm text-label-sm font-bold">+12.4% vs last month</span>
+</div>
+</div>
+<!-- Card 2: Schools Reached -->
+<div class="dashboard-card bg-surface-container-lowest p-md rounded-xl border-[0.5px] border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Schools Reached</span>
+<div class="bg-tertiary/10 p-2 rounded-lg text-tertiary">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+</div>
+<div class="mt-4">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">4,821</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Institutions actively receiving MBG meals</p>
+</div>
+</div>
+<div class="mt-6 flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+<span class="font-label-sm text-label-sm font-bold">98% Weekly fulfillment rate</span>
+</div>
+</div>
+<!-- Card 3: Daily Portions -->
+<div class="dashboard-card bg-surface-container-lowest p-md rounded-xl border-[0.5px] border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Daily Portions</span>
+<div class="bg-primary-container/20 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+</div>
+</div>
+<div class="mt-4">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">245,000</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Meals prepared and distributed today</p>
+</div>
+</div>
+<div class="mt-6 flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="update">update</span>
+<span class="font-label-sm text-label-sm">Updated 5 mins ago</span>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Charts & Map -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Transparency Chart (Budget & Nutrition) -->
+<div class="lg:col-span-8 space-y-gutter">
+<div class="dashboard-card bg-surface-container-lowest p-md rounded-xl border-[0.5px] border-outline-variant">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Budget Transparency &amp; Efficiency</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Weekly allocation vs actual expenditure</p>
+</div>
+<select class="bg-surface-container-low border-none rounded-lg font-label-md text-label-md text-on-surface-variant focus:ring-primary">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 mt-8 px-4">
+<!-- Chart Bar Group -->
+<div class="flex-1 flex flex-col items-center gap-3 group">
+<div class="w-full flex justify-center items-end gap-1 h-full">
+<div class="w-6 bg-primary-container rounded-t-sm chart-bar" style="height: 70%;"></div>
+<div class="w-6 bg-primary rounded-t-sm chart-bar" style="height: 65%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mon</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 group">
+<div class="w-full flex justify-center items-end gap-1 h-full">
+<div class="w-6 bg-primary-container rounded-t-sm chart-bar" style="height: 85%;"></div>
+<div class="w-6 bg-primary rounded-t-sm chart-bar" style="height: 82%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tue</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 group">
+<div class="w-full flex justify-center items-end gap-1 h-full">
+<div class="w-6 bg-primary-container rounded-t-sm chart-bar" style="height: 60%;"></div>
+<div class="w-6 bg-primary rounded-t-sm chart-bar" style="height: 58%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Wed</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 group">
+<div class="w-full flex justify-center items-end gap-1 h-full">
+<div class="w-6 bg-primary-container rounded-t-sm chart-bar" style="height: 95%;"></div>
+<div class="w-6 bg-primary rounded-t-sm chart-bar" style="height: 90%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Thu</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 group">
+<div class="w-full flex justify-center items-end gap-1 h-full">
+<div class="w-6 bg-primary-container rounded-t-sm chart-bar" style="height: 75%;"></div>
+<div class="w-6 bg-primary rounded-t-sm chart-bar" style="height: 72%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fri</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 group">
+<div class="w-full flex justify-center items-end gap-1 h-full">
+<div class="w-6 bg-primary-container rounded-t-sm chart-bar" style="height: 40%;"></div>
+<div class="w-6 bg-primary rounded-t-sm chart-bar" style="height: 38%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sat</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 group">
+<div class="w-full flex justify-center items-end gap-1 h-full">
+<div class="w-6 bg-primary-container rounded-t-sm chart-bar" style="height: 30%;"></div>
+<div class="w-6 bg-primary rounded-t-sm chart-bar" style="height: 28%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sun</span>
+</div>
+</div>
+<div class="flex items-center justify-center gap-6 mt-8 pt-6 border-t border-outline-variant">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary-container rounded-full"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Budget Allocated</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary rounded-full"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Actual Spent</span>
+</div>
+</div>
+</div>
+<!-- Activity Feed -->
+<div class="dashboard-card bg-surface-container-lowest p-md rounded-xl border-[0.5px] border-outline-variant">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Recent Deliveries</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-2">
+<!-- Delivery Item 1 -->
+<div class="flex items-center gap-4 p-3 rounded-lg bg-surface hover:bg-surface-container-low transition-colors group">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="inventory">inventory</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">SD Negeri 01 Menteng</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">450 Portions • Rice, Vegetables, Chicken</p>
+</div>
+<div class="text-right">
+<div class="bg-primary/10 text-primary font-label-sm text-label-sm px-2 py-1 rounded-full mb-1">Delivered</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">08:45 AM</p>
+</div>
+</div>
+<!-- Delivery Item 2 -->
+<div class="flex items-center gap-4 p-3 rounded-lg bg-surface hover:bg-surface-container-low transition-colors group">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="inventory">inventory</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">SMP Muhammadiyah 4</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">320 Portions • Tempeh, Fruits, Milk</p>
+</div>
+<div class="text-right">
+<div class="bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm px-2 py-1 rounded-full mb-1">In Transit</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">09:12 AM</p>
+</div>
+</div>
+<!-- Delivery Item 3 -->
+<div class="flex items-center gap-4 p-3 rounded-lg bg-surface hover:bg-surface-container-low transition-colors group">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="inventory">inventory</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">SD Al-Azhar Pusat</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">580 Portions • Balanced Nutrition Meal</p>
+</div>
+<div class="text-right">
+<div class="bg-primary/10 text-primary font-label-sm text-label-sm px-2 py-1 rounded-full mb-1">Delivered</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">07:30 AM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Section: Wilayah Belum Terjangkau -->
+<div class="lg:col-span-4 space-y-gutter">
+<div class="dashboard-card bg-inverse-surface text-inverse-on-surface p-md rounded-xl h-full flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="map">map</span>
+<h3 class="font-headline-sm text-headline-sm">Wilayah Belum Terjangkau</h3>
+</div>
+<div class="flex-1 min-h-[300px] rounded-xl overflow-hidden relative mb-6">
+<img alt="Geographical Map Highlight" class="w-full h-full object-cover opacity-50" data-alt="A sophisticated digital map visualization of a metropolitan area with glowing green and orange data points. The map displays a dark mode aesthetic with high-contrast outlines of districts. Bright orange glowing areas highlight under-served regions for food distribution, while soft green nodes indicate active centers, creating a sense of strategic logistical monitoring." data-location="Jakarta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4VD2Gk56Ux1MuFGLw5CRKptl9KCrazC5_t0iZYTLeBZLMEZ64EFqdm_3zbZnseP-nboPVpn22ScQuZ6pJY_R1OQ8tqHGBplpEECnfVdU9OL9vDw5ruzOO4Q-JVfxgxtPCG-w64CS6lknsWdRHmbWmbIw2j79z8Jsm66J_4Y82ucSv4xS0Cx5WwMPtXCxRXi0xu53b7x0vmezY8OlX6FzGrIoeNQ298Aqi-emAf5xBsP1BDtKjQVWoVFOE3wxwAgzAA4uh6u162kLd"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<div class="bg-error-container/20 backdrop-blur-md p-3 rounded-lg border border-error/30">
+<p class="font-label-md text-label-md text-error-container font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+                                    Critical Priority: 12 Districts
+                                </p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md uppercase text-surface-variant tracking-wider">Priority Expansion Zones</h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10">
+<span class="font-body-sm text-body-sm">Jakarta Timur - Ciracas</span>
+<span class="bg-white/10 px-2 py-1 rounded text-xs">85% Gap</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10">
+<span class="font-body-sm text-body-sm">Kepulauan Seribu</span>
+<span class="bg-white/10 px-2 py-1 rounded text-xs">92% Gap</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10">
+<span class="font-body-sm text-body-sm">Jakarta Utara - Cilincing</span>
+<span class="bg-white/10 px-2 py-1 rounded text-xs">74% Gap</span>
+</div>
+</div>
+<button class="w-full mt-4 py-3 bg-primary text-white font-label-md text-label-md rounded-lg hover:bg-primary/90 transition-all active:scale-95">
+                            Plan New Distribution Route
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest shadow-lg rounded-t-xl">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-label-sm text-label-sm">Tracking</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-sm text-label-sm">Distribution</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-label-sm">Reports</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Desktop Sidebar/Nav (Visual Anchor) -->
+<div class="hidden md:flex fixed top-16 left-0 h-[calc(100vh-64px)] w-20 flex-col items-center py-8 gap-8 bg-surface-container-lowest border-r border-outline-variant">
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-container text-on-primary-container shadow-md">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-secondary hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-secondary hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-secondary hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</button>
+<div class="mt-auto mb-4">
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-secondary hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+<script>
+        // Micro-interactions for chart bars
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const height = bar.style.height;
+                bar.style.height = '0px';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 300);
+            });
+        });
+    </script>
+</body></html>

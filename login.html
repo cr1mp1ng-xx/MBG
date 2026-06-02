@@ -1,134 +1,294 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MBG — Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <div class="page">
-        <div class="main">
-            <div class="left">
-                <div class="deco deco-1"></div>
-                <div class="deco deco-2"></div>
-                <div class="deco deco-3"></div>
-                <div class="leaf-overlay"></div>
 
-                <div class="left-content">
-                    <div class="brand">
-                        <div class="brand-icon">
-                            <img src="image/logombg.png" alt="Logo MBG" />
-                        </div>
-                        <span class="brand-name">MBG</span>
-                    </div>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MBG - Masuk ke Sistem</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-fixed": "#001a42",
+                "surface-container-low": "#eff4ff",
+                "on-secondary-fixed-variant": "#3f465c",
+                "tertiary": "#005ac2",
+                "on-surface-variant": "#3c4a42",
+                "on-primary-container": "#00422b",
+                "inverse-on-surface": "#eaf1ff",
+                "on-secondary-container": "#5c647a",
+                "primary-fixed": "#6ffbbe",
+                "surface-container-highest": "#d3e4fe",
+                "secondary-fixed": "#dae2fd",
+                "on-tertiary-fixed-variant": "#004395",
+                "on-primary": "#ffffff",
+                "background": "#f8f9ff",
+                "surface": "#f8f9ff",
+                "surface-container-high": "#dce9ff",
+                "on-tertiary-container": "#00367a",
+                "on-primary-fixed": "#002113",
+                "on-secondary": "#ffffff",
+                "on-surface": "#0b1c30",
+                "primary-fixed-dim": "#4edea3",
+                "primary-container": "#10b981",
+                "surface-bright": "#f8f9ff",
+                "on-primary-fixed-variant": "#005236",
+                "tertiary-container": "#71a1ff",
+                "secondary-container": "#dae2fd",
+                "secondary": "#565e74",
+                "on-secondary-fixed": "#131b2e",
+                "on-error-container": "#93000a",
+                "outline-variant": "#bbcabf",
+                "tertiary-fixed-dim": "#adc6ff",
+                "on-tertiary": "#ffffff",
+                "on-background": "#0b1c30",
+                "on-error": "#ffffff",
+                "inverse-surface": "#213145",
+                "surface-variant": "#d3e4fe",
+                "surface-container": "#e5eeff",
+                "outline": "#6c7a71",
+                "error": "#ba1a1a",
+                "tertiary-fixed": "#d8e2ff",
+                "primary": "#006c49",
+                "error-container": "#ffdad6",
+                "inverse-primary": "#4edea3",
+                "surface-tint": "#006c49",
+                "surface-dim": "#cbdbf5",
+                "secondary-fixed-dim": "#bec6e0",
+                "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "md": "24px",
+                "base": "4px",
+                "sm": "16px",
+                "margin-mobile": "16px",
+                "container-max": "1440px",
+                "lg": "32px",
+                "gutter": "24px",
+                "xs": "8px",
+                "xl": "48px"
+            },
+            "fontFamily": {
+                "body-lg": ["Inter"],
+                "label-md": ["Inter"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "body-sm": ["Inter"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "headline-sm": ["Plus Jakarta Sans"],
+                "label-sm": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .food-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
 
-                    <h1 class="left-headline">Selamat Datang<br>di MBG</h1>
-                    <p class="left-sub">Masuk untuk mengelola data distribusi pangan bergizi dan sppg secara efisien dan terpadu, sesuai dengan kebijakan yang berlaku. </p>
-                </div>
-            </div>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 0.5px solid rgba(203, 213, 225, 0.3);
+        }
 
-            <div class="right">
-                <div class="form-wrap">
-                    <div class="form-header">
-                        <h2 class="form-title">Masuk ke Akun</h2>
-                        <p class="form-subtitle">Gunakan Email/NIP instansi Anda untuk masuk</p>
-                    </div>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
 
-                    <div class="field">
-                        <div class="field-label">
-                            <span class="label-text">Email / NIP</span>
-                        </div>
-                        <div class="input-wrap">
-                            <span class="input-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                                </svg>
-                            </span>
-                            <input type="text" id="email" placeholder="nama@mbg.co.id" autocomplete="username" />
-                        </div>
-                    </div>
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex items-center justify-center p-4 food-pattern overflow-x-hidden">
+<!-- Decorative Illustration elements -->
+<div class="fixed -top-20 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="fixed -bottom-20 -right-20 w-96 h-96 bg-tertiary/5 rounded-full blur-3xl"></div>
+<div class="fixed top-20 right-[10%] opacity-20 floating-element hidden lg:block">
+<img class="w-24 h-24" data-alt="A clean, minimalist 3D illustration of a vibrant green organic apple representing nutrition and health. The style is soft and modern, with gentle ambient occlusion shadows and a slight glossy finish, fitting a professional government health initiative aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVIVIgI6RCxklUMdApN-PNZCr5sV9t8xVy_nw5gf1EBkB3FNURw2cCavZn7VuY8Rm9J6pPlFx6F8RyUGGs4beNJ-s7szghbN0djW59FDudevXYN7X-9qx8xu6RExTBdr-iCErHXVjX9AvIVLtw0qoohpoOYBp1ZxsJiMvA5UepUbVt0dbFId99s2qg_4CJ8l0KPvOygtk1h6De6KoSacTbmjNwGDsUK0C_5Iv8LTs3M7bF7R3y8v0sWSTqS9Ol2x0BzrIqZxkNmvj1"/>
+</div>
+<div class="fixed bottom-20 left-[10%] opacity-20 floating-element hidden lg:block" style="animation-delay: 1s;">
+<img class="w-24 h-24" data-alt="A sophisticated minimalist 3D rendering of a fresh orange carrot with delicate green leaves. The lighting is high-key and soft, creating a clean light-mode dashboard feel that symbolizes agriculture and wholesome food distribution in a modern corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUOsYJaeqYkr6rKxbQd_481xgvK8NkvFUK7r2VcN7ATryuF8F2KSOqEikvDcjpLopF-8dYFNC14FWqFKA8PHGMYaX4yC2U2qIrpkJ_0VpodIZI1rSkKKZvDNEZEXKhhT2_xorpFCrHME6s0ovHlvH7jQMpVvLNcmoe_uHgm_TZxDWUOr-AL9jWisZpNvDu4HkST1SXK387LbGxcXz-rHhrlDe33Mao7GE6ZyQTLG66bArdAJ3wABkQfc6qyIvwF2FIUP80iJufb05b"/>
+</div>
+<!-- Main Auth Canvas -->
+<main class="relative z-10 w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-[2rem] shadow-2xl glass-card">
+<!-- Branding Section (Visible on Desktop) -->
+<div class="hidden lg:flex flex-col justify-between p-xl bg-primary text-on-primary relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute inset-0 food-pattern" style="background-size: 60px 60px;"></div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-12">
+<div class="bg-white p-2 rounded-xl">
+<span class="material-symbols-outlined text-primary text-[32px]">nutrition</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold tracking-tight">MBG Dashboard</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight">
+                    Mewujudkan Kedaulatan Pangan &amp; Gizi Nasional.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-primary/80 max-w-md">
+                    Sistem terpadu untuk monitoring dan distribusi makanan bergizi bagi seluruh rakyat Indonesia.
+                </p>
+</div>
+<div class="relative z-10 mt-auto pt-xl">
+<div class="bg-on-primary/10 p-sm rounded-2xl border border-on-primary/20 backdrop-blur-sm">
+<p class="font-label-md text-label-md uppercase mb-2 opacity-70">Status Sistem Aktif</p>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary-fixed-dim rounded-full animate-pulse"></div>
+<span class="font-body-md text-body-md">Distribusi Real-time 38 Provinsi</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="p-lg md:p-xl bg-surface-container-lowest flex flex-col justify-center">
+<div class="max-w-md mx-auto w-full">
+<!-- Mobile Branding -->
+<div class="lg:hidden flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-[24px]">nutrition</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">MBG</span>
+</div>
+<div class="mb-10">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Selamat Datang di MBG</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Masuk untuk mengelola data distribusi pangan bergizi.</p>
+</div>
+<!-- Auth Mode Switch -->
+<div class="space-y-6" id="authContainer">
+<form class="space-y-5" id="loginForm">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface" for="email">Email Dinas / NIP</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40" id="email" placeholder="nama@instansi.go.id" required="" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface" for="password">Kata Sandi</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">Lupa Password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-11 pr-12 py-3 bg-slate-50 border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40" id="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-3 py-2">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant select-none" for="remember">Ingat perangkat ini selama 30 hari</label>
+</div>
+<button class="w-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
+<span>Masuk ke Dashboard</span>
+<span class="material-symbols-outlined text-[20px]">login</span>
+</button>
+</form>
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 text-label-sm text-on-surface-variant">Atau gunakan</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Government ID Integration -->
+<div class="grid grid-cols-1 gap-4">
+<button class="w-full flex items-center justify-center gap-3 border border-outline-variant bg-white hover:bg-slate-50 text-on-surface font-label-md py-3 rounded-xl transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary">badge</span>
+                            Masuk dengan Digital ID (SatuData)
+                        </button>
+</div>
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant mt-8">
+                        Belum memiliki akun? 
+                        <a class="text-primary font-label-md hover:underline transition-all" href="#">Daftar Instansi Baru</a>
+</p>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="mt-auto pt-lg border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-label-sm text-on-surface-variant/60">© 2024 MBG Initiative. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Bantuan</a>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple Interaction logic
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            // Visual feedback for interaction
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Memproses...</span>
+            `;
 
-                    <div class="field">
-                        <div class="field-label">
-                            <span class="label-text">Kata Sandi</span>
-                            <a href="#" class="forgot-link">Lupa Password?</a>
-                        </div>
-                        <div class="input-wrap">
-                            <span class="input-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                                </svg>
-                            </span>
-                            <input type="password" id="password" placeholder="Password" autocomplete="current-password" />
-                            <button class="toggle-pw" id="togglePw" type="button" aria-label="Tampilkan kata sandi">
-                                <svg id="eyeOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                    <circle cx="12" cy="12" r="3" />
-                                </svg>
-                                <svg id="eyeClosed" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
-                                    <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
-                                    <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
-                                    <line x1="2" y1="2" x2="22" y2="22" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
+            setTimeout(() => {
+                // Mock redirect or success state
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Berhasil</span>
+                `;
+                btn.classList.replace('bg-primary', 'bg-tertiary');
+            }, 1500);
+        });
 
-                    <label class="remember">
-                        <input type="checkbox" id="remember" />
-                        <div class="check-box">
-                            <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                                <path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <span class="remember-label">Ingat perangkat ini selama 30 hari</span>
-                    </label>
-
-                    <button class="btn-primary" id="loginBtn">
-                        Masuk ke Dashboard
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                            <polyline points="10 17 15 12 10 7" />
-                            <line x1="15" y1="12" x2="3" y2="12" />
-                        </svg>
-                    </button>
-
-                    <div class="divider">
-                        <div class="divider-line"></div>
-                        <span class="divider-text">Atau gunakan</span>
-                        <div class="divider-line"></div>
-                    </div>
-
-                    <button class="btn-secondary">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                            <path d="M2 12h20" />
-                        </svg>
-                        Masuk dengan Digital ID (KesatuanMBG)
-                    </button>
-
-                    <p class="register-row">
-                        Belum memiliki akun? <a href="register.html">Daftarkan Disini</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <span class="footer-copy">© 2026 MBG Project PAP. All rights reserved.</span>
-            <div class="footer-links">
-                <a href="#">Kebijakan Privasi</a>
-                <a href="#">Bantuan</a>
-            </div>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        // Background movement effect
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelectorAll('.floating-element').forEach(el => {
+                const speed = 20;
+                el.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

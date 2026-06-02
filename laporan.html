@@ -1,317 +1,329 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laporan Kendala - MBG</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-</head>
-<body>
-    <aside class="sidebar">
-        <div class="sidebar-logo">
-            <div class="logo-icon">
-                <img src="image/logombg.png" alt="Logo MBG" style="width: 100%; object-fit: contain; border-radius: 8px;"/>
-            </div>
-            <span class="logo-text">DistribuSI</span>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="#" class="nav-item"><i class="fas fa-house"></i><span>Home</span></a>
-            <a href="#" class="nav-item"><i class="fas fa-location-dot"></i><span>Tracking</span></a>
-            <a href="#" class="nav-item"><i class="fas fa-truck"></i><span>Distribusi</span></a>
-            <a href="#" class="nav-item active"><i class="fas fa-flag"></i><span>Laporan</span></a>
-            <a href="#" class="nav-item"><i class="fas fa-circle-user"></i><span>Profil</span></a>
-        </nav>
-        <div class="sidebar-footer">
-            <div class="cs-card">
-                <div class="cs-icon"><i class="fas fa-headset"></i></div>
-                <div class="cs-text">
-                    <strong>Butuh Bantuan?</strong>
-                    <p>Hubungi call center kami untuk kendala darurat.</p>
-                </div>
-                <a href="tel:+6281234567890" class="cs-btn"><i class="fas fa-phone"></i> Hubungi CS</a>
-            </div>
-        </div>
-    </aside>
 
-    <main class="main-content">
-        <header class="topbar">
-            <div class="topbar-title">
-                <div class="page-icon"><i class="fas fa-flag"></i></div>
-                <div>
-                    <h1>Laporan Kendala</h1>
-                    <p>Kelola dan pantau laporan distribusi Anda</p>
-                </div>
-            </div>
-            <div class="topbar-actions">
-                <label class="notif-wrap" for="notifToggle">
-                    <input type="checkbox" id="notifToggle" hidden />
-                    <span class="notif-btn"><i class="fas fa-bell"></i><span class="notif-badge">3</span></span>
-                    <div class="notif-dropdown">
-                        <div class="notif-item"><i class="fas fa-circle-exclamation" style="color:var(--pending)"></i>Kurir belum sampai SDA-01</div>
-                        <div class="notif-item"><i class="fas fa-magnifying-glass" style="color:var(--investigating)"></i> Kemasan bocor Lote 442</div>
-                        <div class="notif-item"><i class="fas fa-circle-check" style="color:var(--resolved)"></i> Stok beras sudah resolved</div>
-                    </div>
-                </label>
-                <div class="user-chip">
-                    <img src="https://i.pravatar.cc/36?img=12" alt="User" />
-                    <span>Admin</span>
-                </div>
-            </div>
-        </header>
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001a42",
+                    "surface-container-low": "#eff4ff",
+                    "on-secondary-fixed-variant": "#3f465c",
+                    "tertiary": "#005ac2",
+                    "on-surface-variant": "#3c4a42",
+                    "on-primary-container": "#00422b",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-secondary-container": "#5c647a",
+                    "primary-fixed": "#6ffbbe",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary-fixed": "#dae2fd",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary-container": "#00367a",
+                    "on-primary-fixed": "#002113",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "primary-fixed-dim": "#4edea3",
+                    "primary-container": "#10b981",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed-variant": "#005236",
+                    "tertiary-container": "#71a1ff",
+                    "secondary-container": "#dae2fd",
+                    "secondary": "#565e74",
+                    "on-secondary-fixed": "#131b2e",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bbcabf",
+                    "tertiary-fixed-dim": "#adc6ff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#213145",
+                    "surface-variant": "#d3e4fe",
+                    "surface-container": "#e5eeff",
+                    "outline": "#6c7a71",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#d8e2ff",
+                    "primary": "#006c49",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#4edea3",
+                    "surface-tint": "#006c49",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "base": "4px",
+                    "sm": "16px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "lg": "32px",
+                    "gutter": "24px",
+                    "xs": "8px",
+                    "xl": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #f8f9ff; color: #0b1c30; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-header { backdrop-filter: blur(12px); background-color: rgba(248, 249, 255, 0.8); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<h1 class="font-headline-md text-headline-md-mobile font-bold text-primary">Laporan Kendala</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="mt-16 pb-32 max-w-container-max mx-auto px-4 md:px-xl pt-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Report Form -->
+<div class="lg:col-span-7 space-y-gutter">
+<section class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)]">
+<div class="mb-6">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-2">Buat Laporan Baru</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sampaikan keluhan atau kendala yang Anda hadapi untuk perbaikan layanan kami.</p>
+</div>
+<form class="space-y-6">
+<!-- Category Selection -->
+<div class="space-y-3">
+<label class="font-label-md text-label-md text-on-surface-variant">KATEGORI KENDALA</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary group">
+<input class="sr-only" name="category" type="radio" value="delay"/>
+<span class="material-symbols-outlined text-primary mb-2" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm text-on-surface">Keterlambatan</span>
+</label>
+<label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary">
+<input checked="" class="sr-only" name="category" type="radio" value="quality"/>
+<span class="material-symbols-outlined text-primary mb-2" data-icon="high_quality">high_quality</span>
+<span class="font-label-sm text-label-sm text-on-surface">Kualitas Produk</span>
+</label>
+<label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary">
+<input class="sr-only" name="category" type="radio" value="missing"/>
+<span class="material-symbols-outlined text-primary mb-2" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-sm text-label-sm text-on-surface">Barang Kurang</span>
+</label>
+</div>
+</div>
+<!-- Description -->
+<div class="space-y-3">
+<label class="font-label-md text-label-md text-on-surface-variant" for="description">DESKRIPSI KENDALA</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-md focus:ring-2 focus:ring-primary text-body-md placeholder:text-outline" id="description" placeholder="Ceritakan detail kendala yang dialami..." rows="5"></textarea>
+</div>
+<!-- Image Upload -->
+<div class="space-y-3">
+<label class="font-label-md text-label-md text-on-surface-variant">UNGGAH BUKTI (FOTO)</label>
+<div class="flex items-center gap-4">
+<button class="w-24 h-24 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center text-outline-variant hover:border-primary hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="add_a_photo">add_a_photo</span>
+<span class="font-label-sm text-label-sm mt-1">Tambah</span>
+</button>
+<div class="relative w-24 h-24 rounded-xl overflow-hidden group">
+<img alt="Evidence" class="w-full h-full object-cover" data-alt="A detailed close-up shot of packaged nutritious food items in a brightly lit, clean industrial kitchen setting. The image shows several plastic-wrapped trays with fresh vegetables and grains, intended as photographic evidence for a quality control report. The lighting is soft and professional, emphasizing the freshness of the ingredients within the context of a modern distribution hub." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByHvBhrNBoqYZvzc-Kby5hgvUor3GmeAnI-5eScYza0h5AFvrWV18cJxnmvEp9caUy9uR2KJ9mPdKv6Vm64NvSbBGdTa_NLZh1T_OF4EcZVI8EnmPfALATy1xXYBjD3NYoiF2Pj-Uwq8Rm7lx2Vus4-JWqADZ0Pyux8jZyGjnDH14tKh12wg15acRm_6yztNmuDLmFP0GCdi7Vi0ct7ElcYLejkGt4LVApf9cJtxiZBrSrBnuGFd6NEkh76WnjWKEc_-FvTib3WkDy"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-white" data-icon="delete">delete</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="w-full bg-primary text-on-primary h-14 rounded-full font-headline-sm flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all" type="submit">
+                                Kirim Laporan
+                                <span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</form>
+</section>
+</div>
+<!-- Right Column: Status Tracker -->
+<div class="lg:col-span-5 space-y-gutter">
+<section class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Status Laporan</h2>
+<button class="text-primary font-label-md hover:underline">Lihat Semua</button>
+</div>
+<div class="space-y-4">
+<!-- Active Report 1 -->
+<div class="p-4 bg-surface rounded-xl border-l-4 border-error">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="error">error</span>
+                                    Pending
+                                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Today, 09:42</span>
+</div>
+<h3 class="font-headline-sm text-[16px] text-on-surface mb-1">Kurir Belum Sampai (SDA-01)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Pesanan rutin untuk sekolah SDN 01 belum diterima hingga pukul 09:30 WIB...</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="A portrait of a male logistics officer in a professional green uniform, looking helpful and serious against a blurred warehouse background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ22som2J-5cqFDa5cLxyvxq31IV9RaLvgF088UoHaidX_n-_re8J9Rh87d0lJwPW4eVLNbmr9zYhrtBUlTmYpxxNhriOP3xMaFnfEv6mv1dHfwWz42_zo_yVIL9-4sG3KnhfDQu8-ieaSOIc7JV3OLQyeXP77tV9woqDMS6-tWexWsogacL4wrqv47RIqwzbgfgLS8xhOQnzH4_C7zjUTYLvIr6YGSpZSTJpbnY7JpQuJuTcCAp3nfey-AFvXce5WB8OUbEUwbAOB"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID: #REP-8821</span>
+</div>
+</div>
+<!-- Active Report 2 -->
+<div class="p-4 bg-surface rounded-xl border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="search">search</span>
+                                    Investigating
+                                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Yesterday</span>
+</div>
+<h3 class="font-headline-sm text-[16px] text-on-surface mb-1">Kemasan Bocor (Lote 442)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Ditemukan 2 box susu dengan kemasan yang sedikit rembes saat pembongkaran muatan.</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="A professional portrait of a female quality assurance manager in a clean, high-tech food testing laboratory. She wears a lab coat and has a friendly, authoritative expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSX42UTj2vM2a06LizQtdkUttqOSP6cVVWnHxdZcTE24vdrEFnwO6wArvOckkTT1AcDsBmpBeOX87d6MVdUgGLVnsxxE4mlJFEEwoMnCd5Rroh-6IgwP93z8M6mfcGmw20RjnFC7BF3IWqzCd47YN0G95WhznMaCqj60S4kDjEGXY6VHY6psZM2uzkFo_-0NGJpCM2wU5nrtYv_Dh29R3wmaJToJH4RnYde7nLN2RPMqNUTz_RjoOIqOCQRyHUxofH5DjjzXwCinxI"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID: #REP-8790</span>
+</div>
+</div>
+<!-- Active Report 3 -->
+<div class="p-4 bg-surface-container-high/30 rounded-xl border-l-4 border-primary opacity-80">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                                    Resolved
+                                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 days ago</span>
+</div>
+<h3 class="font-headline-sm text-[16px] text-on-surface mb-1 text-on-surface/60 line-through">Kekurangan Stok Beras</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Kekurangan 5kg beras sudah diantisipasi dengan pengiriman tambahan...</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<span class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-[10px] text-white font-bold">MBG</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID: #REP-8755</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Help Card -->
+<div class="bg-primary text-on-primary rounded-xl p-6 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline-sm mb-2">Butuh Bantuan Cepat?</h3>
+<p class="font-body-sm mb-4 opacity-90">Hubungi call center kami untuk kendala darurat yang memerlukan penanganan segera.</p>
+<button class="bg-on-primary text-primary px-4 py-2 rounded-full font-label-md flex items-center gap-2 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="call">call</span>
+                            Hubungi CS
+                        </button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-6 -right-6 text-[120px] opacity-10" data-icon="support_agent">support_agent</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest shadow-lg rounded-t-xl border-t border-outline-variant md:hidden">
+<a class="flex flex-col items-center justify-center text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-label-sm text-label-sm">Tracking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-sm text-label-sm">Distribution</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-label-sm">Reports</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interactions for the form
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                console.log('Category selected:', e.target.value);
+            });
+        });
 
-        <div class="content-grid">
-            <section class="card form-card">
-                <div class="card-header">
-                    <h2>Buat Laporan Baru</h2>
-                    <p>Sampaikan keluhan atau kendala yang Anda hadapi untuk perbaikan layanan kami.</p>
-                </div>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin" data-icon="sync">sync</span> Mengirim...`;
+            btn.disabled = true;
 
-                <div class="form-section">
-                    <span class="form-label">Kategori Kendala</span>
-                    <div class="category-grid">
-
-                        <input type="radio" name="kategori" id="cat-telat" value="keterlambatan" hidden />
-                        <label for="cat-telat" class="category-item">
-                            <div class="cat-icon"><i class="fas fa-clock"></i></div>
-                            <span>Keterlambatan</span>
-                        </label>
-
-                        <input type="radio" name="kategori" id="cat-kualitas" value="kualitas" hidden checked />
-                        <label for="cat-kualitas" class="category-item">
-                            <div class="cat-icon"><i class="fas fa-star-half-stroke"></i></div>
-                            <span>Kualitas Produk</span>
-                        </label>
-
-                        <input type="radio" name="kategori" id="cat-barang" value="barang" hidden />
-                        <label for="cat-barang" class="category-item">
-                            <div class="cat-icon"><i class="fas fa-box"></i></div>
-                            <span>Barang Kurang</span>
-                        </label>
-
-                        <input type="radio" name="kategori" id="cat-lain" value="lainnya" hidden />
-                        <label for="cat-lain" class="category-item">
-                            <div class="cat-icon"><i class="fas fa-ellipsis"></i></div>
-                            <span>Lainnya</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <label class="form-label" for="deskripsi">Deskripsi Kendala</label>
-                    <textarea id="deskripsi" name="deskripsi" class="form-textarea" rows="5"
-                        placeholder="Ceritakan detail kendala yang dialami..." required minlength="10"></textarea>
-                    <span class="field-hint">Minimal 10 karakter</span>
-                </div>
-
-                <div class="form-section">
-                    <span class="form-label">Unggah Bukti (Foto)</span>
-                    <div class="upload-area">
-                        <input type="file" id="fileUpload" name="foto" accept="image/*" multiple class="file-input" />
-                        <label for="fileUpload" class="upload-label">
-                            <i class="fas fa-camera"></i>
-                            <span>Klik untuk pilih foto</span>
-                            <small>PNG, JPG hingga 5MB</small>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <label class="form-label" for="ticketRef">Referensi Tiket (Opsional)</label>
-                    <input type="text" id="ticketRef" name="tiket" class="form-input"
-                        placeholder="Masukkan nomor tiket terkait..." />
-                </div>
-
-                <a href="#sukses" class="submit-btn">
-                    <span>Kirim Laporan</span>
-                    <i class="fas fa-paper-plane"></i>
-                </a>
+            setTimeout(() => {
+                btn.innerHTML = `<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> Terkirim!`;
+                btn.classList.replace('bg-primary', 'bg-green-600');
                 
-                <div class="toast-wrap" id="sukses">
-                    <div class="toast-box">
-                        <i class="fas fa-circle-check"></i>
-                        <span>Laporan berhasil dikirim!</span>
-                        <a href="#" class="toast-close"><i class="fas fa-xmark"></i></a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="right-panel">
-                <div class="card status-card">
-                    <div class="card-header-row">
-                        <h2>Status Laporan</h2>
-                        <a href="#" class="lihat-semua">Lihat Semua <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <div class="filter-pills">
-                        <input type="radio" name="filter" id="f-all" hidden checked />
-                        <input type="radio" name="filter" id="f-pend" hidden />
-                        <input type="radio" name="filter" id="f-inv" hidden />
-                        <input type="radio" name="filter" id="f-res" hidden />
-
-                        <label for="f-all" class="pill">Semua</label>
-                        <label for="f-pend" class="pill">Pending</label>
-                        <label for="f-inv" class="pill">Investigating</label>
-                        <label for="f-res" class="pill">Resolved</label>
-                    </div>
-
-                    <div class="report-list">
-                        <div class="report-item r-pending">
-                            <div class="report-left">
-                                <span class="status-badge pending"><i class="fas fa-circle-exclamation"></i>Pending</span>
-                                <h3>Kurir Belum Sampai (SDA-01)</h3>
-                                <p>Pesanan rutin untuk sekolah SDN 01 belum diterima hingga pukul 09:30 WIB...</p>
-                                <div class="report-meta">
-                                    <img src="https://i.pravatar.cc/28?img=5" alt="avatar" />
-                                    <span class="ticket-id">Ticket ID: #REP-8821</span>
-                                </div>
-                            </div>
-                            <div class="report-right">
-                                <span class="report-time"><i class="fas fa-clock"></i> Today, 09:42</span>
-                                <a href="#detail-8821" class="detail-btn">Detail</a>
-                            </div>
-                        </div>
-
-                        <div class="report-item r-investigating">
-                            <div class="report-left">
-                                <span class="status-badge investigating"><i class="fas fa-magnifying-glass"></i>Investigating</span>
-                                <h3>Kemasan Bocor (Lote 442)</h3>
-                                <p>Ditemukan 2 box susu dengan kemasan yang sedikit rembes saat pembongkaran...</p>
-                                <div class="report-meta">
-                                    <img src="https://i.pravatar.cc/28?img=8" alt="avatar" />
-                                    <span class="ticket-id">Ticket ID: #REP-8790</span>
-                                </div>
-                            </div>
-                            <div class="report-right">
-                                <span class="report-time"><i class="fas fa-clock"></i> Yesterday</span>
-                                <a href="#detail-8790" class="detail-btn">Detail</a>
-                            </div>
-                        </div>
-
-                        <div class="report-item r-resolved">
-                            <div class="report-left">
-                                <span class="status-badge resolved"><i class="fas fa-circle-check"></i> Resolved</span>
-                                <h3>Kekurangan Stok Beras</h3>
-                                <p>Kekurangan 5kg beras sudah diantisipasi dan pengiriman susulan telah diproses.</p>
-                                <div class="report-meta">
-                                    <div class="avatar-initials">MBG</div>
-                                    <span class="ticket-id">Ticket ID: #REP-8755</span>
-                                </div>
-                            </div>
-                            <div class="report-right">
-                                <span class="report-time"><i class="fas fa-clock"></i> 2 days ago</span>
-                                <a href="#detail-8755" class="detail-btn">Detail</a>
-                            </div>
-                        </div>
-
-                        <div class="report-item r-resolved">
-                            <div class="report-left">
-                                <span class="status-badge resolved"><i class="fas fa-circle-check"></i> Resolved</span>
-                                <h3>Salah Alamat Pengiriman</h3>
-                                <p>Paket untuk SMPN 3 dikirim ke alamat yang keliru, sudah diselesaikan.</p>
-                                <div class="report-meta">
-                                    <img src="https://i.pravatar.cc/28?img=15" alt="avatar" />
-                                    <span class="ticket-id">Ticket ID: #REP-8710</span>
-                                </div>
-                            </div>
-                            <div class="report-right">
-                                <span class="report-time"><i class="fas fa-clock"></i> 3 days ago</span>
-                                <a href="#detail-8710" class="detail-btn">Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stats-row">
-                    <div class="stat-box">
-                        <div class="stat-icon pending-bg"><i class="fas fa-hourglass-half"></i></div>
-                        <div>
-                            <span class="stat-num">4</span>
-                            <span class="stat-label">Pending</span>
-                        </div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-icon investigating-bg"><i class="fas fa-magnifying-glass"></i></div>
-                        <div>
-                            <span class="stat-num">7</span>
-                            <span class="stat-label">Investigating</span>
-                        </div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-icon resolved-bg"><i class="fas fa-check-circle"></i></div>
-                        <div>
-                            <span class="stat-num">23</span>
-                            <span class="stat-label">Resolved</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <div class="modal-overlay" id="detail-8821">
-        <div class="modal-box">
-            <div class="modal-header">
-                <span class="status-badge pending"><i class="fas fa-circle-exclamation"></i> Pending</span>
-                <a href="#" class="modal-close"><i class="fas fa-xmark"></i></a>
-            </div>
-            <h3>Kurir Belum Sampai (SDA-01)</h3>
-            <p>Pesanan rutin untuk sekolah SDN 01 belum diterima hingga pukul 09:30 WIB. Pengemudi dilaporkan masih dalam perjalanan namun tidak ada pembaruan posisi.</p>
-            <div class="modal-meta">
-                <span><i class="fas fa-tag"></i> Keterlambatan</span>
-                <span><i class="fas fa-clock"></i> Today, 09:42</span>
-                <span><i class="fas fa-ticket"></i> #REP-8821</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="detail-8790">
-        <div class="modal-box">
-            <div class="modal-header">
-                <span class="status-badge investigating"><i class="fas fa-magnifying-glass"></i> Investigating</span>
-                <a href="#" class="modal-close"><i class="fas fa-xmark"></i></a>
-            </div>
-            <h3>Kemasan Bocor (Lote 442)</h3>
-            <p>Ditemukan 2 box susu dengan kemasan yang sedikit rembes saat pembongkaran. Tim QC sedang menginvestigasi asal mula kerusakan kemasan di gudang.</p>
-            <div class="modal-meta">
-                <span><i class="fas fa-tag"></i> Kualitas Produk</span>
-                <span><i class="fas fa-clock"></i> Yesterday</span>
-                <span><i class="fas fa-ticket"></i> #REP-8790</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="detail-8755">
-        <div class="modal-box">
-            <div class="modal-header">
-                <span class="status-badge resolved"><i class="fas fa-circle-check"></i> Resolved</span>
-                <a href="#" class="modal-close"><i class="fas fa-xmark"></i></a>
-            </div>
-            <h3>Kekurangan Stok Beras</h3>
-            <p>Kekurangan 5kg beras sudah diantisipasi dengan pengiriman susulan pada hari yang sama. Stok telah terpenuhi dan laporan ditandai selesai.</p>
-            <div class="modal-meta">
-                <span><i class="fas fa-tag"></i> Barang Kurang</span>
-                <span><i class="fas fa-clock"></i> 2 days ago</span>
-                <span><i class="fas fa-ticket"></i> #REP-8755</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="detail-8710">
-        <div class="modal-box">
-            <div class="modal-header">
-                <span class="status-badge resolved"><i class="fas fa-circle-check"></i> Resolved</span>
-                <a href="#" class="modal-close"><i class="fas fa-xmark"></i></a>
-            </div>
-            <h3>Salah Alamat Pengiriman</h3>
-            <p>Paket untuk SMPN 3 dikirim ke alamat yang keliru akibat kesalahan input data. Kurir telah mengambil kembali dan mengantar ke alamat yang benar.</p>
-            <div class="modal-meta">
-                <span><i class="fas fa-tag"></i> Lainnya</span>
-                <span><i class="fas fa-clock"></i> 3 days ago</span>
-                <span><i class="fas fa-ticket"></i> #REP-8710</span>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-green-600', 'bg-primary');
+                    btn.disabled = false;
+                    form.reset();
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body></html>

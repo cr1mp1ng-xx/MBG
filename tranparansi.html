@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001a42",
+                    "surface-container-low": "#eff4ff",
+                    "on-secondary-fixed-variant": "#3f465c",
+                    "tertiary": "#005ac2",
+                    "on-surface-variant": "#3c4a42",
+                    "on-primary-container": "#00422b",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-secondary-container": "#5c647a",
+                    "primary-fixed": "#6ffbbe",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary-fixed": "#dae2fd",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary-container": "#00367a",
+                    "on-primary-fixed": "#002113",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "primary-fixed-dim": "#4edea3",
+                    "primary-container": "#10b981",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed-variant": "#005236",
+                    "tertiary-container": "#71a1ff",
+                    "secondary-container": "#dae2fd",
+                    "secondary": "#565e74",
+                    "on-secondary-fixed": "#131b2e",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bbcabf",
+                    "tertiary-fixed-dim": "#adc6ff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#213145",
+                    "surface-variant": "#d3e4fe",
+                    "surface-container": "#e5eeff",
+                    "outline": "#6c7a71",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#d8e2ff",
+                    "primary": "#006c49",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#4edea3",
+                    "surface-tint": "#006c49",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "base": "4px",
+                    "sm": "16px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "lg": "32px",
+                    "gutter": "24px",
+                    "xs": "8px",
+                    "xl": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 0.5px solid #e2e8f0;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .circular-progress {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(var(--progress-color) calc(var(--value) * 1%), #e2e8f0 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .circular-progress::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #ffffff;
+        }
+        .circular-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        @media (max-width: 767px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile font-bold text-primary">Transparansi Gizi</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-high rounded-full cursor-pointer">share</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User Profile" data-alt="A professional studio portrait of a friendly Southeast Asian man in his 30s, smiling warmly. He is wearing a clean white shirt, suggesting a health professional or administrator role. The lighting is soft and high-key, maintaining a bright, modern corporate aesthetic consistent with a clean UI design. Background is a neutral, out-of-focus modern office environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh-kJ7TKvulkdHiiMwMXdT0kXLUBKYHnUAKCtxiWIc0qL96dT-8ejnAjL12DVldgOXijg8FmHe0Xg8dqZXOi5eQE1ULhcqAeJckh4bVLXGTh67TG7fSo0DAiVZdxbU0GpcKbrPIYMkybIH1SL0S08vAHkagadnoKS2z2T_K4XmLRC7di-8eF5gCgvII7LWiL2CS2OwkhEECCLBNb4uC_Sn7neN_DUu_cYO06JTs_AQvrC-uvCSST0_Q-SrarPppYu9BIv-YziP_RkC"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-4 md:px-12 max-w-container-max mx-auto">
+<!-- Hero Section: Package Info -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row gap-8 items-end">
+<div class="flex-1">
+<span class="inline-block px-3 py-1 bg-primary-container/10 text-primary font-label-md text-label-md rounded-full mb-4">Daily Meal Plan A-12</span>
+<h2 class="font-headline-lg text-headline-lg-mobile text-on-surface mb-2">Nasi Merah &amp; Ayam Bakar Madu</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">A balanced lunch designed for school-aged children, providing essential micronutrients for cognitive development and sustained energy levels throughout the day.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant text-center min-w-[100px]">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">CALORIES</p>
+<p class="font-headline-md text-headline-md text-primary">542 <span class="text-label-sm">kcal</span></p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant text-center min-w-[100px]">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">RATING</p>
+<div class="flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md ml-1">4.9</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Nutritional Layout -->
+<div class="bento-grid">
+<!-- Macronutrients Charts -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Nutrient Breakdown</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">Full Report</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+<div class="flex flex-col items-center">
+<div class="circular-progress" style="--value: 65; --progress-color: #10b981;">
+<div class="circular-content">
+<span class="font-headline-md text-headline-md text-on-surface">32g</span>
+</div>
+</div>
+<p class="mt-4 font-label-md text-label-md text-on-surface">PROTEIN</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">65% of Target</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="circular-progress" style="--value: 48; --progress-color: #005ac2;">
+<div class="circular-content">
+<span class="font-headline-md text-headline-md text-on-surface">58g</span>
+</div>
+</div>
+<p class="mt-4 font-label-md text-label-md text-on-surface">CARBS</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">48% of Target</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="circular-progress" style="--value: 22; --progress-color: #ba1a1a;">
+<div class="circular-content">
+<span class="font-headline-md text-headline-md text-on-surface">14g</span>
+</div>
+</div>
+<p class="mt-4 font-label-md text-label-md text-on-surface">FATS</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">22% of Target</p>
+</div>
+</div>
+<div class="mt-12 space-y-4">
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Micronutrients &amp; Vitamins</h4>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span>Vitamin A (Retinol)</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span>Iron (Fe)</span>
+<span class="text-primary">42%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[42%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span>Calcium (Ca)</span>
+<span class="text-primary">60%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[60%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Educational Tip (Sidebar style) -->
+<div class="col-span-12 md:col-span-4 space-y-6">
+<div class="bg-primary text-on-primary p-8 rounded-3xl shadow-lg relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4">lightbulb</span>
+<h3 class="font-headline-sm text-headline-sm mb-3">Pentingnya Protein</h3>
+<p class="font-body-md text-body-md opacity-90 leading-relaxed">Protein sangat penting untuk pertumbuhan otot dan perbaikan jaringan tubuh pada anak-anak. Menu ini mengandung protein hewani dan nabati yang seimbang.</p>
+<button class="mt-6 flex items-center gap-2 font-label-md text-label-md bg-white/20 px-4 py-2 rounded-full hover:bg-white/30 transition-all">
+                            Pelajari Lebih Lanjut
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+<div class="absolute -right-12 -bottom-12 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[200px]">psychology</span>
+</div>
+</div>
+<div class="bg-tertiary-container/20 border border-tertiary/20 p-8 rounded-3xl">
+<h3 class="font-headline-sm text-headline-sm text-on-tertiary-container mb-4">Quality Score</h3>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-tertiary">A+</span>
+<span class="font-body-md text-body-md text-on-tertiary-container pb-2">Superior Grade</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-tertiary-container mt-2 opacity-80">This meal meets all international school nutritional standards set by the WHO and Ministry of Health.</p>
+</div>
+</div>
+<!-- Ingredients & Traceability -->
+<div class="col-span-12 bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Ingredients &amp; Origin</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Traceability and sourcing transparency for every component.</p>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">eco</span>
+                            LOCAL FARMERS
+                        </div>
+<div class="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            BPOM CERTIFIED
+                        </div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Ingredient Card -->
+<div class="p-4 rounded-2xl hover:bg-surface-container transition-colors group">
+<div class="w-full aspect-video rounded-xl overflow-hidden mb-4 relative">
+<img alt="Red Rice" data-alt="A macro photograph of high-quality organic red rice grains from Indonesia. The image is bright with natural sunlight, showcasing the rich earthy textures and deep reddish-brown color of the husk. The composition is clean and minimalist, set against a light marble surface to match a premium health-conscious UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPB10vZYdOPZ-XRy_jB3-tGdkXqpiP9reFGkDkbiEZQZCIYsLuD1JcPTSJocCgM69MfEyg80MDSXtd44FeIZZmocb7-zxKLTacTGJTyz73KlAgbU76xb7mRWCzx8KnLe6VsaVEECnj0XWShgOQPx6VvALbos2YSytE8v5M5-zPfDlc0V3nJh-bJQs9084v92dI09lPxm10HEjMsyb45UZNC2vfyQdOTFU6UFkuK05_bVRCOvlSNmQB_I3OWG-hle_rdYk1SX4pVI6m"/>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Nasi Merah Organik</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Sourced from: Subak Jatiluwih, Bali</p>
+<div class="mt-2 flex items-center text-primary text-[12px] font-bold tracking-tight">
+<span class="material-symbols-outlined text-[14px] mr-1">location_on</span>
+                            420km FROM KITCHEN
+                        </div>
+</div>
+<div class="p-4 rounded-2xl hover:bg-surface-container transition-colors group">
+<div class="w-full aspect-video rounded-xl overflow-hidden mb-4 relative">
+<img alt="Honey Chicken" data-alt="Close-up of succulent grilled chicken breast glazed with golden honey and garnished with fresh green herbs. The lighting is warm and appetizing, highlighting the moisture and glazed surface. The background is a soft-focus wooden kitchen setting, evoking a sense of home-cooked quality and natural ingredients. Consistent with modern food photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBItaxCQ-kdHnbYL5ecqelUBmsUSUNwskzjQlcKeDtjROifg5PzkrHahdYimiYsM13dqP0C7z-e1sFQZFvotF1REgKZx5CMO5XAu3DMxfIsmIso3_Dt5djhEUjjphkSTb8-nu9Mu0iLq8Li7Er0VmPjLHpY-Wb6oCNpYA5asNwy1Kmql3X_PeUPirRh-wwd6HXAcVVXo_UMmm4ZmgVEGTw9OVCG488IOD4Jbc2xFm9oG64BC4aIECHsGMR1WpsFP195BlU8Xg6G3Jen"/>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Ayam Probiotik</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Sourced from: Peternak Mandiri, Bogor</p>
+<div class="mt-2 flex items-center text-primary text-[12px] font-bold tracking-tight">
+<span class="material-symbols-outlined text-[14px] mr-1">location_on</span>
+                            45km FROM KITCHEN
+                        </div>
+</div>
+<div class="p-4 rounded-2xl hover:bg-surface-container transition-colors group">
+<div class="w-full aspect-video rounded-xl overflow-hidden mb-4 relative">
+<img alt="Honey" data-alt="Pure golden honey being drizzled from a wooden dipper into a crystal jar. The light catches the amber liquid, creating a glowing effect. The setting is bright and clean, emphasizing purity and natural sweetness. The color palette is dominated by warm yellows and crisp whites, fitting the nutritious and transparent brand theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdpfhXJyMsnFKS2CNMhFR9pXVav7p48_9b41X6wdwF2xynH6BkT_mbkaCdoFL58OKAkHPQxS_AXZTR8spRm6a2nt3zYfp04xRE9CmMl_q6Bat-kpHhzTTju_-a93FAL-4sUrU9wgRyIDhSGJ5M_OCsuUFyA35BhssLIK6A2aBRg8GAf_kDkr7QYKQnQpMQenldYs0FZXB2W0WUyJkO6Y31d8j79eAJxK5qga3q36FiH-tMxKri7ButeE4xSCL-irRvwDHyRkRBnhrY"/>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Madu Hutan Liar</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Sourced from: Perhutani, Jawa Barat</p>
+<div class="mt-2 flex items-center text-primary text-[12px] font-bold tracking-tight">
+<span class="material-symbols-outlined text-[14px] mr-1">location_on</span>
+                            112km FROM KITCHEN
+                        </div>
+</div>
+<div class="p-4 rounded-2xl hover:bg-surface-container transition-colors group">
+<div class="w-full aspect-video rounded-xl overflow-hidden mb-4 relative">
+<img alt="Broccoli" data-alt="Fresh, vibrant green broccoli florets arranged artistically on a light slate background. The image has a crisp, high-definition quality with soft shadows, highlighting the intricate texture of the vegetable. The scene is illuminated by soft daylight, projecting a fresh, healthy, and organic vibe suitable for a nutritional dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE0ec35fuCEsawFxMYNjBZX3VoNvmU433v2P6trDxth5Nj_BrXnWp-No1XT7eOhIDxyrWLNkaEo4dPm1UifpCn3oV50BNyw_u_4_fyCH23o5ZxXOHVLODQWadGWUYjWh6uxiQ-2X1CUFK-LlBUsShpt-kgtev3DHOIJUixRhJOxu9vRylD_MEMKOEv2wPiOEeW1nB0IYQi3v3TZ4nTQubhZJU4gyWYVEtcw2ZDqQXw2HooDERcjWe27BY16Vn6ytj7IBNRAjLxCZnT"/>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Brokoli Hijau</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Sourced from: Lembang Farmers Co-op</p>
+<div class="mt-2 flex items-center text-primary text-[12px] font-bold tracking-tight">
+<span class="material-symbols-outlined text-[14px] mr-1">location_on</span>
+                            28km FROM KITCHEN
+                        </div>
+</div>
+</div>
+</div>
+<!-- Health Impact Micro-interaction Area -->
+<div class="col-span-12 md:col-span-7 bg-surface-container-high p-8 rounded-3xl">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">Predicted Health Impact</h3>
+<div class="flex items-start gap-6">
+<div class="w-24 h-24 bg-white rounded-2xl flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-primary text-5xl">bolt</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">6-Hour Energy Release</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">Due to the complex carbohydrates in the red rice and lean protein from the honey chicken, this meal provides a steady glycemic response, preventing afternoon fatigue.</p>
+<div class="mt-6 flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="User" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="A soft-focus portrait of a young student child smiling, representing the beneficiaries of the nutrition program. The lighting is optimistic and warm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuX6aIe6AUgZdNM_PBSI8tyOBQmQmyH7OZunXnF_yuTGPFHWDymUomxd1ZqxcIrdimN1RYXIWLH7G9hlNiNd2DC3z141PUwy1LDAu5H5aYccnlIJcb0HSxDrGGWMDUWXeurG0bEG21cl220t3HUGvl9VG_OTDjOc1MciTF9Llp1c25a0JRhHNxuXJp-QpswQggP31ZkYqvCF0FpfcOw90UiwSrY-R2nWYiN31jZ1wiWOI1V5FrtW6bYcS8JC5lZ0TLkaiF3CNBf6I9"/>
+<img alt="User" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="A portrait of a primary school student, looking healthy and engaged, suggesting the positive impact of nutritional meals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClNVYqEz7iF3RXMF-awMpo7t4gimZvo5yoyEF6XYtEw2eymWSZOnCMdyuIa8S9GzpzV5SpT0Rr0lU9az362tkH9vm03ZK9PUzcusm--K00mA8JD2VjaEitqVjHOn3dzn0bBpLrk-uHq7MGSnsszSI_Vqo0ifqAKxA49gPesbwAcFVH9hximsaSFI9vZgKApLmeo3zeTW1Pd3TZ-WYftzX9SsB_MsL02c90kn87TX2wYu6oyzZIdjSMkwwDSUQJ3t6KLzR1Zh7HgT15"/>
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim border-2 border-surface flex items-center justify-center text-[10px] font-bold text-on-primary-fixed">12k+</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Students benefited today</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Kitchen Analytics</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">thermometer</span>
+<span class="font-body-md text-body-md">Cooking Temp</span>
+</div>
+<span class="font-label-md text-label-md bg-green-100 text-green-700 px-2 py-0.5 rounded">74°C (Safe)</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">schedule</span>
+<span class="font-body-md text-body-md">Preparation Time</span>
+</div>
+<span class="font-body-md text-body-md font-semibold">42 Mins</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+<span class="font-body-md text-body-md">Storage Method</span>
+</div>
+<span class="font-body-md text-body-md">Eco-Recyclable Box</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Batch QR ID</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">MBG-JKT-120424-A</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest shadow-lg border-t border-outline-variant rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all duration-150 p-2 rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all duration-150 p-2 rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-label-sm text-label-sm">Tracking</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all duration-150 p-2 rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-sm text-label-sm">Distribution</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-150 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-sm text-label-sm">Reports</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all duration-150 p-2 rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for circular progress animation simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            const circulars = document.querySelectorAll('.circular-progress');
+            circulars.forEach(circular => {
+                const targetValue = circular.style.getPropertyValue('--value');
+                circular.style.setProperty('--value', 0);
+                
+                setTimeout(() => {
+                    circular.style.transition = 'all 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                    circular.style.setProperty('--value', targetValue);
+                }, 200);
+            });
+        });
+    </script>
+</body></html>
