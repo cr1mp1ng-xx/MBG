@@ -8,7 +8,6 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -113,19 +112,9 @@
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #bbcabf;
-            border-radius: 10px;
-        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #bbcabf; border-radius: 10px; }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
@@ -140,348 +129,303 @@
             width: 2px;
             background: linear-gradient(to bottom, transparent, #bbcabf 10%, #bbcabf 90%, transparent);
         }
+
+        .sidebar-nav {
+            width: 64px;
+            box-shadow: none;
+            outline: none;
+        }
     </style>
     <style>
-        body {
-            min-height: max(884px, 100dvh);
+        body { 
+            min-height: max(884px, 100dvh); 
         }
     </style>
 </head>
 
-<body class="bg-surface font-body-md text-on-surface antialiased">
-    <!-- Top AppBar -->
-    <header
-        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
-                <span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<body class="bg-surface font-body-md text-on-surface antialiased overflow-hidden">
+    <!-- Layout Wrapper -->
+    <div class="flex h-screen w-full overflow-hidden">
+        <!-- Left Sidebar Navigation -->
+        <nav class="sidebar-nav fixed left-0 top-0 h-full z-50 flex flex-col items-center bg-surface-container-lowest" style="padding-top: 0; padding-bottom: 24px; width: 64px; border-right: 1px solid #e8eaed;">
+            <!-- Top area matching header height -->
+            <div class="w-full flex items-center justify-center flex-shrink-0" style="height: 64px; border-bottom: 1px solid #e8eaed;">
+                <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
             </div>
-            <h1 class="font-headline-md text-headline-md-mobile font-bold text-primary">MBG Dashboard</h1>
+
+            <!-- Nav Items -->
+            <div class="flex flex-col items-center w-full" style="gap: 24px; padding: 24px 10px 0 10px;">
+                <a href="dashboard.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Home">
+                    <span class="material-symbols-outlined text-[22px]">home</span>
+                </a>
+                <a href="tracking.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Tracking">
+                    <span class="material-symbols-outlined text-[22px]">location_on</span>
+                </a>
+                <a href="jadwal.html" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-primary text-on-primary shadow-md transition-all active:scale-95" title="Distribusi">
+                    <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                </a>
+                <a href="laporan.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Laporan">
+                    <span class="material-symbols-outlined text-[22px]">analytics</span>
+                </a>
+            </div>
+
+            <!-- Profile at Bottom -->
+            <div class="mt-auto flex flex-col items-center w-full" style="padding: 0 10px;">
+                <a href="profile.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Profile">
+                    <span class="material-symbols-outlined text-[22px]">account_circle</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden" style="margin-left: 64px;">
+            <!-- Top AppBar -->
+            <header class="fixed top-0 z-40 flex justify-between items-center h-16 bg-surface" style="left: 64px; right: 0; padding-left: 20px; padding-right: 20px; border-bottom: 1px solid #e8eaed;">
+                <!-- Left: Truck Icon + Title -->
+                <div class="flex items-center gap-2">
+                    <h1 class="font-bold text-primary" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; letter-spacing: -0.01em;">MBG Penjadwalan</h1>
+                </div>
+                <!-- Right: Bell + Avatar -->
+                <div class="flex items-center gap-3">
+                    <button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95">
+                        <span class="material-symbols-outlined text-[22px]">notifications</span>
+                    </button>
+                    <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-outline-variant shadow-sm flex-shrink-0">
+                        <img alt="User Profile" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZpX1KGpa_p1_re_t0X7f2nOo6SpffMj8Oauk-guFEPtYd9MamDjy1zKMIg488Poo_CLjgOcM4jzyTFKpuPUmVW-ZT7buPkXhnXRsYCl1iu2dqz2KI-bXaZ-Jjc-2kC9pe-lEoE9iNjdIBI76RDVDxgcxvWYAGKEjQKhk_yOMb3yqSmvrDNgoorYleyl2916-3969UvXmYBBicrDzrOU6X4IXyWhkq4e2oFoNuYTga1M50MW4lUIVFwKDsFRJEpaDq3oVmU9VuPmSH" />
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scrollable Main Content -->
+            <main class="flex-1 overflow-y-auto pt-16" style="padding: 64px 48px 32px 48px;">
+                <!-- Page Title & CTA -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pt-6">
+                    <div>
+                        <h2 class="font-headline-lg text-headline-lg-mobile text-on-surface">Jadwal Distribusi</h2>
+                        <p class="font-body-sm text-on-surface-variant">Pemantauan logistik makanan bergizi untuk sekolah secara real-time.</p>
+                    </div>
+                    <button class="flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md shadow-md hover:scale-[1.02] active:scale-95 transition-all">
+                        <span class="material-symbols-outlined">add</span>
+                        Tambah Jadwal
+                    </button>
+                </div>
+                <!-- Horizontal Date Picker -->
+                <section class="mb-8 overflow-hidden">
+                    <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-primary text-on-primary shadow-lg ring-4 ring-primary-container/20">
+                            <span class="font-label-sm opacity-80">SEN</span>
+                            <span class="font-headline-md font-bold">20</span>
+                        </button>
+                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="font-label-sm text-on-surface-variant">SEL</span>
+                            <span class="font-headline-md font-bold">21</span>
+                        </button>
+                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="font-label-sm text-on-surface-variant">RAB</span>
+                            <span class="font-headline-md font-bold">22</span>
+                        </button>
+                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="font-label-sm text-on-surface-variant">KAM</span>
+                            <span class="font-headline-md font-bold">23</span>
+                        </button>
+                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="font-label-sm text-on-surface-variant">JUM</span>
+                            <span class="font-headline-md font-bold">24</span>
+                        </button>
+                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="font-label-sm text-on-surface-variant">SAB</span>
+                            <span class="font-headline-md font-bold">25</span>
+                        </button>
+                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="font-label-sm text-on-surface-variant">MIN</span>
+                            <span class="font-headline-md font-bold">26</span>
+                        </button>
+                    </div>
+                </section>
+                <!-- Timeline Content -->
+                <div class="relative grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Timeline Column -->
+                    <div class="lg:col-span-2 space-y-8 relative">
+                        <div class="timeline-line hidden md:block"></div>
+                        <div class="relative pl-0 md:pl-12 flex items-center" style="line-height: 1;">
+                            <span class="text-xl font-semibold text-on-surface" style="line-height: 1;">Pengiriman Hari Ini</span>
+                        </div>
+                        <!-- Delivery Item 1: Delivered -->
+                        <div class="relative pl-0 md:pl-12">
+                            <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-primary ring-4 ring-primary-container hidden md:block"></div>
+                            <div class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm hover:scale-[1.01] transition-transform">
+                                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                                    <div class="flex gap-4">
+                                        <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+                                            <span class="material-symbols-outlined">school</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-headline-sm text-on-surface">SD Negeri 01 Surakarta</h4>
+                                            <p class="font-body-sm text-on-surface-variant">ETA: 08:00 AM • Tiba: 08:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-primary/10 text-primary px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Diterima
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">restaurant</span>
+                                        <div>
+                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Tipe Makanan</p>
+                                            <p class="font-label-md text-on-surface">Menu Sehat A</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">group</span>
+                                        <div>
+                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Porsi</p>
+                                            <p class="font-label-md text-on-surface">450 porsi MBG</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Delivery Item 2: In Transit -->
+                        <div class="relative pl-0 md:pl-12">
+                            <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-tertiary ring-4 ring-tertiary-container hidden md:block"></div>
+                            <div class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-tertiary hover:scale-[1.01] transition-transform">
+                                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                                    <div class="flex gap-4">
+                                        <div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary shrink-0">
+                                            <span class="material-symbols-outlined">school</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-headline-sm text-on-surface">SMP Muhammadiyah 4 Malang</h4>
+                                            <p class="font-body-sm text-on-surface-variant">ETA: 09:12 AM • 1.4 km lagi</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[16px] animate-pulse">local_shipping</span>
+                                        Mengirim
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">restaurant</span>
+                                        <div>
+                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Tipe Makanan</p>
+                                            <p class="font-label-md text-on-surface">Menu Sehat B</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">group</span>
+                                        <div>
+                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Porsi</p>
+                                            <p class="font-label-md text-on-surface">350 porsi MBG</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Live Map Snip -->
+                                <div class="mt-4 h-24 w-full rounded-lg overflow-hidden relative border border-outline-variant">
+                                    <img alt="Delivery route map" class="w-full h-full object-cover grayscale opacity-50"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGBRu7zEKA8_z2UFBZZUVEHJwJTq--9pZu_9f1gHAPI1HhwVvvbzGLFvmwOgrvy9fAQnuAbSjL60x2XF8xXQN69A01PNfVIHlRAwvi4An-5Bmw0eH7bvV1GKx5h4ItsQwYXw0MJUR0ah9Q8H-zyJ4C6nUQfpIbQ4x-X7oxvIEaDQ7eVpwuYkgLNCE1-gjjUlm_ZL_tVyCZVnn7ZbrIL8M_IKtwwEhd3j4hv7XrvPpSaNhdptjiwYf34fiN3k_kizbclAKFk3L3IaY" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low/80 to-transparent flex items-end p-2">
+                                        <p class="text-[10px] font-bold text-tertiary">LIVE TRACKING ACTIVE</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Delivery Item 3: Preparing -->
+                        <div class="relative pl-0 md:pl-12">
+                            <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-outline-variant ring-4 ring-surface-container-high hidden md:block"></div>
+                            <div class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm hover:scale-[1.01] transition-transform">
+                                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                                    <div class="flex gap-4">
+                                        <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+                                            <span class="material-symbols-outlined">school</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-headline-sm text-on-surface">SMAN 70 Bulungan</h4>
+                                            <p class="font-body-sm text-on-surface-variant">Dijadwalkan: 12:00 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[16px]">inventory</span>
+                                        Disiapkan
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">restaurant</span>
+                                        <div>
+                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Tipe Makanan</p>
+                                            <p class="font-label-md text-on-surface">Menu Sehat C</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">group</span>
+                                        <div>
+                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Porsi</p>
+                                            <p class="font-label-md text-on-surface">780 porsi MBG</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side Info/Stats Column -->
+                    <div class="space-y-6">
+                        <div class="glass-card p-md rounded-2xl border border-outline-variant shadow-sm">
+                            <h3 class="font-headline-sm font-semibold mb-4">Ringkasan Hari Ini</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-on-surface-variant font-body-sm">Total Pengiriman</span>
+                                    <span class="font-bold text-on-surface">12 Sekolah</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-on-surface-variant font-body-sm">Selesai</span>
+                                    <span class="font-bold text-primary">8/12</span>
+                                </div>
+                                <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                                    <div class="bg-primary h-full rounded-full" style="width: 66%"></div>
+                                </div>
+                                <p class="text-[12px] text-on-surface-variant text-center">80% dari target harian tercapai</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-md rounded-2xl border border-outline-variant shadow-sm">
+                            <h3 class="font-headline-sm font-semibold mb-4">Status Armada</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                    <span class="text-on-surface font-body-sm">8 Truk Aktif</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-tertiary"></div>
+                                    <span class="text-on-surface font-body-sm">2 Dalam Perawatan</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-error"></div>
+                                    <span class="text-on-surface font-body-sm">0 Insiden Dilaporkan</span>
+                                </div>
+                            </div>
+                            <button class="mt-6 w-full py-2 border border-outline font-semibold text-on-surface-variant rounded-lg font-label-md hover:bg-surface-container-low transition-colors" >Lihat Peta Armada Detail</button>
+                        </div>
+                        <!-- Weather Alert -->
+                        <div class="bg-tertiary-container/20 p-md rounded-2xl border border-tertiary-container/30">
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-tertiary">cloudy_snowing</span>
+                                <div>
+                                    <h4 class="font-label-md text-on-tertiary-container">Prediksi Hujan Ringan</h4>
+                                    <p class="text-body-sm text-on-tertiary-container mt-1">Pukul 13:00. Disarankan pengemudi untuk hati-hati dalam mengemudi dan selamat sampai tujuan. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
-        <div class="flex items-center gap-4">
-            <button
-                class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
-                <span class="material-symbols-outlined text-on-surface-variant"
-                    data-icon="notifications">notifications</span>
-            </button>
-            <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
-                <img alt="User Profile"
-                    data-alt="Professional profile headshot of a logistics officer in a clean office environment. The lighting is bright and natural, maintaining a professional and high-performance SaaS platform aesthetic with subtle green and blue undertones from the corporate branding."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZpX1KGpa_p1_re_t0X7f2nOo6SpffMj8Oauk-guFEPtYd9MamDjy1zKMIg488Poo_CLjgOcM4jzyTFKpuPUmVW-ZT7buPkXhnXRsYCl1iu2dqz2KI-bXaZ-Jjc-2kC9pe-lEoE9iNjdIBI76RDVDxgcxvWYAGKEjQKhk_yOMb3yqSmvrDNgoorYleyl2916-3969UvXmYBBicrDzrOU6X4IXyWhkq4e2oFoNuYTga1M50MW4lUIVFwKDsFRJEpaDq3oVmU9VuPmSH" />
-            </div>
-        </div>
-    </header>
-    <main class="pt-20 pb-24 px-4 md:px-xl max-w-container-max mx-auto">
-        <!-- Page Title & CTA -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-            <div>
-                <h2 class="font-headline-lg text-headline-lg-mobile text-on-surface">Jadwal Distribusi</h2>
-                <p class="font-body-sm text-on-surface-variant">Pemantauan logistik makanan bergizi untuk sekolah secara
-                    real-time.</p>
-            </div>
-            <button
-                class="flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md shadow-md hover:scale-[1.02] active:scale-95 transition-all">
-                <span class="material-symbols-outlined" data-icon="add">add</span>
-                Tambah Jadwal
-            </button>
-        </div>
-        <!-- Horizontal Date Picker -->
-        <section class="mb-8 overflow-hidden">
-            <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
-                <!-- Pre-selected Day -->
-                <button
-                    class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-primary text-on-primary shadow-lg ring-4 ring-primary-container/20">
-                    <span class="font-label-sm opacity-80">SEN</span>
-                    <span class="font-headline-md font-bold">20</span>
-                </button>
-                <!-- Other Days -->
-                <button
-                    class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                    <span class="font-label-sm text-on-surface-variant">SEL</span>
-                    <span class="font-headline-md font-bold">21</span>
-                </button>
-                <button
-                    class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                    <span class="font-label-sm text-on-surface-variant">RAB</span>
-                    <span class="font-headline-md font-bold">22</span>
-                </button>
-                <button
-                    class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                    <span class="font-label-sm text-on-surface-variant">KAM</span>
-                    <span class="font-headline-md font-bold">23</span>
-                </button>
-                <button
-                    class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                    <span class="font-label-sm text-on-surface-variant">JUM</span>
-                    <span class="font-headline-md font-bold">24</span>
-                </button>
-                <button
-                    class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                    <span class="font-label-sm text-on-surface-variant">SAT</span>
-                    <span class="font-headline-md font-bold">25</span>
-                </button>
-                <button
-                    class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                    <span class="font-label-sm text-on-surface-variant">SUN</span>
-                    <span class="font-headline-md font-bold">26</span>
-                </button>
-            </div>
-        </section>
-        <!-- Timeline Content -->
-        <div class="relative grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Timeline Column -->
-            <div class="lg:col-span-2 space-y-8 relative">
-                <div class="timeline-line hidden md:block"></div>
-                <h3 class="font-headline-sm text-on-surface flex items-center gap-2 px-4 md:px-0"><span
-                        class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span> Pengiriman
-                    Hari Ini</h3>
-                <!-- Delivery Item 1: Delivered -->
-                <div class="relative pl-0 md:pl-12">
-                    <!-- Dot for desktop timeline -->
-                    <div
-                        class="absolute left-4 top-6 w-2 h-2 rounded-full bg-primary ring-4 ring-primary-container hidden md:block">
-                    </div>
-                    <div
-                        class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm hover:scale-[1.01] transition-transform">
-                        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
-                            <div class="flex gap-4">
-                                <div
-                                    class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
-                                    <span class="material-symbols-outlined" data-icon="school">school</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-headline-sm text-on-surface">SDN Kebayoran Baru 01</h4>
-                                    <p class="font-body-sm text-on-surface-variant">ETA: 08:30 AM • Arrived: 08:25 AM
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-primary/10 text-primary px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[16px]" data-icon="check_circle"
-                                    style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                                Delivered
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-on-secondary-fixed-variant"
-                                    data-icon="restaurant">restaurant</span>
-                                <div>
-                                    <p
-                                        class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">
-                                        Tipe Makanan</p>
-                                    <p class="font-label-md text-on-surface">Menu Sehat A</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-on-secondary-fixed-variant"
-                                    data-icon="group">group</span>
-                                <div>
-                                    <p
-                                        class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">
-                                        Porsi</p>
-                                    <p class="font-label-md text-on-surface">450 packs</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Delivery Item 2: In Transit -->
-                <div class="relative pl-0 md:pl-12">
-                    <div
-                        class="absolute left-4 top-6 w-2 h-2 rounded-full bg-tertiary ring-4 ring-tertiary-container hidden md:block">
-                    </div>
-                    <div
-                        class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-tertiary hover:scale-[1.01] transition-transform">
-                        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
-                            <div class="flex gap-4">
-                                <div
-                                    class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary shrink-0">
-                                    <span class="material-symbols-outlined" data-icon="school">school</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-headline-sm text-on-surface">SMPN 12 Jakarta</h4>
-                                    <p class="font-body-sm text-on-surface-variant">ETA: 10:15 AM • 2.4 km away</p>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[16px] animate-pulse"
-                                    data-icon="local_shipping">local_shipping</span>
-                                In Transit
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-on-secondary-fixed-variant"
-                                    data-icon="restaurant">restaurant</span>
-                                <div>
-                                    <p
-                                        class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">
-                                        Tipe Makanan</p>
-                                    <p class="font-label-md text-on-surface">Menu Sehat B</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-on-secondary-fixed-variant"
-                                    data-icon="group">group</span>
-                                <div>
-                                    <p
-                                        class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">
-                                        Porsi</p>
-                                    <p class="font-label-md text-on-surface">620 packs</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Live Map Snip -->
-                        <div class="mt-4 h-24 w-full rounded-lg overflow-hidden relative border border-outline-variant">
-                            <img alt="Delivery route map" class="w-full h-full object-cover grayscale opacity-50"
-                                data-alt="A stylized overhead map view of Jakarta city streets with a primary green logistics route highlighted. The map has a clean, modern aesthetic with a soft slate color palette and glowing markers representing the delivery vehicle moving through the city grid."
-                                data-location="Jakarta"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGBRu7zEKA8_z2UFBZZUVEHJwJTq--9pZu_9f1gHAPI1HhwVvvbzGLFvmwOgrvy9fAQnuAbSjL60x2XF8xXQN69A01PNfVIHlRAwvi4An-5Bmw0eH7bvV1GKx5h4ItsQwYXw0MJUR0ah9Q8H-zyJ4C6nUQfpIbQ4x-X7oxvIEaDQ7eVpwuYkgLNCE1-gjjUlm_ZL_tVyCZVnn7ZbrIL8M_IKtwwEhd3j4hv7XrvPpSaNhdptjiwYf34fiN3k_kizbclAKFk3L3IaY" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-surface-container-low/80 to-transparent flex items-end p-2">
-                                <p class="text-[10px] font-bold text-tertiary">LIVE TRACKING ACTIVE</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Delivery Item 3: Preparing -->
-                <div class="relative pl-0 md:pl-12">
-                    <div
-                        class="absolute left-4 top-6 w-2 h-2 rounded-full bg-outline-variant ring-4 ring-surface-container-high hidden md:block">
-                    </div>
-                    <div
-                        class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm hover:scale-[1.01] transition-transform">
-                        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
-                            <div class="flex gap-4">
-                                <div
-                                    class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
-                                    <span class="material-symbols-outlined" data-icon="school">school</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-headline-sm text-on-surface">SMAN 70 Bulungan</h4>
-                                    <p class="font-body-sm text-on-surface-variant">Scheduled: 12:00 PM</p>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[16px]"
-                                    data-icon="inventory">inventory</span>
-                                Preparing
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-on-secondary-fixed-variant"
-                                    data-icon="restaurant">restaurant</span>
-                                <div>
-                                    <p
-                                        class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">
-                                        Tipe Makanan</p>
-                                    <p class="font-label-md text-on-surface">High Protein C</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-on-secondary-fixed-variant"
-                                    data-icon="group">group</span>
-                                <div>
-                                    <p
-                                        class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">
-                                        Porsi</p>
-                                    <p class="font-label-md text-on-surface">890 packs</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Side Info/Stats Column -->
-            <div class="space-y-6">
-                <div class="glass-card p-md rounded-2xl border border-outline-variant shadow-sm">
-                    <h3 class="font-headline-sm text-on-surface mb-4">Ringkasan Hari Ini</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center">
-                            <span class="text-on-surface-variant font-body-sm">Total Pengiriman</span>
-                            <span class="font-bold text-on-surface">12 Sekolah</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-on-surface-variant font-body-sm">Selesai</span>
-                            <span class="font-bold text-primary">8/12</span>
-                        </div>
-                        <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
-                            <div class="bg-primary h-full rounded-full" style="width: 66%"></div>
-                        </div>
-                        <p class="text-[12px] text-on-surface-variant text-center">66% dari target harian tercapai</p>
-                    </div>
-                </div>
-                <div class="glass-card p-md rounded-2xl border border-outline-variant shadow-sm">
-                    <h3 class="font-headline-sm text-on-surface mb-4">Status Armada</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-2 h-2 rounded-full bg-primary"></div>
-                            <span class="text-on-surface font-body-sm">8 Truk Aktif</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-2 h-2 rounded-full bg-tertiary"></div>
-                            <span class="text-on-surface font-body-sm">2 Dalam Perawatan</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-2 h-2 rounded-full bg-error"></div>
-                            <span class="text-on-surface font-body-sm">0 Insiden Dilaporkan</span>
-                        </div>
-                    </div>
-                    <button
-                        class="mt-6 w-full py-2 border border-outline text-on-surface-variant rounded-lg font-label-md hover:bg-surface-container-low transition-colors">Lihat
-                        Peta Armada Detail</button>
-                </div>
-                <!-- Weather Alert (Dynamic Context) -->
-                <div class="bg-tertiary-container/20 p-md rounded-2xl border border-tertiary-container/30">
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-tertiary"
-                            data-icon="cloudy_snowing">cloudy_snowing</span>
-                        <div>
-                            <h4 class="font-label-md text-on-tertiary-container">Prediksi Hujan Ringan</h4>
-                            <p class="text-body-sm text-on-tertiary-container mt-1">Diharapkan pukul 13:00. Sarankan
-                                pengemudi untuk menggunakan penutup kargo tahan air.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <!-- Bottom Navigation Bar -->
-    <nav
-        class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe border-t border-outline-variant bg-surface-container-lowest shadow-lg">
-        <a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all"
-            href="#">
-            <span class="material-symbols-outlined" data-icon="home">home</span>
-            <span class="font-label-sm text-label-sm">Beranda</span>
-        </a>
-        <a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all"
-            href="#">
-            <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
-            <span class="font-label-sm text-label-sm">Pelacakan</span>
-        </a>
-        <a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-150"
-            href="#">
-            <span class="material-symbols-outlined" data-icon="local_shipping"
-                style="font-variation-settings: 'FILL' 1;">local_shipping</span>
-            <span class="font-label-sm text-label-sm">Distribusi</span>
-        </a>
-        <a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all"
-            href="#">
-            <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
-            <span class="font-label-sm text-label-sm">Laporan</span>
-        </a>
-        <a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all"
-            href="#">
-            <span class="material-symbols-outlined" data-icon="person">person</span>
-            <span class="font-label-sm text-label-sm">Profil</span>
-        </a>
-    </nav>
+    </div>
+
     <script>
-        // Micro-interaction for date picker
         document.querySelectorAll('section button').forEach(btn => {
             btn.addEventListener('click', function () {
                 document.querySelectorAll('section button').forEach(b => {

@@ -6,9 +6,15 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>MBG - Login</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -151,8 +157,7 @@
 
 <body class="bg-background text-on-surface font-body-md min-h-screen flex items-center justify-center p-4 food-pattern overflow-x-hidden">
     <!-- Main Auth Canvas -->
-    <main
-        class="relative z-10 w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-[2rem] shadow-2xl glass-card">
+    <main class="relative z-10 w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-[2rem] shadow-2xl glass-card">
         <!-- Branding Section (Visible on Desktop) -->
         <div class="hidden lg:flex flex-col justify-between p-xl bg-primary text-on-primary relative overflow-hidden">
             <div class="absolute inset-0 opacity-10 pointer-events-none">
@@ -182,6 +187,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Form Section -->
         <div class="p-lg md:p-xl bg-surface-container-lowest flex flex-col justify-center">
             <div class="max-w-md mx-auto w-full">
@@ -194,17 +200,15 @@
                     <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Selamat Datang di MBG</h2>
                     <p class="font-body-md text-body-md text-on-surface-variant">Masuk untuk mengelola data distribusi pangan bergizi.</p>
                 </div>
+
                 <!-- Auth Mode Switch -->
                 <div class="space-y-6" id="authContainer">
                     <form class="space-y-5" id="loginForm">
                         <div class="space-y-2">
                             <label class="font-label-md text-label-md text-on-surface" for="email">Email / NIP</label>
                             <div class="relative group">
-                                <span
-                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">mail</span>
-                                <input
-                                    class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40"
-                                    id="email" placeholder="nama@MBG.co.id" required="" type="email" />
+                                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">mail</span>
+                                <input class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40" id="email" placeholder="nama@MBG.co.id" required="" type="email" />
                             </div>
                         </div>
                         <div class="space-y-2">
@@ -213,28 +217,19 @@
                                 <a class="font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">Lupa Password?</a>
                             </div>
                             <div class="relative group">
-                                <span
-                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">lock</span>
-                                <input
-                                    class="w-full pl-11 pr-12 py-3 bg-slate-50 border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40"
-                                    id="password" placeholder="••••••••" required="" type="password" />
-                                <button
-                                    class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors"
-                                    type="button">
+                                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">lock</span>
+                                <input class="w-full pl-11 pr-12 py-3 bg-slate-50 border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/40" id="password" placeholder="••••••••" required="" type="password" />
+                                <button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" type="button">
                                     <span class="material-symbols-outlined">visibility</span>
                                 </button>
                             </div>
                         </div>
                         <div class="flex items-center gap-3 py-2">
-                            <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary"
-                                id="remember" type="checkbox" />
-                            <label class="font-body-sm text-body-sm text-on-surface-variant select-none"
-                                for="remember">Ingat perangkat ini selama 30 hari</label>
+                            <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox" />
+                            <label class="font-body-sm text-body-sm text-on-surface-variant select-none" for="remember">Ingat perangkat ini selama 30 hari</label>
                         </div>
-                        <button
-                            class="w-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
-                            type="submit">
-                            <span>Masuk ke Dashboard</span>
+                        <button type="button" onclick="window.location.href='dashboard.html'" class="w-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                            <span>Masuk</span>
                             <span class="material-symbols-outlined text-[20px]">login</span>
                         </button>
                     </form>
@@ -256,19 +251,18 @@
                     </p>
                 </div>
             </div>
+
             <!-- Footer Meta -->
-            <div
-                class="mt-auto pt-lg border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="mt-auto pt-lg border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-label-sm text-on-surface-variant/60">© 2026 MBG. All rights reserved.</p>
                 <div class="flex items-center gap-6">
-                    <a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors"
-                        href="#">Kebijakan Privasi</a>
-                    <a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors"
-                        href="#">Bantuan</a>
+                    <a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
+                    <a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Bantuan</a>
                 </div>
             </div>
         </div>
     </main>
+
     <script>
         // Simple Interaction logic
         const loginForm = document.getElementById('loginForm');

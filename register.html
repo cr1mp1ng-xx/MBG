@@ -151,8 +151,7 @@
 
 <body class="bg-background text-on-surface font-body-md min-h-screen flex items-center justify-center p-4 food-pattern overflow-x-hidden">
     <!-- Main Auth Canvas -->
-    <main
-        class="relative z-10 w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-[2rem] shadow-2xl glass-card">
+    <main class="relative z-10 w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-[2rem] shadow-2xl glass-card">
         <!-- Branding Section (Visible on Desktop) -->
         <div class="hidden lg:flex flex-col justify-between p-xl bg-primary text-on-primary relative overflow-hidden">
             <div class="absolute inset-0 opacity-10 pointer-events-none">
@@ -182,6 +181,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Form Section -->
         <div class="p-lg md:p-xl bg-surface-container-lowest flex flex-col justify-center">
             <div class="max-w-md mx-auto w-full">
@@ -191,10 +191,8 @@
                     <span class="font-headline-sm text-headline-sm font-bold text-primary">MBG</span>
                 </div>
                 <div class="mb-10">
-                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Daftar
-                        Akun MBG</h2>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Buat akun baru untuk mengakses sistem
-                        distribusi pangan bergizi.</p>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Daftar Akun MBG</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Buat akun baru untuk mengakses sistem distribusi pangan bergizi.</p>
                 </div>
                 <!-- Auth Mode Switch -->
                 <div class="space-y-6" id="authContainer">
@@ -306,6 +304,7 @@
                     </p>
                 </div>
             </div>
+
             <!-- Footer Meta -->
             <div
                 class="mt-auto pt-lg border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -319,6 +318,7 @@
             </div>
         </div>
     </main>
+    
     <script>
         // Simple Interaction logic
         const registerForm = document.getElementById('registerForm');
