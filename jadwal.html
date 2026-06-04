@@ -6,8 +6,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>MBG - Jadwal Pengiriman</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -62,23 +62,6 @@
                         "secondary-fixed-dim": "#bec6e0",
                         "surface-container-lowest": "#ffffff"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "md": "24px",
-                        "base": "4px",
-                        "sm": "16px",
-                        "margin-mobile": "16px",
-                        "container-max": "1440px",
-                        "lg": "32px",
-                        "gutter": "24px",
-                        "xs": "8px",
-                        "xl": "48px"
-                    },
                     "fontFamily": {
                         "body-lg": ["Inter"],
                         "label-md": ["Inter"],
@@ -90,18 +73,6 @@
                         "label-sm": ["Inter"],
                         "headline-md": ["Plus Jakarta Sans"],
                         "headline-lg-mobile": ["Plus Jakarta Sans"]
-                    },
-                    "fontSize": {
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
-                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
-                        "headline-sm": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
-                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "500" }],
-                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
-                        "headline-lg-mobile": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }]
                     }
                 },
             },
@@ -115,6 +86,10 @@
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #bbcabf; border-radius: 10px; }
+
+        /* Hide scrollbar for sidebar specifically but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
@@ -130,77 +105,154 @@
             background: linear-gradient(to bottom, transparent, #bbcabf 10%, #bbcabf 90%, transparent);
         }
 
-        .sidebar-nav {
-            width: 64px;
-            box-shadow: none;
-            outline: none;
-        }
-    </style>
-    <style>
         body { 
             min-height: max(884px, 100dvh); 
         }
     </style>
 </head>
 
-<body class="bg-surface font-body-md text-on-surface antialiased overflow-hidden">
-    <!-- Layout Wrapper -->
+<body class="bg-background font-body-md text-on-surface antialiased overflow-hidden">
+    <!-- PENGGUNAAN FLEXBOX UTAMA: Sidebar Kiri & Konten Kanan -->
     <div class="flex h-screen w-full overflow-hidden">
-        <!-- Left Sidebar Navigation -->
-        <nav class="sidebar-nav fixed left-0 top-0 h-full z-50 flex flex-col items-center bg-surface-container-lowest" style="padding-top: 0; padding-bottom: 24px; width: 64px; border-right: 1px solid #e8eaed;">
-            <!-- Top area matching header height -->
-            <div class="w-full flex items-center justify-center flex-shrink-0" style="height: 64px; border-bottom: 1px solid #e8eaed;">
-                <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+        
+        <!-- SIDEBAR NAVIGATION FULL DESKTOP -->
+        <nav class="w-[280px] h-full flex flex-col flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant/60 z-50">
+            <!-- Header/Logo Area Sidebar -->
+            <div class="h-16 w-full flex items-center justify-center flex-shrink-0 border-b border-outline-variant/50">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                    <span class="font-display-lg text-[20px] font-bold text-primary tracking-tight">MBG System</span>
+                </div>
             </div>
 
-            <!-- Nav Items -->
-            <div class="flex flex-col items-center w-full" style="gap: 24px; padding: 24px 10px 0 10px;">
-                <a href="dashboard.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Home">
-                    <span class="material-symbols-outlined text-[22px]">home</span>
-                </a>
-                <a href="tracking.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Tracking">
-                    <span class="material-symbols-outlined text-[22px]">location_on</span>
-                </a>
-                <a href="jadwal.html" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-primary text-on-primary shadow-md transition-all active:scale-95" title="Distribusi">
-                    <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
-                </a>
-                <a href="laporan.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Laporan">
-                    <span class="material-symbols-outlined text-[22px]">analytics</span>
-                </a>
+            <!-- Scrollable Menu Items -->
+            <div class="flex-1 overflow-y-auto py-6 px-4 flex flex-col gap-8 no-scrollbar">
+                
+                <!-- Kategori: UTAMA -->
+                <div>
+                    <h3 class="px-3 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase mb-3">Utama</h3>
+                    <ul class="space-y-1">
+                        <li>
+                            <!-- STATE AKTIF: Background biru muda, text hijau -->
+                            <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary-container text-primary transition-all">
+                                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">home</span>
+                                <span class="font-semibold text-[15px]">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tracking.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[22px]">location_on</span>
+                                <span class="font-medium text-[15px]">Peta Distribusi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jadwal.html" class="flex items-center justify-between px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-[22px]">local_shipping</span>
+                                    <span class="font-medium text-[15px]">Jadwal Pengiriman</span>
+                                </div>
+                                <!-- Badge Angka 3 -->
+                                <span class="bg-primary text-on-primary text-[11px] font-bold w-[22px] h-[22px] flex items-center justify-center rounded-full shadow-sm">3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="laporan.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[22px]">analytics</span>
+                                <span class="font-medium text-[15px]">Laporan & Analitik</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kategori: MANAJEMEN -->
+                <div>
+                    <h3 class="px-3 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase mb-3">Manajemen</h3>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[22px]">school</span>
+                                <span class="font-medium text-[15px]">Data Sekolah</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[22px]">restaurant</span>
+                                <span class="font-medium text-[15px]">Menu & Gizi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[22px]">payments</span>
+                                <span class="font-medium text-[15px]">Anggaran</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[22px]">inventory_2</span>
+                                <span class="font-medium text-[15px]">Inventaris</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kategori: PENGATURAN -->
+                <div>
+                    <h3 class="px-3 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase mb-3">Pengaturan</h3>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[22px]">settings</span>
+                                <span class="font-medium text-[15px]">Pengaturan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[22px]">help</span>
+                                <span class="font-medium text-[15px]">Bantuan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Profile at Bottom -->
-            <div class="mt-auto flex flex-col items-center w-full" style="padding: 0 10px;">
-                <a href="profile.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Profile">
-                    <span class="material-symbols-outlined text-[22px]">account_circle</span>
-                </a>
+            <!-- Profile Bottom Area -->
+            <div class="p-4 border-t border-outline-variant/50 flex-shrink-0">
+                <div class="flex items-center gap-3 px-2">
+                    <img alt="User Profile" class="w-10 h-10 rounded-full object-cover shadow-sm border border-outline-variant"
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZpX1KGpa_p1_re_t0X7f2nOo6SpffMj8Oauk-guFEPtYd9MamDjy1zKMIg488Poo_CLjgOcM4jzyTFKpuPUmVW-ZT7buPkXhnXRsYCl1iu2dqz2KI-bXaZ-Jjc-2kC9pe-lEoE9iNjdIBI76RDVDxgcxvWYAGKEjQKhk_yOMb3yqSmvrDNgoorYleyl2916-3969UvXmYBBicrDzrOU6X4IXyWhkq4e2oFoNuYTga1M50MW4lUIVFwKDsFRJEpaDq3oVmU9VuPmSH" />
+                    <div class="flex-1 min-w-0">
+                        <p class="text-[14px] font-bold text-on-surface truncate leading-tight">Admin Pusat</p>
+                        <p class="text-[12px] text-on-surface-variant truncate">admin@mbg.co.id</p>
+                    </div>
+                    <button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Logout">
+                        <span class="material-symbols-outlined text-[22px]">logout</span>
+                    </button>
+                </div>
             </div>
         </nav>
 
-        <!-- Main Content -->
-        <div class="flex-1 flex flex-col overflow-hidden" style="margin-left: 64px;">
+        <!-- MAIN CONTENT AREA -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden min-w-0">
+            
             <!-- Top AppBar -->
-            <header class="fixed top-0 z-40 flex justify-between items-center h-16 bg-surface" style="left: 64px; right: 0; padding-left: 20px; padding-right: 20px; border-bottom: 1px solid #e8eaed;">
-                <!-- Left: Truck Icon + Title -->
+            <header class="h-16 flex-shrink-0 flex justify-between items-center bg-surface/90 backdrop-blur px-6 lg:px-10 border-b border-outline-variant/50 z-40 relative">
+                <!-- Left: Title (Truck icon dipindah ke Sidebar) -->
                 <div class="flex items-center gap-2">
-                    <h1 class="font-bold text-primary" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; letter-spacing: -0.01em;">MBG Penjadwalan</h1>
+                    <h1 class="font-bold text-on-surface" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; letter-spacing: -0.01em;">Penjadwalan</h1>
                 </div>
-                <!-- Right: Bell + Avatar -->
+                <!-- Right: Bell + User Icon Mini -->
                 <div class="flex items-center gap-3">
                     <button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95">
                         <span class="material-symbols-outlined text-[22px]">notifications</span>
                     </button>
-                    <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-outline-variant shadow-sm flex-shrink-0">
-                        <img alt="User Profile" class="w-full h-full object-cover"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZpX1KGpa_p1_re_t0X7f2nOo6SpffMj8Oauk-guFEPtYd9MamDjy1zKMIg488Poo_CLjgOcM4jzyTFKpuPUmVW-ZT7buPkXhnXRsYCl1iu2dqz2KI-bXaZ-Jjc-2kC9pe-lEoE9iNjdIBI76RDVDxgcxvWYAGKEjQKhk_yOMb3yqSmvrDNgoorYleyl2916-3969UvXmYBBicrDzrOU6X4IXyWhkq4e2oFoNuYTga1M50MW4lUIVFwKDsFRJEpaDq3oVmU9VuPmSH" />
-                    </div>
                 </div>
             </header>
 
             <!-- Scrollable Main Content -->
-            <main class="flex-1 overflow-y-auto pt-16" style="padding: 64px 48px 32px 48px;">
+            <main class="flex-1 overflow-y-auto p-6 md:p-8 lg:p-12 relative">
+                
                 <!-- Page Title & CTA -->
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pt-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                     <div>
                         <h2 class="font-headline-lg text-headline-lg-mobile text-on-surface">Jadwal Distribusi</h2>
                         <p class="font-body-sm text-on-surface-variant">Pemantauan logistik makanan bergizi untuk sekolah secara real-time.</p>
@@ -210,6 +262,7 @@
                         Tambah Jadwal
                     </button>
                 </div>
+
                 <!-- Horizontal Date Picker -->
                 <section class="mb-8 overflow-hidden">
                     <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
@@ -243,6 +296,7 @@
                         </button>
                     </div>
                 </section>
+
                 <!-- Timeline Content -->
                 <div class="relative grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Timeline Column -->
@@ -251,6 +305,7 @@
                         <div class="relative pl-0 md:pl-12 flex items-center" style="line-height: 1;">
                             <span class="text-xl font-semibold text-on-surface" style="line-height: 1;">Pengiriman Hari Ini</span>
                         </div>
+                        
                         <!-- Delivery Item 1: Delivered -->
                         <div class="relative pl-0 md:pl-12">
                             <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-primary ring-4 ring-primary-container hidden md:block"></div>
@@ -288,6 +343,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <!-- Delivery Item 2: In Transit -->
                         <div class="relative pl-0 md:pl-12">
                             <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-tertiary ring-4 ring-tertiary-container hidden md:block"></div>
@@ -333,6 +389,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <!-- Delivery Item 3: Preparing -->
                         <div class="relative pl-0 md:pl-12">
                             <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-outline-variant ring-4 ring-surface-container-high hidden md:block"></div>
@@ -391,6 +448,7 @@
                                 <p class="text-[12px] text-on-surface-variant text-center">80% dari target harian tercapai</p>
                             </div>
                         </div>
+                        
                         <div class="glass-card p-md rounded-2xl border border-outline-variant shadow-sm">
                             <h3 class="font-headline-sm font-semibold mb-4">Status Armada</h3>
                             <div class="space-y-4">
@@ -409,6 +467,7 @@
                             </div>
                             <button class="mt-6 w-full py-2 border border-outline font-semibold text-on-surface-variant rounded-lg font-label-md hover:bg-surface-container-low transition-colors" >Lihat Peta Armada Detail</button>
                         </div>
+                        
                         <!-- Weather Alert -->
                         <div class="bg-tertiary-container/20 p-md rounded-2xl border border-tertiary-container/30">
                             <div class="flex items-start gap-3">
