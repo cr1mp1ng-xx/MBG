@@ -6,9 +6,15 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>MBG - Profile</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -141,51 +147,34 @@
 
 <body class="bg-background text-on-background min-h-screen font-body-md pb-24 md:pb-0">
     <div class="flex h-screen overflow-hidden">
-        <!-- Sidebar -->
-        <nav class="fixed left-0 top-0 h-full z-50 flex flex-col items-center bg-white border-r border-gray-200" style="width:64px; padding-bottom:24px;">
-            <!-- Top area matching header height -->
-            <div class="w-full flex items-center justify-center" style="height:64px; border-bottom:1px solid #e8eaed;">
-                <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center"></div>
-            </div>
-
-            <!-- Menu -->
-            <div class="flex flex-col items-center w-full gap-6 pt-6 px-2">
-                <a href="dashboard.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low">
-                    <span class="material-symbols-outlined">home</span>
-                </a>
-                <a href="tracking.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low">
-                    <span class="material-symbols-outlined">location_on</span>
-                </a>
-                <a href="jadwal.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low">
-                    <span class="material-symbols-outlined">local_shipping</span>
-                </a>
-                <a href="laporan.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low">
-                    <span class="material-symbols-outlined">analytics</span>
-                </a>
-            </div>
-
-            <!-- Profile Aktif -->
-            <div class="mt-auto px-2">
-                <a href="profile.html" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-primary text-white shadow-md">
-                    <span class="material-symbols-outlined">account_circle</span>
-                </a>
-            </div>
-        </nav>
-
         <!-- Content -->
         <div class="flex-1 ml-16">
             <!-- TopAppBar -->
             <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface dark:bg-surface-dim shadow-sm">
                 <div class="flex items-center gap-3">
-                    <span class="font-headline-md text-headline-md-mobile font-bold text-primary dark:text-primary-fixed-dim">MBG Dashboard Profil</span>
+                    <!-- Tombol Kembali -->
+                    <a href="dashboard.html"
+                        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition">
+                        <span class="material-symbols-outlined">
+                            arrow_back_ios_new
+                        </span>
+                    </a>
+
+                    <span class="font-headline-md text-headline-md-mobile font-bold text-primary">
+                        MBG Dashboard Profil
+                    </span>
                 </div>
+
                 <div class="flex items-center gap-4">
-                    <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
-                        <span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+                        <span class="material-symbols-outlined text-on-surface-variant">
+                            notifications
+                        </span>
                     </button>
-                    <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container border-2 border-white shadow-sm overflow-hidden">
-                        <img alt="User Profile" class="w-full h-full object-crop" data-alt="A professional headshot of a middle-aged man with a warm, confident expression. He is wearing a sharp, navy blue business suit against a clean, light gray background. The lighting is soft and even, highlighting his professional demeanor. The overall aesthetic is corporate, modern, and trustworthy, perfectly suited for a high-level government administration role."
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqKtPJGEDYOz2owg8Un_s70GVjFs8F8LYiXg-UHHvlZ-bcNUj6vpaFIu6TI18jxHG3qEhGUwvorK2yTUW2tf_wFa7YLYfcvY2yvqTMvkFWfoa04kDFheGEM5_EzYlUG47ZOAt_usMvvblnkOSQrEYfh4TMcPzWBTJ3FsKff2FOToPUDA2zRjBRezOqG47vPPdUjUuFCyoq1sZDRKGzRuhH-dQ6nTZ2l0TC5UY6nuJ8Kgp8pq-vnXo-p5juRufBSSXNY7eGSRiVe4Zy" />
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container border-2 border-white shadow-sm overflow-hidden">
+                        <img alt="User Profile" class="w-full h-full object-cover" src="FOTO_PROFILE_ANDA.jpg" />
                     </div>
                 </div>
             </header>
@@ -196,18 +185,22 @@
                     <aside class="lg:col-span-4 space-y-gutter">
                         <div class="glass-card rounded-xl p-md flex flex-col items-center text-center shadow-sm">
                             <div class="relative group">
-                                <div class="w-32 h-32 rounded-full border-4 border-white shadow-lg overflow-hidden mb-4">
-                                    <img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional administrative officer, looking directly at the camera with a gentle smile. The setting is a bright, airy office space with blurred green plants in the background, suggesting a healthy workspace environment. The lighting is natural and bright, conveying transparency and vitality in line with a modern corporate identity."
+                                <div
+                                    class="w-32 h-32 rounded-full border-4 border-white shadow-lg overflow-hidden mb-4">
+                                    <img alt="User profile avatar" class="w-full h-full object-cover"
+                                        data-alt="A close-up portrait of a professional administrative officer, looking directly at the camera with a gentle smile. The setting is a bright, airy office space with blurred green plants in the background, suggesting a healthy workspace environment. The lighting is natural and bright, conveying transparency and vitality in line with a modern corporate identity."
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuASKuSjI9WAvAe-ChgN-fjYQrtwhDftaC7j_EXrqLwp8kSxACQX0ppDJevNkvKePqzwx4YEqVgbBdMdtbS9qV2xKhhdtw3qpqXmJppAh-eokO5GDk15yrS4xX5Xp2_cwDubLR2S_ly_ZgkB6Wp_v-HqFD8oM1Yn9H6s3Mx72FhEdv3ZAjH2DCz56F9nsbmLRy5Hr8nbVRrSCrXYOCM_XHk24aSOwMnZSqh9fk5xLmacL6o4XBERI9NQJtB9fVJKsDu2Rg0ev9q0haJo" />
                                 </div>
-                                <button class="absolute bottom-4 right-0 bg-primary text-on-primary p-2 rounded-full shadow-md hover:scale-110 transition-transform">
+                                <button
+                                    class="absolute bottom-4 right-0 bg-primary text-on-primary p-2 rounded-full shadow-md hover:scale-110 transition-transform">
                                     <span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
                                 </button>
                             </div>
 
                             <h1 class="font-headline-md text-on-surface">Dr. Marcus Vance</h1>
-                            <span class="bg-primary/10 text-primary font-label-md px-3 py-1 rounded-full mt-2">Regional Admin</span>
-                            
+                            <span class="bg-primary/10 text-primary font-label-md px-3 py-1 rounded-full mt-2">Regional
+                                Admin</span>
+
                             <div class="w-full mt-lg grid grid-cols-2 gap-4 border-t border-outline-variant pt-lg">
                                 <div class="text-left">
                                     <p class="text-label-sm text-on-surface-variant mb-1">ID Pegawai</p>
@@ -224,21 +217,25 @@
                         <div class="bg-white rounded-xl shadow-sm p-md">
                             <h2 class="font-headline-sm text-on-surface mb-md">Pengaturan Akun</h2>
                             <nav class="flex flex-col gap-1">
-                                <button class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant text-body-md w-full text-left">
+                                <button
+                                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant text-body-md w-full text-left">
                                     <span class="material-symbols-outlined" data-icon="person">person</span>
                                     <span>Informasi Pribadi</span>
                                 </button>
-                                <button class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant text-body-md w-full text-left">
+                                <button
+                                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant text-body-md w-full text-left">
                                     <span class="material-symbols-outlined" data-icon="security">security</span>
                                     <span>Keamanan & Privasi</span>
                                 </button>
-                                <button class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant text-body-md w-full text-left">
+                                <button
+                                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant text-body-md w-full text-left">
                                     <span class="material-symbols-outlined"
                                         data-icon="notifications_active">notifications_active</span>
                                     <span>Notifikasi</span>
                                 </button>
                                 <div class="pt-4 mt-2 border-t border-outline-variant">
-                                    <button class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/20 text-error transition-colors text-body-md w-full text-left">
+                                    <button
+                                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/20 text-error transition-colors text-body-md w-full text-left">
                                         <span class="material-symbols-outlined" data-icon="logout">logout</span>
                                         <a href="login.html">Keluar</a>
                                     </button>
@@ -252,17 +249,20 @@
                         <!-- Activity Stats Bento -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-sm">
                             <div class="bg-primary-container/20 p-md rounded-xl shadow-sm border border-primary/10">
-                                <span class="material-symbols-outlined text-primary mb-2" data-icon="local_shipping">local_shipping</span>
+                                <span class="material-symbols-outlined text-primary mb-2"
+                                    data-icon="local_shipping">local_shipping</span>
                                 <h3 class="text-on-primary-container font-headline-md">250</h3>
                                 <p class="text-label-sm text-on-primary-container/80">Distribusi Yang Terverifikasi</p>
                             </div>
                             <div class="bg-tertiary-container/20 p-md rounded-xl shadow-sm border border-tertiary/10">
-                                <span class="material-symbols-outlined text-tertiary mb-2" data-icon="analytics">analytics</span>
+                                <span class="material-symbols-outlined text-tertiary mb-2"
+                                    data-icon="analytics">analytics</span>
                                 <h3 class="text-on-tertiary-container font-headline-md">120</h3>
                                 <p class="text-label-sm text-on-tertiary-container/80">Laporan Bulanan</p>
                             </div>
                             <div class="bg-secondary-container p-md rounded-xl shadow-sm">
-                                <span class="material-symbols-outlined text-secondary mb-2" data-icon="verified">verified</span>
+                                <span class="material-symbols-outlined text-secondary mb-2"
+                                    data-icon="verified">verified</span>
                                 <h3 class="text-on-secondary-container font-headline-md">100%</h3>
                                 <p class="text-label-sm text-on-secondary-container/80">Tingkat Verifikasi</p>
                             </div>
@@ -277,63 +277,80 @@
 
                             <div class="divide-y divide-outline-variant">
                                 <!-- Activity Item 1 -->
-                                <div class="px-md py-4 flex items-start gap-4 hover:bg-surface-container-lowest transition-colors group">
-                                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="material-symbols-outlined text-primary" data-icon="task_alt">task_alt</span>
+                                <div
+                                    class="px-md py-4 flex items-start gap-4 hover:bg-surface-container-lowest transition-colors group">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-primary"
+                                            data-icon="task_alt">task_alt</span>
                                     </div>
                                     <div class="flex-grow">
                                         <div class="flex justify-between items-center mb-1">
-                                            <h4 class="font-label-md text-on-surface">Persetujuan Batch: Distribusi Q3</h4>
+                                            <h4 class="font-label-md text-on-surface">Persetujuan Batch: Distribusi Q3
+                                            </h4>
                                             <span class="text-label-sm text-on-surface-variant">2h lalu</span>
                                         </div>
-                                        <p class="text-body-sm text-on-surface-variant">Logistik berhasil diverifikasi untuk pengiriman pasokan keburuhan pangan Sektor 7. </p>
+                                        <p class="text-body-sm text-on-surface-variant">Logistik berhasil diverifikasi
+                                            untuk pengiriman pasokan keburuhan pangan Sektor 7. </p>
                                     </div>
                                 </div>
                                 <!-- Activity Item 2 -->
-                                <div class="px-md py-4 flex items-start gap-4 hover:bg-surface-container-lowest transition-colors group">
-                                    <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="material-symbols-outlined text-tertiary" data-icon="summarize">summarize</span>
+                                <div
+                                    class="px-md py-4 flex items-start gap-4 hover:bg-surface-container-lowest transition-colors group">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-tertiary"
+                                            data-icon="summarize">summarize</span>
                                     </div>
                                     <div class="flex-grow">
                                         <div class="flex justify-between items-center mb-1">
                                             <h4 class="font-label-md text-on-surface">Laporan Yang Dihasilkan </h4>
                                             <span class="text-label-sm text-on-surface-variant">Kemarin</span>
                                         </div>
-                                        <p class="text-body-sm text-on-surface-variant">Menghasilkan analisis dampak Makanan Bergizi mingguan untuk Kantor Diberbagai Wilayah.</p>
+                                        <p class="text-body-sm text-on-surface-variant">Menghasilkan analisis dampak
+                                            Makanan Bergizi mingguan untuk Kantor Diberbagai Wilayah.</p>
                                     </div>
                                 </div>
                                 <!-- Activity Item 3 -->
-                                <div class="px-md py-4 flex items-start gap-4 hover:bg-surface-container-lowest transition-colors group">
-                                    <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="material-symbols-outlined text-secondary" data-icon="person_search">person_search</span>
+                                <div
+                                    class="px-md py-4 flex items-start gap-4 hover:bg-surface-container-lowest transition-colors group">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-secondary"
+                                            data-icon="person_search">person_search</span>
                                     </div>
                                     <div class="flex-grow">
                                         <div class="flex justify-between items-center mb-1">
                                             <h4 class="font-label-md text-on-surface">Audit Yang Dilakukan</h4>
                                             <span class="text-label-sm text-on-surface-variant">3h lalu</span>
                                         </div>
-                                        <p class="text-body-sm text-on-surface-variant">Audit lapangan pada pusat distribusi sekolah setempat diselesaikan dengan 0 ketidaksesuaian.</p>
+                                        <p class="text-body-sm text-on-surface-variant">Audit lapangan pada pusat
+                                            distribusi sekolah setempat diselesaikan dengan 0 ketidaksesuaian.</p>
                                     </div>
                                 </div>
                                 <!-- Activity Item 4 -->
-                                <div class="px-md py-4 flex items-start gap-4 hover:bg-surface-container-lowest transition-colors group">
-                                    <div class="w-10 h-10 rounded-full bg-error-container/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="material-symbols-outlined text-error" data-icon="report_problem">report_problem</span>
+                                <div
+                                    class="px-md py-4 flex items-start gap-4 hover:bg-surface-container-lowest transition-colors group">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-error-container/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-error"
+                                            data-icon="report_problem">report_problem</span>
                                     </div>
                                     <div class="flex-grow">
                                         <div class="flex justify-between items-center mb-1">
                                             <h4 class="font-label-md text-on-surface">Pembaruan Access</h4>
                                             <span class="text-label-sm text-on-surface-variant">Okt 12</span>
                                         </div>
-                                        <p class="text-body-sm text-on-surface-variant">Perangkat administratif baru telah ditambahkan ke daftar akses aman untuk akun Anda.</p>
+                                        <p class="text-body-sm text-on-surface-variant">Perangkat administratif baru
+                                            telah ditambahkan ke daftar akses aman untuk akun Anda.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
+    </div>
     </main>
 
     <script>
@@ -349,4 +366,5 @@
         });
     </script>
 </body>
+
 </html>

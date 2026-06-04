@@ -6,8 +6,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>MBG - Laporan Kendala</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -112,18 +115,70 @@
             background-color: #f8f9ff;
             color: #0b1c30;
         }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
+        /* ── Sidebar ── */
         .sidebar-nav {
-            width: 64px;
-            box-shadow: none;
-            outline: none;
+            width: 220px;
+            flex-shrink: 0;
+        }
+
+        /* Nav item — default state */
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            color: #3c4a42;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s, transform 0.1s;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: #eff4ff;
+            color: #006c49;
+        }
+
+        .nav-item:active {
+            transform: scale(0.97);
+        }
+
+        /* Nav item — active/current page */
+        .nav-item.active {
+            background: #006c49;
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 108, 73, 0.25);
+        }
+
+        .nav-item.active .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Section label inside sidebar */
+        .nav-section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #6c7a71;
+            text-transform: uppercase;
+            padding: 0 14px;
+            margin-bottom: 4px;
         }
     </style>
     <style>
-        body { 
-            min-height: max(884px, 100dvh); 
+        body {
+            min-height: max(884px, 100dvh);
         }
     </style>
 </head>
@@ -131,51 +186,154 @@
 <body class="font-body-md text-body-md overflow-hidden">
     <!-- Layout Wrapper -->
     <div class="flex h-screen w-full overflow-hidden">
-        <!-- Left Sidebar Navigation -->
-        <nav class="sidebar-nav fixed left-0 top-0 h-full z-50 flex flex-col items-center bg-surface-container-lowest" style="padding-top: 0; padding-bottom: 24px; width: 64px; border-right: 1px solid #e8eaed;">
-            <!-- Top area matching header height -->
-            <div class="w-full flex items-center justify-center flex-shrink-0" style="height: 64px; border-bottom: 1px solid #e8eaed;">
-                <span class="material-symbols-outlined">support_agent</span>
+        <nav class="w-[230px] h-full flex flex-col flex-shrink-0 bg-surface-container-lowest z-50 fixed left-0 top-0"
+            style="border-right: 1px solid #e8eaed;">
+
+            <!-- Logo -->
+            <div class="h-16 flex items-center px-5 flex-shrink-0" style="border-bottom: 1px solid #e8eaed;">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-[30px]"
+                        style="font-variation-settings:'FILL' 1;">local_shipping</span>
+                    <div class="leading-tight">
+                        <p class="text-[20px] font-bold text-primary" style="font-family:'Plus Jakarta Sans',sans-serif; line-height:1.1;">MBG Laporan Kendala </p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Nav Items -->
-            <div class="flex flex-col items-center w-full" style="gap: 24px; padding: 24px 10px 0 10px;">
-                <a href="dashboard.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Home">
-                    <span class="material-symbols-outlined text-[22px]">home</span>
-                </a>
-                <a href="tracking.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Tracking">
-                    <span class="material-symbols-outlined text-[22px]">location_on</span>
-                </a>
-                <a href="jadwal.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Distribusi">
-                    <span class="material-symbols-outlined text-[22px]">local_shipping</span>
-                </a>
-                <a href="laporan.html" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-primary text-on-primary shadow-md transition-all active:scale-95" title="Laporan">
-                    <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
-                </a>
+            <!-- Nav Menu -->
+            <div class="flex-1 overflow-y-auto py-5 px-3 flex flex-col gap-6"
+                style="-ms-overflow-style:none; scrollbar-width:none;">
+                <!-- UTAMA -->
+                <div>
+                    <p class="px-3 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-2">Utama
+                    </p>
+                    <ul class="space-y-0.5">
+                        <li>
+                            <a href="dashboard.html"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="font-variation-settings:'FILL' 1;">home</span>
+                                <span class="text-[14px] font-medium">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tracking.html"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">location_on</span>
+                                <span class="text-[14px] font-medium">Peta Distribusi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jadwal.html"
+                                class="flex items-center justify-between px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+                                    <span class="text-[14px] font-medium">Jadwal Pengiriman</span>
+                                </div>
+                                <span
+                                    class="bg-primary text-on-primary text-[10px] font-bold min-w-[20px] h-5 px-1 flex items-center justify-center rounded-full">3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <!-- ACTIVE: Laporan & Analitik -->
+                            <a href="laporan.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all"
+                                style="background-color:#dae2fd; color:#006c49; font-weight:600;">
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="color:#006c49; font-variation-settings:'FILL' 1;">analytics</span>
+                                <span class="text-[14px]">Laporan & Analitik</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- MANAJEMEN -->
+                <div>
+                    <p class="px-3 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-2">
+                        Manajemen</p>
+                    <ul class="space-y-0.5">
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">school</span>
+                                <span class="text-[14px] font-medium">Data Sekolah</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tranparansi.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">restaurant</span>
+                                <span class="text-[14px] font-medium">Menu & Gizi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">payments</span>
+                                <span class="text-[14px] font-medium">Anggaran</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+                                <span class="text-[14px] font-medium">Inventaris</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PENGATURAN -->
+                <div>
+                    <p class="px-3 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-2">
+                        Pengaturan</p>
+                    <ul class="space-y-0.5">
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">settings</span>
+                                <span class="text-[14px] font-medium">Pengaturan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">help</span>
+                                <span class="text-[14px] font-medium">Bantuan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Profile at Bottom -->
-            <div class="mt-auto flex flex-col items-center w-full" style="padding: 0 10px;">
-                <a href="profile.html" class="w-11 h-11 flex items-center justify-center rounded-2xl text-secondary hover:bg-surface-container-low transition-all active:scale-95" title="Profile">
-                    <span class="material-symbols-outlined text-[22px]">account_circle</span>
+            <!-- Profile Bottom -->
+            <div class="p-3 flex-shrink-0" style="border-top: 1px solid #e8eaed;">
+                <a href="profile.html" class="flex items-center gap-3 px-2 py-1.5">
+                    <img alt="User Profile" class="w-9 h-9 rounded-full object-cover flex-shrink-0"
+                        style="border: 1px solid #bbcabf;"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb09F-ZbdM_UOhusZ-1E4eJ-Mr1-X3DDDXAS_o9WGh225ms39npx84QzmteWCaeVa8OAzFY3uukP9clpbYaRfUQWVN_6b2M4vosJHFJPnT8vvYiZGYizcaYgliFCLBTArPLaQVLxwnxC4IkJEx_OzaVuxLYZV7BKBvwdgnZ_BW1xws48t2qzlGQOKkYlwMcSjQA1ut5V5VJC-MKYYLs5lV_sThqt7wiCyNK7csATQyWq9wMQ_IBBGqFyrBKWtYNoTDxiq8O_nZveEL" />
+                    <div class="flex-1 min-w-0">
+                        <p class="text-[13px] font-bold text-on-surface truncate leading-tight">Admin Pusat</p>
+                        <p class="text-[11px] text-on-surface-variant truncate">admin@mbg.co.id</p>
+                    </div>
+                    <button class="text-on-surface-variant hover:text-error transition-colors p-1 flex-shrink-0" title="Logout">
+                        <span class="material-symbols-outlined text-[20px]">logout</span>
+                    </button>
                 </a>
             </div>
         </nav>
 
         <!-- Main Content -->
-        <div class="flex-1 flex flex-col overflow-hidden" style="margin-left: 64px;">
+        <div class="flex-1 flex flex-col overflow-hidden" style="margin-left: 220px;">
             <!-- TopAppBar -->
-            <header class="fixed top-0 z-40 flex justify-between items-center h-16 bg-surface" style="left: 64px; right: 0; padding-left: 20px; padding-right: 20px; border-bottom: 1px solid #e8eaed;">
-                <!-- Left: support_agent icon + Title (original dari kode) -->
+            <header class="fixed top-0 z-40 flex justify-between items-center h-16 bg-surface"
+                style="left: 220px; right: 0; padding-left: 20px; padding-right: 20px; border-bottom: 1px solid #e8eaed;">
+                <div class="flex items-center gap-3"></div>
                 <div class="flex items-center gap-3">
-                    <h1 class="font-bold text-primary" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; letter-spacing: -0.01em;">MBG Laporan Kendala</h1>
-                </div>
-                <!-- Right: Bell + Avatar -->
-                <div class="flex items-center gap-3">
-                    <button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95">
+                    <button
+                        class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95">
                         <span class="material-symbols-outlined text-[22px]">notifications</span>
                     </button>
-                    <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-outline-variant shadow-sm flex-shrink-0">
+                    <div
+                        class="w-9 h-9 rounded-full overflow-hidden border-2 border-outline-variant shadow-sm flex-shrink-0">
                         <img alt="User profile avatar" class="w-full h-full object-cover"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb09F-ZbdM_UOhusZ-1E4eJ-Mr1-X3DDDXAS_o9WGh225ms39npx84QzmteWCaeVa8OAzFY3uukP9clpbYaRfUQWVN_6b2M4vosJHFJPnT8vvYiZGYizcaYgliFCLBTArPLaQVLxwnxC4IkJEx_OzaVuxLYZV7BKBvwdgnZ_BW1xws48t2qzlGQOKkYlwMcSjQA1ut5V5VJC-MKYYLs5lV_sThqt7wiCyNK7csATQyWq9wMQ_IBBGqFyrBKWtYNoTDxiq8O_nZveEL" />
                     </div>
@@ -187,53 +345,73 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
                     <!-- Left Column: Report Form -->
                     <div class="lg:col-span-7 space-y-gutter">
-                        <section class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)]">
+                        <section
+                            class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)]">
                             <div class="mb-6">
-                                <h2 class="font-headline-sm text-headline-sm text-on-surface mb-2">Buat Laporan Baru</h2>
-                                <p class="font-body-sm text-body-sm text-on-surface-variant">Sampaikan keluhan atau kendala yang anda hadapi untuk perbaikan layanan kami.</p>
+                                <h2 class="font-headline-sm text-headline-sm text-on-surface mb-2">Buat Laporan Baru
+                                </h2>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Sampaikan keluhan atau
+                                    kendala yang anda hadapi untuk perbaikan layanan kami.</p>
                             </div>
 
                             <form class="space-y-6">
                                 <!-- Category Selection -->
                                 <div class="space-y-3">
-                                    <label class="font-label-md text-label-md text-on-surface-variant">KATEGORI KENDALA</label>
+                                    <label class="font-label-md text-label-md text-on-surface-variant">KATEGORI
+                                        KENDALA</label>
                                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                        <label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary group">
+                                        <label
+                                            class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary group">
                                             <input class="sr-only" name="category" type="radio" value="delay" />
                                             <span class="material-symbols-outlined text-primary mb-2">schedule</span>
-                                            <span class="font-label-sm text-label-sm text-on-surface">Keterlambatan</span>
+                                            <span
+                                                class="font-label-sm text-label-sm text-on-surface">Keterlambatan</span>
                                         </label>
-                                        <label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary">
-                                            <input checked class="sr-only" name="category" type="radio" value="quality" />
-                                            <span class="material-symbols-outlined text-primary mb-2">high_quality</span>
-                                            <span class="font-label-sm text-label-sm text-on-surface">Kualitas Produk</span>
+                                        <label
+                                            class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary">
+                                            <input checked class="sr-only" name="category" type="radio"
+                                                value="quality" />
+                                            <span
+                                                class="material-symbols-outlined text-primary mb-2">high_quality</span>
+                                            <span class="font-label-sm text-label-sm text-on-surface">Kualitas
+                                                Produk</span>
                                         </label>
-                                        <label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary">
+                                        <label
+                                            class="relative flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary">
                                             <input class="sr-only" name="category" type="radio" value="missing" />
                                             <span class="material-symbols-outlined text-primary mb-2">inventory_2</span>
-                                            <span class="font-label-sm text-label-sm text-on-surface">Barang Kurang</span>
+                                            <span class="font-label-sm text-label-sm text-on-surface">Barang
+                                                Kurang</span>
                                         </label>
                                     </div>
                                 </div>
 
                                 <!-- Description -->
                                 <div class="space-y-3">
-                                    <label class="font-label-md text-label-md text-on-surface-variant" for="description">DESKRIPSI KENDALA</label>
-                                    <textarea class="w-full bg-surface-container-low border-none rounded-xl p-md focus:ring-2 focus:ring-primary text-body-md placeholder:text-outline" id="description" placeholder="Ceritakan detail kendala yang dialami..." rows="5"></textarea>
+                                    <label class="font-label-md text-label-md text-on-surface-variant"
+                                        for="description">DESKRIPSI KENDALA</label>
+                                    <textarea
+                                        class="w-full bg-surface-container-low border-none rounded-xl p-md focus:ring-2 focus:ring-primary text-body-md placeholder:text-outline"
+                                        id="description" placeholder="Ceritakan detail kendala yang dialami..."
+                                        rows="5"></textarea>
                                 </div>
 
                                 <!-- Image Upload -->
                                 <div class="space-y-3">
-                                    <label class="font-label-md text-label-md text-on-surface-variant">UNGGAH BUKTI (FOTO)</label>
+                                    <label class="font-label-md text-label-md text-on-surface-variant">UNGGAH BUKTI
+                                        (FOTO)</label>
                                     <div class="flex items-center gap-4">
-                                        <button class="w-24 h-24 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center text-outline-variant hover:border-primary hover:text-primary transition-colors" type="button">
+                                        <button
+                                            class="w-24 h-24 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center text-outline-variant hover:border-primary hover:text-primary transition-colors"
+                                            type="button">
                                             <span class="material-symbols-outlined">add_a_photo</span>
                                             <span class="font-label-sm text-label-sm mt-1">Tambah</span>
                                         </button>
                                         <div class="relative w-24 h-24 rounded-xl overflow-hidden group">
                                             <img alt="Evidence" class="w-full h-full object-cover"
                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuByHvBhrNBoqYZvzc-Kby5hgvUor3GmeAnI-5eScYza0h5AFvrWV18cJxnmvEp9caUy9uR2KJ9mPdKv6Vm64NvSbBGdTa_NLZh1T_OF4EcZVI8EnmPfALATy1xXYBjD3NYoiF2Pj-Uwq8Rm7lx2Vus4-JWqADZ0Pyux8jZyGjnDH14tKh12wg15acRm_6yztNmuDLmFP0GCdi7Vi0ct7ElcYLejkGt4LVApf9cJtxiZBrSrBnuGFd6NEkh76WnjWKEc_-FvTib3WkDy" />
-                                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer">
+                                            <div
+                                                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer">
                                                 <span class="material-symbols-outlined text-white">delete</span>
                                             </div>
                                         </div>
@@ -242,7 +420,9 @@
 
                                 <!-- Submit Button -->
                                 <div class="pt-4">
-                                    <button class="w-full bg-primary text-on-primary h-14 rounded-full font-headline-sm flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all" type="submit">
+                                    <button
+                                        class="w-full bg-primary text-on-primary h-14 rounded-full font-headline-sm flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all"
+                                        type="submit">
                                         Kirim Laporan
                                         <span class="material-symbols-outlined">send</span>
                                     </button>
@@ -253,7 +433,8 @@
 
                     <!-- Right Column: Status Tracker -->
                     <div class="lg:col-span-5 space-y-gutter">
-                        <section class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)]">
+                        <section
+                            class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)]">
                             <div class="flex justify-between items-center mb-6">
                                 <h2 class="font-headline-sm text-headline-sm text-on-surface">Status Laporan</h2>
                                 <button class="text-primary font-label-md hover:underline">Lihat Semua</button>
@@ -267,16 +448,19 @@
                                             <span class="material-symbols-outlined text-[16px]">error</span>
                                             Tertunda
                                         </span>
-                                        <span class="font-label-sm text-label-sm text-on-surface-variant">Hari ini, 09:42</span>
+                                        <span class="font-label-sm text-label-sm text-on-surface-variant">Hari ini,
+                                            09:42</span>
                                     </div>
-
-                                    <h3 class="font-headline-sm text-[16px] text-on-surface mb-1">Kurir Belum Sampai (K-01)</h3>
-                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Pesanan rutin untuk sekolah SDN 01 belum diterima hingga pukul 09:30 WIB...</p>
-                                    
+                                    <h3 class="font-headline-sm text-[16px] text-on-surface mb-1">Kurir Belum Sampai
+                                        (K-01)</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Pesanan
+                                        rutin untuk sekolah SDN 01 belum diterima hingga pukul 09:30 WIB...</p>
                                     <div class="mt-4 flex items-center justify-between">
                                         <img class="w-8 h-8 rounded-full border-2 border-white"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ22som2J-5cqFDa5cLxyvxq31IV9RaLvgF088UoHaidX_n-_re8J9Rh87d0lJwPW4eVLNbmr9zYhrtBUlTmYpxxNhriOP3xMaFnfEv6mv1dHfwWz42_zo_yVIL9-4sG3KnhfDQu8-ieaSOIc7JV3OLQyeXP77tV9woqDMS6-tWexWsogacL4wrqv47RIqwzbgfgLS8xhOQnzH4_C7zjUTYLvIr6YGSpZSTJpbnY7JpQuJuTcCAp3nfey-AFvXce5WB8OUbEUwbAOB" alt="Officer" />
-                                        <span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID: #LKK-8821</span>
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ22som2J-5cqFDa5cLxyvxq31IV9RaLvgF088UoHaidX_n-_re8J9Rh87d0lJwPW4eVLNbmr9zYhrtBUlTmYpxxNhriOP3xMaFnfEv6mv1dHfwWz42_zo_yVIL9-4sG3KnhfDQu8-ieaSOIc7JV3OLQyeXP77tV9woqDMS6-tWexWsogacL4wrqv47RIqwzbgfgLS8xhOQnzH4_C7zjUTYLvIr6YGSpZSTJpbnY7JpQuJuTcCAp3nfey-AFvXce5WB8OUbEUwbAOB"
+                                            alt="Officer" />
+                                        <span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID:
+                                            #LKK-8821</span>
                                     </div>
                                 </div>
                                 <!-- Report 2 -->
@@ -288,17 +472,22 @@
                                         </span>
                                         <span class="font-label-sm text-label-sm text-on-surface-variant">Kemarin</span>
                                     </div>
-                                    <h3 class="font-headline-sm text-[16px] text-on-surface mb-1">Kemasan Bocor (KP-442)</h3>
-                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Ditemukan 2 box susu dengan kemasan yang sedikit rembes saat akan diperiksa dan dibagikan.</p>
+                                    <h3 class="font-headline-sm text-[16px] text-on-surface mb-1">Kemasan Bocor (KP-442)
+                                    </h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Ditemukan
+                                        2 box susu dengan kemasan yang sedikit rembes saat akan diperiksa dan dibagikan.
+                                    </p>
                                     <div class="mt-4 flex items-center justify-between">
                                         <img class="w-8 h-8 rounded-full border-2 border-white"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSX42UTj2vM2a06LizQtdkUttqOSP6cVVWnHxdZcTE24vdrEFnwO6wArvOckkTT1AcDsBmpBeOX87d6MVdUgGLVnsxxE4mlJFEEwoMnCd5Rroh-6IgwP93z8M6mfcGmw20RjnFC7BF3IWqzCd47YN0G95WhznMaCqj60S4kDjEGXY6VHY6psZM2uzkFo_-0NGJpCM2wU5nrtYv_Dh29R3wmaJToJH4RnYde7nLN2RPMqNUTz_RjoOIqOCQRyHUxofH5DjjzXwCinxI" alt="Manager" />
-                                        <span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID: #LKKP-8790</span>
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSX42UTj2vM2a06LizQtdkUttqOSP6cVVWnHxdZcTE24vdrEFnwO6wArvOckkTT1AcDsBmpBeOX87d6MVdUgGLVnsxxE4mlJFEEwoMnCd5Rroh-6IgwP93z8M6mfcGmw20RjnFC7BF3IWqzCd47YN0G95WhznMaCqj60S4kDjEGXY6VHY6psZM2uzkFo_-0NGJpCM2wU5nrtYv_Dh29R3wmaJToJH4RnYde7nLN2RPMqNUTz_RjoOIqOCQRyHUxofH5DjjzXwCinxI"
+                                            alt="Manager" />
+                                        <span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID:
+                                            #LKKP-8790</span>
                                     </div>
                                 </div>
-
                                 <!-- Report 3 -->
-                                <div class="p-4 bg-surface-container-high/30 rounded-xl border-l-4 border-primary opacity-80">
+                                <div
+                                    class="p-4 bg-surface-container-high/30 rounded-xl border-l-4 border-primary opacity-80">
                                     <div class="flex justify-between items-start mb-2">
                                         <span class="font-label-md text-label-md text-primary flex items-center gap-1">
                                             <span class="material-symbols-outlined text-[16px]">check_circle</span>
@@ -306,13 +495,16 @@
                                         </span>
                                         <span class="font-label-sm text-label-sm text-on-surface-variant">2h lalu</span>
                                     </div>
-
-                                    <h3 class="font-headline-sm text-[16px] text-on-surface mb-1 text-on-surface/60 line-through">Kekurangan Stok Beras</h3>
-                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Kekurangan 5kg beras sudah diantisipasi dengan pengiriman tambahan...</p>
-                                    
+                                    <h3
+                                        class="font-headline-sm text-[16px] text-on-surface mb-1 text-on-surface/60 line-through">
+                                        Kekurangan Stok Beras</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Kekurangan
+                                        5kg beras sudah diantisipasi dengan pengiriman tambahan...</p>
                                     <div class="mt-4 flex items-center justify-between">
-                                        <span class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-[10px] text-white font-bold">MBG</span>
-                                        <span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID: #LKBK-8755</span>
+                                        <span
+                                            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-[10px] text-white font-bold">MBG</span>
+                                        <span class="font-label-sm text-label-sm text-on-surface-variant">Ticket ID:
+                                            #LKBK-8755</span>
                                     </div>
                                 </div>
                             </div>
@@ -322,13 +514,16 @@
                         <div class="bg-primary text-on-primary rounded-xl p-6 relative overflow-hidden">
                             <div class="relative z-10">
                                 <h3 class="font-headline-sm mb-2">Butuh Bantuan Cepat?</h3>
-                                <p class="font-body-sm mb-4 opacity-90">Hubungi call center kami untuk kendala darurat yang memerlukan penanganan segera.</p>
-                                <button class="bg-on-primary text-primary px-4 py-2 rounded-full font-label-md flex items-center gap-2 hover:bg-white transition-colors">
+                                <p class="font-body-sm mb-4 opacity-90">Hubungi call center kami untuk kendala darurat
+                                    yang memerlukan penanganan segera.</p>
+                                <button
+                                    class="bg-on-primary text-primary px-4 py-2 rounded-full font-label-md flex items-center gap-2 hover:bg-white transition-colors">
                                     <span class="material-symbols-outlined text-[18px]">call</span>
                                     Hubungi CS
                                 </button>
                             </div>
-                            <span class="material-symbols-outlined absolute -bottom-6 -right-6 text-[120px] opacity-10">support_agent</span>
+                            <span
+                                class="material-symbols-outlined absolute -bottom-6 -right-6 text-[120px] opacity-10">support_agent</span>
                         </div>
                     </div>
                 </div>
@@ -363,4 +558,5 @@
         });
     </script>
 </body>
+
 </html>

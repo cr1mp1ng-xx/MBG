@@ -6,14 +6,17 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>MBG - Jadwal Pengiriman</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
+                    colors: {
                         "on-tertiary-fixed": "#001a42",
                         "surface-container-low": "#eff4ff",
                         "on-secondary-fixed-variant": "#3f465c",
@@ -62,7 +65,7 @@
                         "secondary-fixed-dim": "#bec6e0",
                         "surface-container-lowest": "#ffffff"
                     },
-                    "fontFamily": {
+                    fontFamily: {
                         "body-lg": ["Inter"],
                         "label-md": ["Inter"],
                         "display-lg": ["Plus Jakarta Sans"],
@@ -83,13 +86,28 @@
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
 
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #bbcabf; border-radius: 10px; }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
 
-        /* Hide scrollbar for sidebar specifically but keep functionality */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #bbcabf;
+            border-radius: 10px;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
@@ -98,201 +116,268 @@
 
         .timeline-line {
             position: absolute;
-            left: 20px;
+            left: 19px;
             top: 0;
             bottom: 0;
             width: 2px;
             background: linear-gradient(to bottom, transparent, #bbcabf 10%, #bbcabf 90%, transparent);
         }
 
-        body { 
-            min-height: max(884px, 100dvh); 
+        body {
+            min-height: max(884px, 100dvh);
+        }
+
+        /* Sidebar nav active pill */
+        .nav-item-active {
+            background-color: #dae2fd;
+            color: #006c49;
+            font-weight: 600;
+        }
+
+        .nav-item-active .nav-icon {
+            color: #006c49;
         }
     </style>
 </head>
 
 <body class="bg-background font-body-md text-on-surface antialiased overflow-hidden">
-    <!-- PENGGUNAAN FLEXBOX UTAMA: Sidebar Kiri & Konten Kanan -->
     <div class="flex h-screen w-full overflow-hidden">
-        
-        <!-- SIDEBAR NAVIGATION FULL DESKTOP -->
-        <nav class="w-[280px] h-full flex flex-col flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant/60 z-50">
-            <!-- Header/Logo Area Sidebar -->
-            <div class="h-16 w-full flex items-center justify-center flex-shrink-0 border-b border-outline-variant/50">
+        <nav
+            class="w-[230px] h-full flex flex-col flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant/60 z-50">
+            <!-- Logo area — X + MBG / Dashboard seperti screenshot -->
+            <div class="h-16 flex items-center px-5 flex-shrink-0 border-b border-outline-variant/40">
                 <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
-                    <span class="font-display-lg text-[20px] font-bold text-primary tracking-tight">MBG System</span>
-                </div>
-            </div>
-
-            <!-- Scrollable Menu Items -->
-            <div class="flex-1 overflow-y-auto py-6 px-4 flex flex-col gap-8 no-scrollbar">
-                
-                <!-- Kategori: UTAMA -->
-                <div>
-                    <h3 class="px-3 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase mb-3">Utama</h3>
-                    <ul class="space-y-1">
-                        <li>
-                            <!-- STATE AKTIF: Background biru muda, text hijau -->
-                            <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary-container text-primary transition-all">
-                                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">home</span>
-                                <span class="font-semibold text-[15px]">Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tracking.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <span class="material-symbols-outlined text-[22px]">location_on</span>
-                                <span class="font-medium text-[15px]">Peta Distribusi</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="jadwal.html" class="flex items-center justify-between px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-[22px]">local_shipping</span>
-                                    <span class="font-medium text-[15px]">Jadwal Pengiriman</span>
-                                </div>
-                                <!-- Badge Angka 3 -->
-                                <span class="bg-primary text-on-primary text-[11px] font-bold w-[22px] h-[22px] flex items-center justify-center rounded-full shadow-sm">3</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="laporan.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <span class="material-symbols-outlined text-[22px]">analytics</span>
-                                <span class="font-medium text-[15px]">Laporan & Analitik</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Kategori: MANAJEMEN -->
-                <div>
-                    <h3 class="px-3 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase mb-3">Manajemen</h3>
-                    <ul class="space-y-1">
-                        <li>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <span class="material-symbols-outlined text-[22px]">school</span>
-                                <span class="font-medium text-[15px]">Data Sekolah</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <span class="material-symbols-outlined text-[22px]">restaurant</span>
-                                <span class="font-medium text-[15px]">Menu & Gizi</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <span class="material-symbols-outlined text-[22px]">payments</span>
-                                <span class="font-medium text-[15px]">Anggaran</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <span class="material-symbols-outlined text-[22px]">inventory_2</span>
-                                <span class="font-medium text-[15px]">Inventaris</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Kategori: PENGATURAN -->
-                <div>
-                    <h3 class="px-3 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase mb-3">Pengaturan</h3>
-                    <ul class="space-y-1">
-                        <li>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <span class="material-symbols-outlined text-[22px]">settings</span>
-                                <span class="font-medium text-[15px]">Pengaturan</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
-                                <span class="material-symbols-outlined text-[22px]">help</span>
-                                <span class="font-medium text-[15px]">Bantuan</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Profile Bottom Area -->
-            <div class="p-4 border-t border-outline-variant/50 flex-shrink-0">
-                <div class="flex items-center gap-3 px-2">
-                    <img alt="User Profile" class="w-10 h-10 rounded-full object-cover shadow-sm border border-outline-variant"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZpX1KGpa_p1_re_t0X7f2nOo6SpffMj8Oauk-guFEPtYd9MamDjy1zKMIg488Poo_CLjgOcM4jzyTFKpuPUmVW-ZT7buPkXhnXRsYCl1iu2dqz2KI-bXaZ-Jjc-2kC9pe-lEoE9iNjdIBI76RDVDxgcxvWYAGKEjQKhk_yOMb3yqSmvrDNgoorYleyl2916-3969UvXmYBBicrDzrOU6X4IXyWhkq4e2oFoNuYTga1M50MW4lUIVFwKDsFRJEpaDq3oVmU9VuPmSH" />
-                    <div class="flex-1 min-w-0">
-                        <p class="text-[14px] font-bold text-on-surface truncate leading-tight">Admin Pusat</p>
-                        <p class="text-[12px] text-on-surface-variant truncate">admin@mbg.co.id</p>
+                    <!-- Logo mark: X tanda silang hijau -->
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[30px]"
+                            style="font-variation-settings:'FILL' 1;">local_shipping</span>
                     </div>
-                    <button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Logout">
-                        <span class="material-symbols-outlined text-[22px]">logout</span>
-                    </button>
+                    <div class="leading-tight">
+                        <p class="text-[20px] font-bold text-primary"
+                            style="font-family:'Plus Jakarta Sans',sans-serif; line-height:1.1;">MBG Jadwal</p>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Nav Menu -->
+            <div class="flex-1 overflow-y-auto py-5 px-3 flex flex-col gap-6 no-scrollbar">
+
+                <!-- UTAMA -->
+                <div>
+                    <p class="px-3 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-2">Utama
+                    </p>
+                    <ul class="space-y-0.5">
+                        <li>
+                            <a href="dashboard.html"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all group">
+                                <span class="material-symbols-outlined text-[20px] nav-icon"
+                                    style="font-variation-settings:'FILL' 1;">home</span>
+                                <span class="text-[14px] font-medium">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tracking.html"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">location_on</span>
+                                <span class="text-[14px] font-medium">Peta Distribusi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <!-- ACTIVE STATE persis seperti screenshot -->
+                            <a href="jadwal.html"
+                                class="flex items-center justify-between px-3 py-2.5 rounded-xl nav-item-active transition-all">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-[20px] nav-icon">local_shipping</span>
+                                    <span class="text-[14px]">Jadwal Pengiriman</span>
+                                </div>
+                                <span
+                                    class="bg-primary text-on-primary text-[10px] font-bold min-w-[20px] h-5 px-1 flex items-center justify-center rounded-full">3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="laporan.html"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">analytics</span>
+                                <span class="text-[14px] font-medium">Laporan & Analitik</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- MANAJEMEN -->
+                <div>
+                    <p class="px-3 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-2">
+                        Manajemen</p>
+                    <ul class="space-y-0.5">
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">school</span>
+                                <span class="text-[14px] font-medium">Data Sekolah</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tranparansi.html"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">restaurant</span>
+                                <span class="text-[14px] font-medium">Menu & Gizi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">payments</span>
+                                <span class="text-[14px] font-medium">Anggaran</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+                                <span class="text-[14px] font-medium">Inventaris</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PENGATURAN -->
+                <div>
+                    <p class="px-3 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-2">
+                        Pengaturan</p>
+                    <ul class="space-y-0.5">
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">settings</span>
+                                <span class="text-[14px] font-medium">Pengaturan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all">
+                                <span class="material-symbols-outlined text-[20px]">help</span>
+                                <span class="text-[14px] font-medium">Bantuan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Profile Bottom -->
+            <div class="p-3 border-t border-outline-variant/40 flex-shrink-0">
+                <a href="profile.html" class="flex items-center gap-3 px-2 py-1.5">
+                    <img alt="User Profile"
+                        class="w-9 h-9 rounded-full object-cover shadow-sm border border-outline-variant flex-shrink-0"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZpX1KGpa_p1_re_t0X7f2nOo6SpffMj8Oauk-guFEPtYd9MamDjy1zKMIg488Poo_CLjgOcM4jzyTFKpuPUmVW-ZT7buPkXhnXRsYCl1iu2dqz2KI-bXaZ-Jjc-2kC9pe-lEoE9iNjdIBI76RDVDxgcxvWYAGKEjQKhk_yOMb3yqSmvrDNgoorYleyl2916-3969UvXmYBBicrDzrOU6X4IXyWhkq4e2oFoNuYTga1M50MW4lUIVFwKDsFRJEpaDq3oVmU9VuPmSH" />
+                    <div class="flex-1 min-w-0">
+                        <p class="text-[13px] font-bold text-on-surface truncate leading-tight">Admin Pusat</p>
+                        <p class="text-[11px] text-on-surface-variant truncate">admin@mbg.co.id</p>
+                    </div>
+                    <button class="text-on-surface-variant hover:text-error transition-colors p-1 shrink-0" title="Logout">
+                        <span class="material-symbols-outlined text-[20px]">logout</span>
+                    </button>
+                </a>
             </div>
         </nav>
 
-        <!-- MAIN CONTENT AREA -->
+        <!-- ═══════════════════════════════════════════
+             MAIN CONTENT
+        ════════════════════════════════════════════ -->
         <div class="flex-1 flex flex-col h-full overflow-hidden min-w-0">
-            
-            <!-- Top AppBar -->
-            <header class="h-16 flex-shrink-0 flex justify-between items-center bg-surface/90 backdrop-blur px-6 lg:px-10 border-b border-outline-variant/50 z-40 relative">
-                <!-- Left: Title (Truck icon dipindah ke Sidebar) -->
-                <div class="flex items-center gap-2">
-                    <h1 class="font-bold text-on-surface" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; letter-spacing: -0.01em;">Penjadwalan</h1>
+
+            <!-- ─── TOP HEADER: Search tengah + Notif + Tanggal + Avatar ─── -->
+            <header
+                class="h-16 flex-shrink-0 flex items-center bg-surface-container-lowest border-b border-outline-variant/50 z-40 px-6 gap-4">
+
+                <!-- Search Bar — tengah, fill -->
+                <div class="flex-1 max-w-xl mx-auto relative">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+                    <input type="text" placeholder="Cari sekolah, wilayah, atau laporan..."
+                        class="w-full pl-10 pr-4 py-2 rounded-xl border border-outline-variant bg-surface-container-low text-sm text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all" />
                 </div>
-                <!-- Right: Bell + User Icon Mini -->
-                <div class="flex items-center gap-3">
-                    <button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95">
+
+                <!-- Right: Notif + Tanggal + Avatar -->
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <!-- Notifikasi dengan dot merah -->
+                    <button
+                        class="relative w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
                         <span class="material-symbols-outlined text-[22px]">notifications</span>
+                        <!-- Dot notif -->
+                        <span
+                            class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full border-2 border-surface-container-lowest"></span>
+                    </button>
+
+                    <!-- Tanggal -->
+                    <div class="hidden sm:flex items-center gap-1.5 text-sm text-on-surface-variant font-medium pr-1">
+                        <span id="current-date"></span>
+                    </div>
+
+                    <!-- Avatar -->
+                    <button
+                        class="w-9 h-9 rounded-full overflow-hidden border-2 border-outline-variant hover:border-primary transition-colors flex-shrink-0">
+                        <img alt="Admin" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZpX1KGpa_p1_re_t0X7f2nOo6SpffMj8Oauk-guFEPtYd9MamDjy1zKMIg488Poo_CLjgOcM4jzyTFKpuPUmVW-ZT7buPkXhnXRsYCl1iu2dqz2KI-bXaZ-Jjc-2kC9pe-lEoE9iNjdIBI76RDVDxgcxvWYAGKEjQKhk_yOMb3yqSmvrDNgoorYleyl2916-3969UvXmYBBicrDzrOU6X4IXyWhkq4e2oFoNuYTga1M50MW4lUIVFwKDsFRJEpaDq3oVmU9VuPmSH" />
                     </button>
                 </div>
             </header>
 
             <!-- Scrollable Main Content -->
-            <main class="flex-1 overflow-y-auto p-6 md:p-8 lg:p-12 relative">
-                
+            <main class="flex-1 overflow-y-auto p-6 md:p-8 lg:p-10 relative bg-background">
+
                 <!-- Page Title & CTA -->
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                     <div>
-                        <h2 class="font-headline-lg text-headline-lg-mobile text-on-surface">Jadwal Distribusi</h2>
-                        <p class="font-body-sm text-on-surface-variant">Pemantauan logistik makanan bergizi untuk sekolah secara real-time.</p>
+                        <h2 class="text-[26px] font-bold text-on-surface"
+                            style="font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:-0.02em;">Jadwal
+                            Distribusi</h2>
+                        <p class="text-sm text-on-surface-variant mt-0.5">Pemantauan logistik makanan bergizi untuk
+                            sekolah secara real-time.</p>
                     </div>
-                    <button class="flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md shadow-md hover:scale-[1.02] active:scale-95 transition-all">
-                        <span class="material-symbols-outlined">add</span>
+                    <button
+                        class="flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-xl font-semibold text-sm shadow-md hover:scale-[1.02] active:scale-95 transition-all">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
                         Tambah Jadwal
                     </button>
                 </div>
 
                 <!-- Horizontal Date Picker -->
                 <section class="mb-8 overflow-hidden">
-                    <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
-                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-primary text-on-primary shadow-lg ring-4 ring-primary-container/20">
-                            <span class="font-label-sm opacity-80">SEN</span>
-                            <span class="font-headline-md font-bold">20</span>
+                    <div class="flex gap-3 overflow-x-auto pb-3 no-scrollbar">
+                        <button
+                            class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-20 rounded-2xl bg-primary text-on-primary shadow-lg ring-4 ring-primary-container/20">
+                            <span class="text-[10px] font-semibold opacity-80">SEN</span>
+                            <span class="text-xl font-bold">20</span>
                         </button>
-                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                            <span class="font-label-sm text-on-surface-variant">SEL</span>
-                            <span class="font-headline-md font-bold">21</span>
+                        <button
+                            class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-20 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="text-[10px] font-semibold text-on-surface-variant">SEL</span>
+                            <span class="text-xl font-bold">21</span>
                         </button>
-                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                            <span class="font-label-sm text-on-surface-variant">RAB</span>
-                            <span class="font-headline-md font-bold">22</span>
+                        <button
+                            class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-20 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="text-[10px] font-semibold text-on-surface-variant">RAB</span>
+                            <span class="text-xl font-bold">22</span>
                         </button>
-                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                            <span class="font-label-sm text-on-surface-variant">KAM</span>
-                            <span class="font-headline-md font-bold">23</span>
+                        <button
+                            class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-20 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="text-[10px] font-semibold text-on-surface-variant">KAM</span>
+                            <span class="text-xl font-bold">23</span>
                         </button>
-                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                            <span class="font-label-sm text-on-surface-variant">JUM</span>
-                            <span class="font-headline-md font-bold">24</span>
+                        <button
+                            class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-20 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="text-[10px] font-semibold text-on-surface-variant">JUM</span>
+                            <span class="text-xl font-bold">24</span>
                         </button>
-                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                            <span class="font-label-sm text-on-surface-variant">SAB</span>
-                            <span class="font-headline-md font-bold">25</span>
+                        <button
+                            class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-20 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="text-[10px] font-semibold text-on-surface-variant">SAB</span>
+                            <span class="text-xl font-bold">25</span>
                         </button>
-                        <button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
-                            <span class="font-label-sm text-on-surface-variant">MIN</span>
-                            <span class="font-headline-md font-bold">26</span>
+                        <button
+                            class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-20 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">
+                            <span class="text-[10px] font-semibold text-on-surface-variant">MIN</span>
+                            <span class="text-xl font-bold">26</span>
                         </button>
                     </div>
                 </section>
@@ -302,126 +387,170 @@
                     <!-- Timeline Column -->
                     <div class="lg:col-span-2 space-y-8 relative">
                         <div class="timeline-line hidden md:block"></div>
-                        <div class="relative pl-0 md:pl-12 flex items-center" style="line-height: 1;">
-                            <span class="text-xl font-semibold text-on-surface" style="line-height: 1;">Pengiriman Hari Ini</span>
+                        <div class="relative pl-0 md:pl-12 flex items-center">
+                            <span class="text-lg font-semibold text-on-surface leading-none">Pengiriman Hari Ini</span>
                         </div>
-                        
+
                         <!-- Delivery Item 1: Delivered -->
                         <div class="relative pl-0 md:pl-12">
-                            <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-primary ring-4 ring-primary-container hidden md:block"></div>
-                            <div class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm hover:scale-[1.01] transition-transform">
+                            <div
+                                class="absolute left-[15px] top-6 w-3 h-3 rounded-full bg-primary ring-4 ring-primary-container hidden md:block">
+                            </div>
+                            <div
+                                class="glass-card p-5 rounded-xl border border-outline-variant shadow-sm hover:scale-[1.01] transition-transform">
                                 <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
                                     <div class="flex gap-4">
-                                        <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+                                        <div
+                                            class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
                                             <span class="material-symbols-outlined">school</span>
                                         </div>
                                         <div>
-                                            <h4 class="font-headline-sm text-on-surface">SD Negeri 01 Surakarta</h4>
-                                            <p class="font-body-sm text-on-surface-variant">ETA: 08:00 AM • Tiba: 08:45 AM</p>
+                                            <h4 class="text-[15px] font-bold text-on-surface"
+                                                style="font-family:'Plus Jakarta Sans',sans-serif;">SD Negeri 01
+                                                Surakarta</h4>
+                                            <p class="text-sm text-on-surface-variant">ETA: 08:00 AM • Tiba: 08:45 AM
+                                            </p>
                                         </div>
                                     </div>
-                                    <div class="bg-primary/10 text-primary px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
-                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    <div
+                                        class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1 shrink-0">
+                                        <span class="material-symbols-outlined text-[16px]"
+                                            style="font-variation-settings:'FILL' 1;">check_circle</span>
                                         Diterima
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
                                     <div class="flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">restaurant</span>
+                                        <span
+                                            class="material-symbols-outlined text-on-secondary-fixed-variant text-[20px]">restaurant</span>
                                         <div>
-                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Tipe Makanan</p>
-                                            <p class="font-label-md text-on-surface">Menu Sehat A</p>
+                                            <p
+                                                class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">
+                                                Tipe Makanan</p>
+                                            <p class="text-sm font-medium text-on-surface">Menu Sehat A</p>
                                         </div>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">group</span>
+                                        <span
+                                            class="material-symbols-outlined text-on-secondary-fixed-variant text-[20px]">group</span>
                                         <div>
-                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Porsi</p>
-                                            <p class="font-label-md text-on-surface">450 porsi MBG</p>
+                                            <p
+                                                class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">
+                                                Porsi</p>
+                                            <p class="text-sm font-medium text-on-surface">450 porsi MBG</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Delivery Item 2: In Transit -->
                         <div class="relative pl-0 md:pl-12">
-                            <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-tertiary ring-4 ring-tertiary-container hidden md:block"></div>
-                            <div class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-tertiary hover:scale-[1.01] transition-transform">
+                            <div
+                                class="absolute left-[15px] top-6 w-3 h-3 rounded-full bg-tertiary ring-4 ring-tertiary-container hidden md:block">
+                            </div>
+                            <div
+                                class="glass-card p-5 rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-tertiary hover:scale-[1.01] transition-transform">
                                 <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
                                     <div class="flex gap-4">
-                                        <div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary shrink-0">
+                                        <div
+                                            class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary shrink-0">
                                             <span class="material-symbols-outlined">school</span>
                                         </div>
                                         <div>
-                                            <h4 class="font-headline-sm text-on-surface">SMP Muhammadiyah 4 Malang</h4>
-                                            <p class="font-body-sm text-on-surface-variant">ETA: 09:12 AM • 1.4 km lagi</p>
+                                            <h4 class="text-[15px] font-bold text-on-surface"
+                                                style="font-family:'Plus Jakarta Sans',sans-serif;">SMP Muhammadiyah 4
+                                                Malang</h4>
+                                            <p class="text-sm text-on-surface-variant">ETA: 09:12 AM • 1.4 km lagi</p>
                                         </div>
                                     </div>
-                                    <div class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
-                                        <span class="material-symbols-outlined text-[16px] animate-pulse">local_shipping</span>
+                                    <div
+                                        class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1 shrink-0">
+                                        <span
+                                            class="material-symbols-outlined text-[16px] animate-pulse">local_shipping</span>
                                         Mengirim
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
                                     <div class="flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">restaurant</span>
+                                        <span
+                                            class="material-symbols-outlined text-on-secondary-fixed-variant text-[20px]">restaurant</span>
                                         <div>
-                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Tipe Makanan</p>
-                                            <p class="font-label-md text-on-surface">Menu Sehat B</p>
+                                            <p
+                                                class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">
+                                                Tipe Makanan</p>
+                                            <p class="text-sm font-medium text-on-surface">Menu Sehat B</p>
                                         </div>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">group</span>
+                                        <span
+                                            class="material-symbols-outlined text-on-secondary-fixed-variant text-[20px]">group</span>
                                         <div>
-                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Porsi</p>
-                                            <p class="font-label-md text-on-surface">350 porsi MBG</p>
+                                            <p
+                                                class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">
+                                                Porsi</p>
+                                            <p class="text-sm font-medium text-on-surface">350 porsi MBG</p>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Live Map Snip -->
-                                <div class="mt-4 h-24 w-full rounded-lg overflow-hidden relative border border-outline-variant">
-                                    <img alt="Delivery route map" class="w-full h-full object-cover grayscale opacity-50"
+                                <div
+                                    class="mt-4 h-24 w-full rounded-lg overflow-hidden relative border border-outline-variant">
+                                    <img alt="Delivery route map"
+                                        class="w-full h-full object-cover grayscale opacity-50"
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGBRu7zEKA8_z2UFBZZUVEHJwJTq--9pZu_9f1gHAPI1HhwVvvbzGLFvmwOgrvy9fAQnuAbSjL60x2XF8xXQN69A01PNfVIHlRAwvi4An-5Bmw0eH7bvV1GKx5h4ItsQwYXw0MJUR0ah9Q8H-zyJ4C6nUQfpIbQ4x-X7oxvIEaDQ7eVpwuYkgLNCE1-gjjUlm_ZL_tVyCZVnn7ZbrIL8M_IKtwwEhd3j4hv7XrvPpSaNhdptjiwYf34fiN3k_kizbclAKFk3L3IaY" />
-                                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low/80 to-transparent flex items-end p-2">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low/80 to-transparent flex items-end p-2">
                                         <p class="text-[10px] font-bold text-tertiary">LIVE TRACKING ACTIVE</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Delivery Item 3: Preparing -->
                         <div class="relative pl-0 md:pl-12">
-                            <div class="absolute left-4 top-6 w-2 h-2 rounded-full bg-outline-variant ring-4 ring-surface-container-high hidden md:block"></div>
-                            <div class="glass-card p-sm md:p-md rounded-xl border border-outline-variant shadow-sm hover:scale-[1.01] transition-transform">
+                            <div
+                                class="absolute left-[15px] top-6 w-3 h-3 rounded-full bg-outline-variant ring-4 ring-surface-container-high hidden md:block">
+                            </div>
+                            <div
+                                class="glass-card p-5 rounded-xl border border-outline-variant shadow-sm hover:scale-[1.01] transition-transform">
                                 <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
                                     <div class="flex gap-4">
-                                        <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+                                        <div
+                                            class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
                                             <span class="material-symbols-outlined">school</span>
                                         </div>
                                         <div>
-                                            <h4 class="font-headline-sm text-on-surface">SMAN 70 Bulungan</h4>
-                                            <p class="font-body-sm text-on-surface-variant">Dijadwalkan: 12:00 PM</p>
+                                            <h4 class="text-[15px] font-bold text-on-surface"
+                                                style="font-family:'Plus Jakarta Sans',sans-serif;">SMAN 70 Bulungan
+                                            </h4>
+                                            <p class="text-sm text-on-surface-variant">Dijadwalkan: 12:00 PM</p>
                                         </div>
                                     </div>
-                                    <div class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+                                    <div
+                                        class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1 shrink-0">
                                         <span class="material-symbols-outlined text-[16px]">inventory</span>
                                         Disiapkan
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
                                     <div class="flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">restaurant</span>
+                                        <span
+                                            class="material-symbols-outlined text-on-secondary-fixed-variant text-[20px]">restaurant</span>
                                         <div>
-                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Tipe Makanan</p>
-                                            <p class="font-label-md text-on-surface">Menu Sehat C</p>
+                                            <p
+                                                class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">
+                                                Tipe Makanan</p>
+                                            <p class="text-sm font-medium text-on-surface">Menu Sehat C</p>
                                         </div>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant">group</span>
+                                        <span
+                                            class="material-symbols-outlined text-on-secondary-fixed-variant text-[20px]">group</span>
                                         <div>
-                                            <p class="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">Porsi</p>
-                                            <p class="font-label-md text-on-surface">780 porsi MBG</p>
+                                            <p
+                                                class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">
+                                                Porsi</p>
+                                            <p class="text-sm font-medium text-on-surface">780 porsi MBG</p>
                                         </div>
                                     </div>
                                 </div>
@@ -431,50 +560,57 @@
 
                     <!-- Side Info/Stats Column -->
                     <div class="space-y-6">
-                        <div class="glass-card p-md rounded-2xl border border-outline-variant shadow-sm">
-                            <h3 class="font-headline-sm font-semibold mb-4">Ringkasan Hari Ini</h3>
+                        <div class="glass-card p-6 rounded-2xl border border-outline-variant shadow-sm">
+                            <h3 class="text-[15px] font-bold text-on-surface mb-4"
+                                style="font-family:'Plus Jakarta Sans',sans-serif;">Ringkasan Hari Ini</h3>
                             <div class="space-y-4">
                                 <div class="flex justify-between items-center">
-                                    <span class="text-on-surface-variant font-body-sm">Total Pengiriman</span>
+                                    <span class="text-on-surface-variant text-sm">Total Pengiriman</span>
                                     <span class="font-bold text-on-surface">12 Sekolah</span>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <span class="text-on-surface-variant font-body-sm">Selesai</span>
+                                    <span class="text-on-surface-variant text-sm">Selesai</span>
                                     <span class="font-bold text-primary">8/12</span>
                                 </div>
                                 <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
-                                    <div class="bg-primary h-full rounded-full" style="width: 66%"></div>
+                                    <div class="bg-primary h-full rounded-full" style="width:66.7%"></div>
                                 </div>
-                                <p class="text-[12px] text-on-surface-variant text-center">80% dari target harian tercapai</p>
+                                <p class="text-[12px] text-on-surface-variant text-center">67% dari target harian
+                                    tercapai</p>
                             </div>
                         </div>
-                        
-                        <div class="glass-card p-md rounded-2xl border border-outline-variant shadow-sm">
-                            <h3 class="font-headline-sm font-semibold mb-4">Status Armada</h3>
-                            <div class="space-y-4">
+
+                        <div class="glass-card p-6 rounded-2xl border border-outline-variant shadow-sm">
+                            <h3 class="text-[15px] font-bold text-on-surface mb-4"
+                                style="font-family:'Plus Jakarta Sans',sans-serif;">Status Armada</h3>
+                            <div class="space-y-3">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 rounded-full bg-primary"></div>
-                                    <span class="text-on-surface font-body-sm">8 Truk Aktif</span>
+                                    <div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+                                    <span class="text-on-surface text-sm">8 Truk Aktif</span>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 rounded-full bg-tertiary"></div>
-                                    <span class="text-on-surface font-body-sm">2 Dalam Perawatan</span>
+                                    <div class="w-2 h-2 rounded-full bg-tertiary shrink-0"></div>
+                                    <span class="text-on-surface text-sm">2 Dalam Perawatan</span>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 rounded-full bg-error"></div>
-                                    <span class="text-on-surface font-body-sm">0 Insiden Dilaporkan</span>
+                                    <div class="w-2 h-2 rounded-full bg-error shrink-0"></div>
+                                    <span class="text-on-surface text-sm">0 Insiden Dilaporkan</span>
                                 </div>
                             </div>
-                            <button class="mt-6 w-full py-2 border border-outline font-semibold text-on-surface-variant rounded-lg font-label-md hover:bg-surface-container-low transition-colors" >Lihat Peta Armada Detail</button>
+                            <button
+                                class="mt-5 w-full py-2 border border-outline font-semibold text-on-surface-variant rounded-lg text-sm hover:bg-surface-container-low transition-colors">Lihat
+                                Peta Armada Detail</button>
                         </div>
-                        
+
                         <!-- Weather Alert -->
-                        <div class="bg-tertiary-container/20 p-md rounded-2xl border border-tertiary-container/30">
+                        <div class="bg-tertiary-container/20 p-5 rounded-2xl border border-tertiary-container/30">
                             <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-tertiary">cloudy_snowing</span>
+                                <span class="material-symbols-outlined text-tertiary shrink-0">cloudy_snowing</span>
                                 <div>
-                                    <h4 class="font-label-md text-on-tertiary-container">Prediksi Hujan Ringan</h4>
-                                    <p class="text-body-sm text-on-tertiary-container mt-1">Pukul 13:00. Disarankan pengemudi untuk hati-hati dalam mengemudi dan selamat sampai tujuan. </p>
+                                    <h4 class="text-sm font-semibold text-on-tertiary-container">Prediksi Hujan Ringan
+                                    </h4>
+                                    <p class="text-sm text-on-tertiary-container mt-1">Pukul 13:00. Disarankan pengemudi
+                                        untuk hati-hati dalam mengemudi dan selamat sampai tujuan.</p>
                                 </div>
                             </div>
                         </div>
@@ -485,20 +621,29 @@
     </div>
 
     <script>
+        // Tampilkan tanggal hari ini di header (format: Kamis, 5 Jun 2025)
+        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+        const now = new Date();
+        document.getElementById('current-date').textContent =
+            `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+
+        // Date picker active state
         document.querySelectorAll('section button').forEach(btn => {
             btn.addEventListener('click', function () {
                 document.querySelectorAll('section button').forEach(b => {
                     b.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg', 'ring-4', 'ring-primary-container/20');
                     b.classList.add('bg-surface-container-lowest', 'text-on-surface', 'border', 'border-outline-variant');
-                    b.querySelector('span:first-child').classList.remove('opacity-80');
-                    b.querySelector('span:first-child').classList.add('text-on-surface-variant');
+                    const lbl = b.querySelector('span:first-child');
+                    if (lbl) { lbl.classList.remove('opacity-80'); lbl.classList.add('text-on-surface-variant'); }
                 });
                 this.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'ring-4', 'ring-primary-container/20');
                 this.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'border', 'border-outline-variant');
-                this.querySelector('span:first-child').classList.add('opacity-80');
-                this.querySelector('span:first-child').classList.remove('text-on-surface-variant');
+                const aLbl = this.querySelector('span:first-child');
+                if (aLbl) { aLbl.classList.add('opacity-80'); aLbl.classList.remove('text-on-surface-variant'); }
             });
         });
     </script>
 </body>
+
 </html>
